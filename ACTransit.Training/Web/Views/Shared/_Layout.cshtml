@@ -1,0 +1,70 @@
+﻿@{
+    const string baseTitle = "Training and Education";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@ViewBag.Title - Training and Education</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")    
+    @Scripts.Render("~/bundles/modernizr")
+    
+    @RenderSection("head", required: false)
+</head>
+    <body>        
+        <header style="z-index: 100">
+            <div class="pull-right identity">
+                Hello @User.Identity.Name
+            </div>            
+            <div><a href='@Href("~")'><img src='@Href("~/Content/Images/logo.png")' alt="logo" /></a></div>
+            <div class="title"><span style="line-height: 40px; margin-top: 10px;padding: 0 0 5px 5px">@baseTitle@(ViewBag.Title != null ? " ▶ " + ViewBag.Title : "")</span></div>
+        </header>
+        <nav>
+            @Html.Partial("_Menu")     
+        </nav>
+
+        <div class="body-content">
+            @RenderBody()
+        </div>
+
+        <footer>
+            <hr style="margin-top: 10px;margin-bottom: 10px;" />
+            <p>&copy; @DateTime.Now.Year - AC Transit. All Rights Reserved.</p>
+        </footer>
+
+        <div id="divWaitBox" style="z-index: 10000">
+            <div class="first"></div>@*This div causes the page not to be editable/clickable, to remove this feature, simply reemove the dive or rename the class to something else. *@
+            <div class="second"><span>Waiting...</span>@*We could replace this part with a little Icon*@</div>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        
+        @Html.Partial("_Modal")
+        @Html.Partial("_EmployeeSearch")
+
+        <script>
+    var waitBox;
+    $(function (e) {
+        "use strict";
+        waitBox = $("#divWaitBox").modalBox();
+        EmployeeSearch.url = '@Url.Action("GetContacts", "EmployeeSearch",new {area=""})';
+    });
+    var Page = {
+        title: function () {
+            var titles = arguments || [];
+            if (titles) {
+                var str = '@baseTitle';
+                for (var i = 0; i < titles.length; i++)
+                    str += ' ▶ ' + titles[i];
+                $("div.title > span").html(str);
+            }
+        },
+    }
+        </script>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

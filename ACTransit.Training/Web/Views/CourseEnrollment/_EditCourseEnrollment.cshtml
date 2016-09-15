@@ -1,0 +1,63 @@
+﻿@using ACTransit.Training.Web.Infrastructure
+@{
+    const string token = "CourseEnrollment"; 
+}
+
+<div class="row" data-bind="enableAll:@AuthorizeHelper.HasAccess(token).ToString().ToLower()">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row form-group">
+                    <label class="col-md-2 col-sm-2 control-label">Schedule</label>
+                    <div class="col-md-10 col-sm-10">
+                        <select id="courseSchedules" name="courseSchedules" class="form-control" data-bind="options:CourseSchedules,  optionsText: 'Text', value: $root.selectedCourseSchedule, optionsCaption: 'Choose...',disable:true"></select>
+                        <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="courseSchedules" data-bind="text:$root.selectedCourseScheduleRequired"></span>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <label class="col-md-2 col-sm-2 control-label">Employee</label>
+                    <div class="col-md-6 col-sm-6">
+                        <div>
+                            <input type="text" class="form-control column" data-bind="autocomplete:$root.providEmployeeSource,autocompleteOptions:{label:$root.employee, minLength:2}, value:$root.selectedBadge, valueUpdate:'blur', attr:{title:$root.employee}, disable:$root.nonEmployee" placeholder="Employee Badge" />
+                        </div>
+                        <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="txtEditBadge" data-bind="text:$root.selectedBadgeRequired"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-2 col-sm-2 control-label" style="padding-top: 0">
+                        <input type="checkbox" id="chkExternalTrainee" value="Non-Employee Trainee?" data-bind="checked: $root.nonEmployee" />
+                        <label for="chkExternalTrainee" class="control-label">Non-Employee?</label>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <select id="NonEmployees" class="form-control" disabled="disabled" data-bind="options:NonEmployees,  optionsText: 'Text',optionsValue:'Value', value: $root.selectedNonEmployee,optionsCaption: 'Choose...' ,attr:{disabled: !$root.nonEmployee()}"></select>
+                        <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="NonEmployees" data-bind="text:$root.selectedNonEmployeeRequired"></span>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-2 col-sm-2 control-label">Note</label>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <textarea id="note" placeholder="Enter text ..." style="width: 100%; height: 150px; max-width: 400px !important" class="form-control" maxlength="255" data-bind="textInput:$root.selectedNote"></textarea>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label class="col-md-2 col-sm-2 control-label"></label>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="inline checkbox-inline">
+                            <label><input type="checkbox" value="" data-bind="disable:HasEnrollment, checked:$root.selectedNoShow">Unenrolled</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 40px">
+    <a class="btn btn-default pull-right" data-bind="click:$root.cancel">Cancel</a>
+    @if (AuthorizeHelper.HasAccess(token))
+    {
+        <a class="btn btn-default pull-right defaults" data-bind="click:$root.save">Save</a>
+    }
+</div>
+

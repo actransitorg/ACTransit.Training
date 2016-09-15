@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Class Types";
+    const string controller = "CourseType";
+}
+
+<div class="conditions">
+    <h2 class="title text-center title-top">
+        <span style="float: right; padding-right: 1em">
+            <button type="submit" class="btn btn-default" onclick="location.href='@Url.Action("New", controller )'">Add New</button>
+        </span>
+    </h2>
+</div>
+
+<div class="table-responsive">
+    <table class="list black">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th style="width:90px"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Transportation</td>
+                <td>
+                    @using (Html.BeginForm("Delete", controller, FormMethod.Post))
+                    {
+                        <input name="id"  type="hidden" value="1" />
+                        <button class="btn btn-danger">Delete</button>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>Maintenance</td>
+                <td>
+                    @using (Html.BeginForm("Delete", controller, FormMethod.Post))
+                    {
+                        <input name="id" type="hidden" value="2" />
+                        <button class="btn btn-danger">Delete</button>
+                    }
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $("table tbody tr td:first-child").click(function() {
+                var id = $(this).next().find('input[type="hidden"]').val();
+                var str = '@Url.Action("Edit", controller, new { id = "_id" })';
+                str=str.replace("_id", id);
+                window.open(str,"_self");
+            });
+        });
+    </script>
+}

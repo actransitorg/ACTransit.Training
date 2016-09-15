@@ -1,0 +1,134 @@
+﻿@using ACTransit.Training.Web.Business.Infrastructure
+@using ACTransit.Training.Web.Domain.Apprentice.Models
+@using ACTransit.Training.Web.Infrastructure
+@model ParticipantViewModel
+
+<div class="modal" id="dialog-container" tabindex="-1" role="dialog" aria-labelledby="dialog-title" aria-hidden="true">
+    <div id="dialog-content" class="modal-dialog">
+        <div class="modal-content">
+            @using (Ajax.BeginForm("ManageParticipant", "Apprentice", null, new AjaxOptions
+            {
+                HttpMethod = "Post",
+                OnSuccess = "onAjaxSuccess",
+            }, new { id = "dialog-form" }))
+            {
+                @Html.HiddenFor(model => model.Participant.ParticipantId)
+                @Html.HiddenFor(model => model.Participant.ProgramId)
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="dialog-title">@Model.EmployeeDetails.FullName() (Badge: @Model.Participant.Badge)</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <strong style="text-decoration:underline">PROGRAM&nbsp;HOURS</strong>
+                        </div>
+                        @for (var idx = 0; idx < Model.WorkCategory.Count; idx++)
+                        {
+                            <div class="col-md-1" data-toggle="tooltip" title="@Model.WorkCategory[idx].Description Hours" data-placement="bottom" data-content="WorkCategory">
+                                <span data-content="WorkCategoryTitle" style="text-decoration:underline">@Model.WorkCategory[idx].Name</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <strong>GOAL</strong>
+                        </div>
+                        @for (var idx = 0; idx < Model.WorkCategory.Count; idx++)
+                        {
+                            <div class="col-md-1" data-toggle="tooltip" title="@Model.WorkCategory[idx].Description Hours" data-placement="bottom" data-content="WorkCategory">
+                                <span data-content="WorkCategoryTitle" for="@string.Format("WorkCategory[{0}].HourGoal", idx)"></span><span>@Model.WorkCategory[idx].HourGoal</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <strong>COMPLETED</strong>
+                        </div>
+                        @for (var idx = 0; idx < Model.WorkCategoryCompleted.Count; idx++)
+                        {
+                            <div class="col-md-1" data-toggle="tooltip" title="@Model.WorkCategoryCompleted[idx].WorkCategory.Description Hours" data-placement="bottom" data-content="WorkCategory">
+                                <span data-content="WorkCategoryCompletedTitle" for="@string.Format("WorkCategoryCompleted[{0}].Hours", idx)"></span><span>@Model.WorkCategoryCompletedHours(idx)</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-2">
+                            <strong>REMAINING</strong>
+                        </div>
+                        @for (var idx = 0; idx < Model.WorkCategoryRemaining.Count; idx++)
+                        {
+                            <div class="col-md-1" data-toggle="tooltip" title="@Model.WorkCategoryRemaining[idx].WorkCategory.Description Hours" data-placement="bottom" data-content="WorkCategory">
+                                <span data-content="WorkCategoryRemainingTitle" for="@string.Format("WorkCategoryRemaining[{0}].Hours", idx)"></span><span>@Model.WorkCategoryRemainingHours(idx)</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="row form-group field-margin">
+                        @Html.LabelFor(model => model.Participant.Badge, new { @class = "col-md-3 col-sm-3 field-label pull-left" })
+                        <div class="col-md-3 col-sm-3">
+                            @Html.TextBoxFor(model => model.Participant.Badge, new { @class = "form-control", Readonly = "Readonly", @tabindex = -1 })
+                            @Html.ValidationMessageFor(model => model.Participant.Badge)
+                        </div>
+                    </div>
+                    <div class="row form-group field-margin">
+                        @Html.LabelFor(model => model.Participant.EstimatedCompletedDate, new { @class = "col-md-3 col-sm-3 field-label pull-left" })
+                        <div class="col-md-3 col-sm-3">
+                            @Html.TextBoxFor(model => model.Participant.EstimatedCompletedDate, "{0:MM-dd-yyyy}", new { @class = "form-control", @disabled = "disabled", Readonly = "Readonly", @tabindex = -1 })
+                            @Html.ValidationMessageFor(model => model.Participant.EstimatedCompletedDate)
+                        </div>
+                    </div>
+                    <div class="row form-group field-margin">
+                        @Html.LabelFor(model => model.Participant.ParticipantStatusId, "Status", new { @class = "col-md-3 col-sm-3 field-label pull-left" })
+                        <div class="col-md-9 col-sm-9">
+                            @if (Model.AllowChangeApprenticeLevel)
+                            {
+                                @Html.DropDownListFor(model => model.Participant.ParticipantStatusId, Model.ParticipantStatuses, "Select...", new { @class = "form-control" })
+                            }
+                            else
+                            {
+                                @Html.DropDownListFor(model => model.Participant.ParticipantStatusId, Model.ParticipantStatuses, "Select...", new { @class = "form-control", @disabled = "disabled", Readonly = "Readonly", @tabindex = -1 })
+                            }                            
+                            @Html.ValidationMessageFor(model => model.Participant.ParticipantStatusId)
+                        </div>
+                    </div>
+                    <div class="row form-group field-margin">
+                        @Html.LabelFor(model => model.Participant.UseEmployeeStep, "Keep Level/Pay-Step In Sync?", new { @class = "col-md-3 col-sm-3 field-label pull-left" })
+                        <div class="col-md-4 col-sm-4" style="line-height: 34px;">
+                            @if (Model.AllowChangeApprenticeLevel)
+                            {
+                                @Html.CheckBoxFor(model => model.Participant.UseEmployeeStep)
+                            }
+                            else
+                            {
+                                @Html.CheckBoxFor(model => model.Participant.UseEmployeeStep, new { @disabled = "disabled", Readonly = "Readonly", @tabindex = -1 })
+                            }
+                        </div>
+                    </div>
+                    <div class="row form-group field-margin">
+                        @Html.HiddenFor(model => model.ProgramLevel.ProgramLevelId)
+                        @Html.HiddenFor(model => model.Participant.ProgramLevelId)
+                        @Html.LabelFor(model => model.NewProgramLevel, "Change Level?", new { @class = "col-md-3 col-sm-3 field-label pull-left" })
+                        <div class="col-md-4 col-sm-4">
+                            @Html.DropDownListFor(model => model.NewProgramLevel.ProgramLevelId, Model.ProgramLevels, "Select...", new { @class = "form-control" }.EnabledIf(!Model.Participant.UseEmployeeStep && Model.AllowChangeApprenticeLevel))
+                            @Html.ValidationMessageFor(model => model.NewProgramLevel.ProgramLevelId)
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="submit">Save</button>
+                    <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#Participant_UseEmployeeStep").click(function () {
+                $("#NewProgramLevel_ProgramLevelId").prop("disabled", this.checked);
+            });
+        }, 1);
+    });
+</script>

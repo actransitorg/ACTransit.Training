@@ -1,0 +1,43 @@
+﻿table.list.gray {
+}
+
+table.list.gray th,table.list.gray td {
+    }
+
+    table.list.gray th {
+        background-color:#F8F8F8;
+        color: #1E395B;
+        border: rgb(139,160,188) 1px solid;
+        padding: 2px 10px 2px 10px;
+    }
+
+    table.list.gray tr.filter td {
+        border-bottom-style: solid;
+        border-width: 0 0 1px 0;
+        border-color: rgb(139,160,188);
+    }
+
+        table.list.gray tr.filter td:first-child {
+            border-left-style: solid;
+            border-width: 0 0 1px 1px;
+            border-color: rgb(139,160,188);
+        }
+
+        table.list.gray tr.filter td:last-child {
+            border-right-style: solid;
+            border-width: 0 1px 1px 0;
+            border-color: rgb(139,160,188);
+        }
+
+    table.list.gray td {
+        border: rgb(207,221,238) 1px solid;
+    }
+
+    table.list.gray input {
+        border: rgb(139,160,188) 1px solid;
+    }
+
+
+    table.list.gray.mousesensitive tr:hover {
+        background-color: #F8F8F8;
+    }

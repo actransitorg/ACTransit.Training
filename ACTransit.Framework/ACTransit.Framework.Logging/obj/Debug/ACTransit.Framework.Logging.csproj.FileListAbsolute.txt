@@ -1,0 +1,9 @@
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\bin\Debug\ACTransit.Framework.Logging.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\bin\Debug\ACTransit.Framework.Logging.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\bin\Debug\ACTransit.Framework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\bin\Debug\log4net.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\bin\Debug\ACTransit.Framework.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\bin\Debug\log4net.xml
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\obj\Debug\ACTransit.Framework.Logging.csprojResolveAssemblyReference.cache
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\obj\Debug\ACTransit.Framework.Logging.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.Logging\obj\Debug\ACTransit.Framework.Logging.pdb

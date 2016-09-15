@@ -1,0 +1,67 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div id="left" class="inline" style="width: 100%">
+                    <div class="row">
+                        <div class="column">
+                            <label class="inline col-m" style="padding-right: 10px">Course Type</label>
+                            <div class="inline" style="width:280px;">
+                                <select class="form-control inline " data-bind="options:courseTypes, optionsText:'name', optionsValue:'courseTypeId', value: courseTypeId,optionsCaption: 'Choose...', enable:allowToChangeCourseType, css:{'input-validation-error':$root.courseTypeRequired}"></select>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="inline col-m" style="padding-right: 10px">Course</label>
+                            <div class="inline" style="width:280px;">
+                                <select class="form-control inline " data-bind="options:courses, optionsText:'name', optionsValue:'courseId', value: courseId,optionsCaption: 'Choose...', enable:allowToChangeCourse, css:{'input-validation-error':$root.courseRequired}"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <div data-bind="visible:!($root.isNonEmployee())">
+                                <label class="inline col-m" style="padding-right: 10px">Employee</label>
+                                <div class="inline" style="width:280px;margin:0;cursor:text" onclick="javascript: $(this).find('input[type=\'text\']').focus();">
+                                    <div style="position: relative;" data-bind="enable:allowToChangeEmployee,css:{'input-validation-error':$root.employeeBadgeRequired}">
+                                        <input type="text" class="form-control inline" id="txtBadge" data-bind="autocomplete:providEmployeeSource, autocompleteOptions:{label:$root.personName}, value:$root.employeeBadge, valueUpdate:'blur', attr:{title:$root.personName}, enable:allowToChangeEmployee, event:{change:$root.onEmployeeBadgeChanged}" placeholder="Employee Badge" />
+                                        <div style="position:absolute;top:5px;left:80px;width: 170px;text-align: right;overflow: hidden">
+                                            <div class="inline">
+                                                <span class="label label-default" data-bind="text:personName" style="word-break: break-all"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-bind="visible:$root.isNonEmployee(),enable:allowToChangeNonEmployee">
+                                <div class="inline col-m checkbox-inline" style="padding-right: 10px;">
+                                    <label><input type="checkbox" data-bind="checked:isNonEmployee,enable:allowToChangeNonEmployee">Non Employee</label>
+                                </div>
+                                <div class="inline" style="width:280px;">
+                                    <select class="form-control inline " data-bind="options:nonEmployees, optionsText:'name', optionsValue:'nonEmployeeId', value: nonEmployeeId,optionsCaption: 'Choose...', enable:allowToChangeNonEmployee() && isNonEmployee(), css:{'input-validation-error':$root.nonEmployeeRequired}"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label class="inline col-m" style="padding-right: 10px">Course Schedule</label>
+                            <div class="inline" style="width:280px;">
+                                <select class="form-control inline " data-bind="options:courseSchedules, optionsText:'getName', optionsValue:'courseScheduleId', value: courseScheduleId,optionsCaption: 'Choose...', enable:allowToChangeCourseSchedule, css:{'input-validation-error':$root.courseScheduleRequired}"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ko if:courseTypeId()==1-->
+                    @Html.Partial("../Enrollment/_EditTransportation")
+                    <!-- /ko -->
+                    <!-- ko ifnot:courseTypeId()==1-->
+                    @Html.Partial("../Enrollment/_EditMaintenance")
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 40px;padding-right:15px;">
+    <button class="btn btn-default pull-right defaults" data-bind="click:$root.cancel">Cancel</button>
+    <button class="btn btn-default pull-right defaults" data-bind="click:$root.saveNew, visible:!($root.isNonEmployee())">Save and Copy</button>
+    <button class="btn btn-default pull-right defaults" data-bind="click:$root.save">Save</button>
+    <button id="btnDelete" class="btn btn-danger" type="button" data-bind="click:$root.remove, visible:canBeDeleted">Delete</button>
+</div>

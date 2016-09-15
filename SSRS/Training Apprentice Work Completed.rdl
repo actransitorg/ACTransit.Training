@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="Training">
+      <rd:DataSourceID>57bb9ab7-a9cf-4f7c-9bd2-a63ae448633c</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=.;Initial Catalog=Training</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <rd:ReportID>77b551c3-5ff4-4338-ace7-9946ddbbe331</rd:ReportID>
+  <Width>5in</Width>
+  <Body>
+    <Height>0.36in</Height>
+    <ColumnSpacing>0.5in</ColumnSpacing>
+    <ReportItems>
+      <Textbox Name="textbox1">
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>20pt</FontSize>
+          <Color>SteelBlue</Color>
+          <FontWeight>Bold</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Value>Training Apprentice Work Completed</Value>
+        <CanGrow>true</CanGrow>
+        <Height>0.36in</Height>
+      </Textbox>
+      <Table Name="table1">
+        <Top>0.36in</Top>
+        <Style />
+        <Header>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+          <TableRows>
+            <TableRow>
+              <TableCells />
+              <Height>0in</Height>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells />
+              <Height>0in</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <TableColumns />
+        <DataSetName>DataSet1</DataSetName>
+      </Table>
+    </ReportItems>
+  </Body>
+  <Language>en-US</Language>
+  <LeftMargin>1in</LeftMargin>
+  <RightMargin>1in</RightMargin>
+  <TopMargin>1in</TopMargin>
+  <BottomMargin>1in</BottomMargin>
+  <PageWidth>8.5in</PageWidth>
+  <PageHeight>11in</PageHeight>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Fields />
+      <Query>
+        <DataSourceName>Training</DataSourceName>
+        <CommandType>Text</CommandType>
+        <CommandText>DECLARE @StartDate DATE = DATEADD(wk, -4, GETDATE()), @EndDate DATE = GETDATE()
+
+declare @badges table (Badge varchar(6))
+insert into @badges
+	 select Badge from Apprentice.Participant where ParticipantStatusId=1
+
+-- apprentice per day hours worked with supervisor details
+declare @mindate date;
+select @mindate = min(WorkDate) from Apprentice.ParticipantWork where WorkDate &gt;= @StartDate;
+
+;WITH DatesTable AS
+(
+  SELECT CAST(@StartDate as date) AS [date]
+  UNION ALL
+  SELECT DATEADD(dd, 1, [date])
+  FROM DatesTable
+  WHERE DATEADD(dd, 1, [date]) &lt;= @EndDate
+), isDayOff AS
+(
+	 select p.ParticipantId, pd.CalendarDate, pd.ApprenticeDayOff, pd.DivisionId, pd.Comment, pd.CommentBadge, dp.Name DailyPerformance, pd.SupervisorBadge
+	 from Apprentice.Participant p
+	 inner join Apprentice.ParticipantProgramLevelGroup pplg on pplg.ParticipantId = p.ParticipantId
+	 inner join Apprentice.Progress pg on pg.ParticipantProgramLevelGroupId = pplg.ParticipantProgramLevelGroupId
+	 inner join Apprentice.ProgressDay pd on pd.ProgressId = pg.ProgressId and  pd.CalendarDate &gt;= @StartDate
+	 left join Apprentice.DailyPerformance dp ON pd.DailyPerformanceId = dp.DailyPerformanceId
+	 where p.ParticipantId in
+		  (select ParticipantId from Apprentice.Participant where Badge in (select badge from @badges))
+	 group by p.ParticipantId, pd.CalendarDate, pd.ApprenticeDayOff, pd.DivisionId, dp.Name, pd.Comment, pd.CommentBadge, dp.Name, pd.SupervisorBadge
+), byDate AS
+(
+	 select
+		  p.Badge, 
+		  dt.[Date], 
+		  i.ApprenticeDayOff, 
+		  sum(ISNULL(pw.WorkHour, 0)) HoursWorked,
+		  d.Name Division,
+		  i.Comment,
+		  i.CommentBadge,
+		  i.DailyPerformance,
+		  i.SupervisorBadge
+	 from Apprentice.Participant p
+	 cross join DatesTable dt
+	 left join Apprentice.ParticipantWork pw on p.ParticipantId = pw.ParticipantId and pw.WorkDate = dt.[date]
+	 left join isDayOff i on i.ParticipantId = p.ParticipantId and i.CalendarDate = dt.[date]
+	 left join dbo.Division d ON d.DivisionId = i.DivisionId
+	 where p.ParticipantId in
+		  (select ParticipantId from Apprentice.Participant where Badge in (select badge from @badges))
+	 group by p.Badge, dt.[date], i.ApprenticeDayOff, d.Name, i.Comment, i.CommentBadge, i.DailyPerformance, i.SupervisorBadge
+	 --order by p.Badge, dt.[date], i.ApprenticeDayOff, d.Name, i.Comment, i.CommentBadge, i.DailyPerformance
+)	 
+select
+	 e.Name [Apprentice Name],
+	 byDate.Badge,
+      d.Name Division,
+	 [Date],
+	 (case when ApprenticeDayOff = 1 then 'Yes' else (case when ApprenticeDayOff = 0 then 'No' else '' end) end) [Is Day Off], 
+	 (case when ApprenticeDayOff = 1 then '--' else convert(varchar, HoursWorked) end) [Hours Worked],
+	 (case when ApprenticeDayOff = 1 then '--' else ISNULL(Division, '') end) Division,
+	 (case when ApprenticeDayOff = 1 then '--' else ISNULL(DailyPerformance, '') end) [Daily Performance],
+	 (case when ApprenticeDayOff = 1 then '--' else ISNULL(Comment, '') end) Comment,
+	 (case when ApprenticeDayOff = 1 then '--' else ISNULL(ec.Name, '') end) [Signoff By]
+from byDate
+inner join EmployeeDW.dbo.Employees e on e.Badge = byDate.Badge
+LEFT JOIN dbo.Division d ON d.Name = (CASE WHEN e.Location = 'TEC' THEN 'TED' ELSE REPLACE(e.Location, '- M', '') END)
+left join EmployeeDW.dbo.Employees ec on ec.Badge = byDate.SupervisorBadge
+order by e.FirstName, e.LastName, [date]
+option (MAXRECURSION 0);</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+        <Timeout>0</Timeout>
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

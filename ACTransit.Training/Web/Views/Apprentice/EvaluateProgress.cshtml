@@ -1,0 +1,347 @@
+﻿@using ACTransit.Training.Web.Domain.Apprentice.Models
+@using ACTransit.Training.Web.Infrastructure
+@model ProgressViewModel
+
+@{
+    ViewBag.Title = "Apprentice Weekly Evaluation";
+    ViewBag.Url = Context.Request.Url.Scheme + "://" + Context.Request.Url.Authority + Url.Content("~");
+}
+
+<style>
+    
+     h2, h3 {
+         margin-top: 5px;
+         margin-bottom: 5px;
+     }
+
+     .container {
+         width: 100%;
+         padding-left: 0;
+         padding-right: 5px;
+     }
+
+    textarea {
+        max-width: 100%;
+        border: none;
+        height: 42px;
+        width: 100%;
+    }
+
+    .row[data-content="CalendarDate"] {
+        /*padding-bottom: 5px;*/
+    }
+
+    .vcenter {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+
+    .area {
+        background: #777;
+        height: 2px;
+    }
+
+    .printAnchor {
+        padding-right: 15px;
+        font-weight: bold;
+        font-size: 12px;
+        text-decoration: none;
+    }
+
+    .col-left-pad10 {
+        
+    }
+
+    .supervisor-comments-height {
+    }
+
+    .col-md-2.col-5x-2 {
+        width: 20%;
+    }
+
+    .row.row-fix {
+        margin-right: -5px;
+    }
+
+    .row-padding-top {
+        padding-top: 10px;
+    }
+
+    .row-padding-bottom {
+        padding-bottom: 10px;
+    }
+
+    hr {
+        border-top: 1px solid #666 !important;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+ 
+    .cell-container {
+        height: 100%;
+        border: 1px solid #AAA;
+    }
+
+    .cell-upper {
+        float: left;
+        width: 100%;
+    }
+
+    .cell-lower {
+        float: right;
+    }
+
+    .cell-lower-inner {
+        float: right;
+        white-space: nowrap;
+    }
+
+    .cell-description {}
+
+    .score-value {
+        padding-right: 2px;
+        vertical-align: 2px;
+    }
+
+    div[data-content="WorkCategoryHour"] {
+        text-align: center;
+    }
+
+    .work-task {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .modal-dialog {
+        width: 1024px !important;
+    }
+
+</style>
+
+<div id="dialog-placeholder">
+    <div class="modal" id="dialog-container" tabindex="-1" role="dialog" aria-labelledby="dialog-title" aria-hidden="true">
+        <div id="dialog-content" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="dialog-title"></h3>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>AC TRANSIT</h2>
+    </div>
+    <div class="col-md-5">
+        <h2>Apprentice Weekly Work Sheet</h2>
+    </div>
+    <div class="col-md-3">
+        <h2>@Model.LevelTitle</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Apprentice Name: @Model.ParticipantName</h3>
+    </div>
+    <div class="col-md-2">
+        <h3>Badge: @Model.Participant.Badge</h3>
+    </div>
+    <div class="col-md-3">
+        <h3>Days Off: @Model.DaysOff</h3>
+    </div>
+    <div class="col-md-3">
+        <div style="float:right;padding-right: 10px;">
+            <button class="btn btn-info hidden-print right" id="print-btn"><span data-tool="Print" class="printAnchor glyphicon glyphicon-print"></span>Print</button>
+            @if (Model.CanSubmit)
+            {
+                <button type="submit" class="btn btn-info">Submit</button>
+            }
+        </div>
+        <h3>Week of: @Model.Progress.StartDate.ToString("MMM d, yyyy")</h3>
+    </div>
+</div>
+<hr />
+@using (Html.BeginForm("EvaluateProgress", "Apprentice", FormMethod.Post, new { @class = "" }))
+{
+    foreach (var day in Model.ProgressDays)
+    {
+        Html.RenderPartial("_EvaluateProgressDay", Model.ProgressDayViewModels[day]);
+    }
+    <hr class="area" />
+    if (Model.ShowProgressEvaluationSection)
+    {
+        <div id="Rate" style="padding-bottom: 10px;">
+            <strong>APPRENTICE WEEKLY EVALUATION.</strong><span class="weekly-eval">Check the box with the appropriate rating in the area of each category that best describes the individual's performance.  Sum the scores, date at the bottom of this page.</span>
+        </div>
+        <div class="container">
+            @foreach (var area in Model.RatingAreas)
+            {
+                <div class="row row-fix" data-content="RateCategoryAreaTitle" data-id="@area.RatingAreaId">
+                    <div class="col-md-12">
+                        <strong>@Model.RatingAreaCategory(area).Name - @area.Name</strong>
+                    </div>
+                </div>
+                <div class="row row-fix" data-columns="10" data-content="RatingArea" data-id="@area.RatingAreaId">
+                    @foreach (var cell in Model.RatingAreaCells(area))
+                    {
+                        <div class="col-md-2 col-5x-2 cell-container">
+                            <div class="cell-upper">
+                                <span class="cell-description">@cell.RatingItem.Description</span>
+                                <div data-content="RatingCell" data-id="@cell.RatingCellId" class="cell-lower">
+                                    <div class="cell-lower cell-lower-inner">
+                                    @foreach (var score in Model.RatingCellScores(cell))
+                                    {
+                                        <span class="score-value">@score.Score</span>
+                                        @Html.RadioButton("CbGroup_" + cell.RatingAreaId, score.RatingCellScoreId, Model.IsRatingAreaScoreChecked(area, score), new { }.DisabledIf(Model.HasApprenticeApproved || Model.HasSuperintendentApproved))
+                                    }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <strong>TOTAL SCORE FOR THIS REVIEW</strong>: @Model.Progress.ScoreTotal
+            </div> 
+            <div class="col-md-3">
+                <strong>Supervisor</strong>
+                <div>
+                    @if (Model.Progress.EvaluationDate.HasValue)
+                    {
+                        <span>@Model.SupervisorName approved on @Model.Progress.EvaluationDate.Value.ToString("M/d/yyyy")</span>
+                        @Html.HiddenFor(model => model.Progress.EvaluationDate);
+                    }
+                    else if (!Model.SignAsSupervisor)
+                    {
+                        <span class="hidden-print">Not Yet Approved</span>
+                        <span class="visible-print">Sign & Date</span>
+                    }
+                    else if (Model.HasSuperintendentApproved && !Model.HasSupervisorApproved)
+                    {
+                        <span class="hidden-print">(Not Evaluated)</span>
+                        <span class="visible-print">Sign & Date</span>
+                    }
+                    else
+                    {
+                        <span class="hidden-print">Pick Evaluation Date @Html.TextBoxFor(model => model.Progress.EvaluationDate, string.Empty, new { @class = "form-control date column" }.DisabledIf(!Model.CanSupervisorSign))</span>
+                        <span class="visible-print">Sign & Date</span>
+                    }
+                </div>
+            </div>
+            <div class="col-md-3">
+                <strong>Apprentice</strong>
+                <div>
+                    Sign & Date
+                </div>
+            </div>
+            <div class="col-md-3">
+                <strong>Superintendent</strong>
+                <div>
+                    @if (Model.Progress.SuperintendentApprovalDate.HasValue)
+                    {
+                        <span>@Model.SuperintendentName approved on @Model.Progress.SuperintendentApprovalDate.Value.ToString("M/d/yyyy")</span>
+                        @Html.HiddenFor(model => model.Progress.SuperintendentApprovalDate);
+                    }
+                    else if (Model.CanSuperintendentSign)
+                    {
+                        <span class="hidden-print">Pick Approval Date @Html.TextBoxFor(model => model.Progress.SuperintendentApprovalDate, string.Empty, new { @class = "form-control date column" })</span>
+                        <span class="visible-print">Sign & Date</span>
+                    }
+                    else
+                    {
+                        <span class="hidden-print">Not Yet Approved</span>
+                        <span class="visible-print">Sign & Date</span>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    <hr class="hidden-print" />
+    <div class="row hidden-print">
+        <div class="col-md-1 col-md-offset-11" style="padding-top: 10px">
+            @if (Model.CanSubmit)
+            {
+                <button type="submit" class="btn btn-info">Submit</button>
+            }
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/moment-2.10.6.min.js"></script>
+    <script type="text/javascript" src='~/Scripts/Apprentice/ShowPartialViewAsModal.js'></script>
+    <script>
+        var viewModel = @Html.Raw(Model.Serialize);
+        var contentDir = '@(ViewBag.Url)Content';
+        var scriptsDir = '@(ViewBag.Url)Scripts';
+
+        viewModel.submit = function(e){
+            viewModel.Update();
+            if (viewModel.AreDailyEvaluationsDone && (!viewModel.Progress.EvaluationDate)) {
+                alert("Please sign by picking an Evaluation Date.");
+                return;
+            }
+            if (viewModel.AreDailyEvaluationsDone && ratingAreasCount != ratingAreasSelectedCount) {
+                alert("Not all performance ratings have been selected.");
+                return;
+            }
+            var evaluationDate = moment($("#Progress_EvaluationDate").val(), "M/D/YYYY");
+            var superintendentDate = moment($("#Progress_SuperintendentApprovalDate").val(), "M/D/YYYY");
+            if (superintendentDate.isBefore(evaluationDate)) {
+                alert("Superintendent Approval Date cannot proceed Evaluation Date.");
+                return;
+            }
+
+            $("body").addClass("modal-open");
+            waitBox.show();
+            viewModel.Post($("form"));
+        };
+        $("form").submit(function(e) {
+            e.preventDefault();
+            viewModel.submit(e);
+        });
+        $("button[type='submit']").click(function(e) {
+            e.preventDefault();
+            viewModel.submit(e);
+        });
+
+        $("#print-btn").click(function() {
+            PrintForm(".body-content", "Apprentice Weekly Work Sheet", contentDir, scriptsDir);
+        });
+
+        $('a[data-modal="dialog"]').unbind().click(function (e) {
+            e.stopPropagation();
+            window.showPartialViewAsModal('@Url.Content("~")', $(this));
+        });
+        $("#dialog-form").submit(function (e) {            
+        });
+        $('div[data-content="DayOff"] input').click(function() {
+            var isChecked = $(this).prop("checked");
+            var progressDayId = $(this).parent().data('id');
+            var workDetails = $('span[data-content="work-details"][data-id="' + progressDayId + '"]').html();
+            var newWorkDetails = workDetails == "" ? "Day Off" : (workDetails == "Day Off" ? "" : workDetails);
+            $('div[data-content="DailyPerformance"][data-id="' + progressDayId + '"] div input').attr('disabled', isChecked);
+            $('div[data-content="Comment"][data-id="' + progressDayId + '"] textarea').attr('disabled', isChecked);
+            $('span[data-content="work-details"][data-id="' + progressDayId + '"]').html(newWorkDetails);
+        });
+
+    </script>
+    <script type="text/javascript" src='~/Scripts/Apprentice/EvaluateProgress.js'></script>
+    <script type="text/javascript" src='~/Scripts/Apprentice/FixRateLayout.js'></script>
+}

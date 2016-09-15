@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="EmployeeContext" />
+  <Alias Key="Target" Value="EmployeeContext.Store" />
+  <EntityContainerMapping CdmEntityContainer="EmployeeEntities" StorageEntityContainer="EmployeeContextStoreContainer">
+    <EntitySetMapping Name="EmployeesLocations">
+      <EntityTypeMapping TypeName="Models.EmployeesLocation">
+        <MappingFragment StoreEntitySet="EmployeesLocation">
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="Per_Org" ColumnName="Per_Org" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Empl_Status" ColumnName="Empl_Status" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="EmployeesLocationId" ColumnName="EmployeesLocationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Models.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="ScheduledDaysOff" ColumnName="ScheduledDaysOff" />
+          <ScalarProperty Name="WorkShift" ColumnName="WorkShift" />
+          <ScalarProperty Name="StepStartDate" ColumnName="StepStartDate" />
+          <ScalarProperty Name="MedicalExpirationDate" ColumnName="MedicalExpirationDate" />
+          <ScalarProperty Name="DriverLicenseExpirationDate" ColumnName="DriverLicenseExpirationDate" />
+          <ScalarProperty Name="DriverLicenseNumber" ColumnName="DriverLicenseNumber" />
+          <ScalarProperty Name="VacHoursCarryover" ColumnName="VacHoursCarryover" />
+          <ScalarProperty Name="VacHoursEntitlement" ColumnName="VacHoursEntitlement" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="AsOfDate" ColumnName="AsOfDate" />
+          <ScalarProperty Name="Marital" ColumnName="Marital" />
+          <ScalarProperty Name="Disabled" ColumnName="Disabled" />
+          <ScalarProperty Name="Citizen" ColumnName="Citizen" />
+          <ScalarProperty Name="Veteran" ColumnName="Veteran" />
+          <ScalarProperty Name="EthnicGroup" ColumnName="EthnicGroup" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="PositionEntryDate" ColumnName="PositionEntryDate" />
+          <ScalarProperty Name="PositionNumber" ColumnName="PositionNumber" />
+          <ScalarProperty Name="Step" ColumnName="Step" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+          <ScalarProperty Name="MonthlyRate" ColumnName="MonthlyRate" />
+          <ScalarProperty Name="AnnualRate" ColumnName="AnnualRate" />
+          <ScalarProperty Name="CompRate" ColumnName="CompRate" />
+          <ScalarProperty Name="CompFrequency" ColumnName="CompFrequency" />
+          <ScalarProperty Name="EEOJobGroup" ColumnName="EEOJobGroup" />
+          <ScalarProperty Name="EEO4Code" ColumnName="EEO4Code" />
+          <ScalarProperty Name="UnionCode" ColumnName="UnionCode" />
+          <ScalarProperty Name="TermDate" ColumnName="TermDate" />
+          <ScalarProperty Name="ActionReason" ColumnName="ActionReason" />
+          <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+          <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+          <ScalarProperty Name="Per_Org" ColumnName="Per_Org" />
+          <ScalarProperty Name="FT_PT_Flag" ColumnName="FT_PT_Flag" />
+          <ScalarProperty Name="RegTempFlag" ColumnName="RegTempFlag" />
+          <ScalarProperty Name="Empl_Type" ColumnName="Empl_Type" />
+          <ScalarProperty Name="BusinessTitle" ColumnName="BusinessTitle" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="PayGroup" ColumnName="PayGroup" />
+          <ScalarProperty Name="JobCode" ColumnName="JobCode" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+          <ScalarProperty Name="Empl_Status" ColumnName="Empl_Status" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="PreferredPhone" ColumnName="PreferredPhone" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address02" ColumnName="Address02" />
+          <ScalarProperty Name="Address01" ColumnName="Address01" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="LastWorkDate" ColumnName="LastWorkDate" />
+          <ScalarProperty Name="BusDriverQualTime" ColumnName="BusDriverQualTime" />
+          <ScalarProperty Name="BusDriverQualDate" ColumnName="BusDriverQualDate" />
+          <ScalarProperty Name="Rehire_Dt" ColumnName="Rehire_Dt" />
+          <ScalarProperty Name="HireTime" ColumnName="HireTime" />
+          <ScalarProperty Name="Hire_Dt" ColumnName="Hire_Dt" />
+          <ScalarProperty Name="NTLogin" ColumnName="NTLogin" />
+          <ScalarProperty Name="Pref_Name" ColumnName="Pref_Name" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VContacts_list">
+      <EntityTypeMapping TypeName="Models.VContacts_list">
+        <MappingFragment StoreEntitySet="VContacts_list">
+          <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="BusinessPhone" ColumnName="BusinessPhone" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeAlls">
+      <EntityTypeMapping TypeName="Models.EmployeeAll">
+        <MappingFragment StoreEntitySet="EmployeeAll">
+          <ScalarProperty Name="ScheduledDaysOff" ColumnName="ScheduledDaysOff" />
+          <ScalarProperty Name="WorkShift" ColumnName="WorkShift" />
+          <ScalarProperty Name="StepStartDate" ColumnName="StepStartDate" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="InEmpTable" ColumnName="InEmpTable" />
+          <ScalarProperty Name="EmployeesLocationId" ColumnName="EmployeesLocationId" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="Empl_Status" ColumnName="Empl_Status" />
+          <ScalarProperty Name="NTLogin" ColumnName="NTLogin" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Per_Org" ColumnName="Per_Org" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

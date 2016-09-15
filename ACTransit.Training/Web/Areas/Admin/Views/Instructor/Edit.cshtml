@@ -1,0 +1,138 @@
+﻿@using ACTransit.Training.Web.Domain.Models
+@model InstructorPageViewModel
+
+@{
+    ViewBag.Title = "Instructor";
+    var controller = "Instructor";
+}
+
+
+<br />
+<h4 class="title title-top">@Model.Instructor.Instructor</h4>
+<div class="content">
+    @using (@Html.BeginForm("Save", controller, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row form-group">
+                            @Html.LabelFor(model => model.Instructor.CourseTypeId, "Course Type", new { @class = "col-md-2 col-sm-2 control-label" })
+                            <div class="col-md-6 col-sm-6">
+                                @Html.DropDownListFor(model => model.Instructor.CourseTypeId, Model.CourseTypes, "Select...", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Instructor.CourseTypeId, null, new { @class = "field-validation-error" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-2 col-sm-2 control-label">Employee</label>
+                            <div class="col-md-6 col-sm-6">
+                                <div>
+                                    @Html.TextBoxFor(m => m.Instructor.Badge, new { @class = "form-control", id = "txtBadge", @readonly = "readonly" ,  maxlength="6" ,style="float:left"})
+                                    <a href="#" class="btn" data-toggle="modal" id="btnDiscoverBadge">
+                                        <span class="glyphicon glyphicon-search" style="padding: 0; margin: -5px 0 0 0;" title="Search employee"></span>
+                                    </a>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Instructor.Badge, null, new { @class = "field-validation-error" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="col-md-2 col-sm-2 control-label">
+                                <input type="checkbox" id="chkExternalInstructor" value="true" name="Instructor.IsNonEmployee" checked="@Model.Instructor.IsNonEmployee" />
+                                <label for="chkExternalInstructor" class="control-label">External Instructor</label>                                
+                            </label>
+                            <div class="col-md-6 col-sm-6">
+                                <div>
+                                    @Html.DropDownListFor(model => model.Instructor.NonEmployeeId, Model.NonEmployees, "Select...", new { @class = "form-control", id = "InstructorName"})
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Instructor.NonEmployeeId, null, new { @class = "field-validation-error" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2 col-sm-2"></div>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="checkbox" id="chkActive" value="true" name="Instructor.IsActive" checked="@Model.Instructor.IsActive" />
+                                <label for="chkActive" class="control-label">Active</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 40px">
+            @Html.HiddenFor(model => model.Instructor.InstructorId)
+            @Html.HiddenFor(model => model.Instructor.NonEmployeeId)
+            @Html.HiddenFor(model => model.State)
+
+            @Html.ActionLink("Cancel", "", controller, new { }, new { @class = "btn btn-default pull-right defaults" })
+            <button type="submit" class="btn btn-default pull-right defaults">Save</button>
+
+
+            @if (Model.Instructor.InstructorId != 0)
+            {
+                <button id="btnDelete" class="btn btn-danger" type="button">Delete</button>
+            }
+        </div>
+
+    }
+    
+
+</div>
+
+@section scripts
+{
+    <script>
+        $(function() {
+            $("#btnDiscoverBadge").click(function() {
+                EmployeeSearch.show('@Url.Action("GetContacts", "EmployeeSearch", new {area=""})');
+                //todo ask for badge. if can't find it, then open search
+            });
+            EmployeeSearch.onClose = function (badge) {
+                if (badge!="") $("#txtBadge").val(badge);
+            }
+
+            $("#chkExternalInstructor").change(function () {
+                var checked = $("#chkExternalInstructor").is(":checked");
+                $("#InstructorName").attr("readonly", !checked);
+                if (checked) {
+                    $("#txtBadge").val("");
+                    $("#InstructorName").focus();
+                } else {
+                    $("#InstructorName").val("");
+                    $("#txtBadge").focus();
+                }
+            });
+
+            $("#btnDelete").click(function () {
+                modal.show("Warning", "Are you sure you wish to delete this instructor?", { showRefresh: false, showCancel: true, showOk: true }).done(
+                     function (data) {
+                         if (data == 'OK') {
+                             Ajax.ajax('@Url.Action("Delete", controller)', {
+                                 data: '{ id: @Model.Instructor.InstructorId}',
+                                 dataType: 'json',
+                                 type: 'DELETE',
+                                 contentType: "application/json; charset=utf-8;"
+                             }, waitBox).done(function () {
+                                 window.location = '@Url.Action("Index", controller)';
+                             });
+                         }
+                     });
+            });
+
+            initial();
+        });
+
+        function initial() {
+            var checked = $("#chkExternalInstructor").is(":checked");
+            $("#InstructorBadge").attr("readonly", checked);
+            $("#InstructorName").attr("readonly", !checked);
+            if (checked) {
+                $("#InstructorBadge").val("");
+                $("#InstructorName").focus();
+            } else {
+                $("#InstructorName").val("");
+                $("#InstructorBadge").focus();
+            }
+        }
+    </script>
+}

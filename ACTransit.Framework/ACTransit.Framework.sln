@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACTransit.Framework", "ACTransit.Framework\ACTransit.Framework.csproj", "{CBAB0FA8-B673-4596-94CD-3AE0A910A873}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACTransit.Framework.Test", "ACTransit.Framework.Test\ACTransit.Framework.Test.csproj", "{A9ADBEB8-A54D-4A6B-9E96-E1AA9F82829E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACTransit.Framework.Logging", "ACTransit.Framework.Logging\ACTransit.Framework.Logging.csproj", "{83DDEBF7-120B-499D-89D0-2D730C5E79DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{957ACAE9-D574-4A3E-A108-1E67BDFD9639}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\publish.bat = .nuget\publish.bat
+		.nuget\publish.ps1 = .nuget\publish.ps1
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACTransit.Framework.DataAccess", "ACTransit.Framework.DataAccess\ACTransit.Framework.DataAccess.csproj", "{DE1EBEF9-AB81-4A7E-BD81-B5200853F84A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACTransit.Framework.Web", "ACTransit.Framework.Web\ACTransit.Framework.Web.csproj", "{4FDF28DB-0354-4B8B-9DE3-D050886602DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACTransit.Framework.Contracts", "ACTransit.Framework.Contracts\ACTransit.Framework.Contracts.csproj", "{52298607-80D0-4A78-884F-5384CED1ED24}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ACTransit.Framework.MVC6", "ACTransit.Framework.MVC6\ACTransit.Framework.MVC6.xproj", "{A1B66560-063A-4252-A8A7-2AA93FCD761D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs01:8080/tfs/actprojectcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ACTransit.Framework.Logging\\ACTransit.Framework.Logging.csproj
+		SccProjectName1 = ACTransit.Framework.Logging
+		SccLocalPath1 = ACTransit.Framework.Logging
+		SccProjectUniqueName2 = ACTransit.Framework.Test\\ACTransit.Framework.Test.csproj
+		SccProjectName2 = ACTransit.Framework.Test
+		SccLocalPath2 = ACTransit.Framework.Test
+		SccProjectUniqueName3 = ACTransit.Framework\\ACTransit.Framework.csproj
+		SccProjectName3 = ACTransit.Framework
+		SccLocalPath3 = ACTransit.Framework
+		SccProjectUniqueName4 = ACTransit.Framework.DataAccess\\ACTransit.Framework.DataAccess.csproj
+		SccProjectName4 = ACTransit.Framework.DataAccess
+		SccLocalPath4 = ACTransit.Framework.DataAccess
+		SccProjectUniqueName5 = ACTransit.Framework.Web\\ACTransit.Framework.Web.csproj
+		SccProjectName5 = ACTransit.Framework.Web
+		SccLocalPath5 = ACTransit.Framework.Web
+		SccProjectUniqueName6 = ACTransit.Framework.Contracts\\ACTransit.Framework.Contracts.csproj
+		SccProjectName6 = ACTransit.Framework.Contracts
+		SccLocalPath6 = ACTransit.Framework.Contracts
+		SccProjectUniqueName7 = ACTransit.Framework.MVC6\\ACTransit.Framework.MVC6.xproj
+		SccProjectName7 = ACTransit.Framework.MVC6
+		SccLocalPath7 = ACTransit.Framework.MVC6
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Nuget|Any CPU = Nuget|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBAB0FA8-B673-4596-94CD-3AE0A910A873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBAB0FA8-B673-4596-94CD-3AE0A910A873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBAB0FA8-B673-4596-94CD-3AE0A910A873}.Nuget|Any CPU.ActiveCfg = Release|Any CPU
+		{CBAB0FA8-B673-4596-94CD-3AE0A910A873}.Nuget|Any CPU.Build.0 = Release|Any CPU
+		{CBAB0FA8-B673-4596-94CD-3AE0A910A873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBAB0FA8-B673-4596-94CD-3AE0A910A873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9ADBEB8-A54D-4A6B-9E96-E1AA9F82829E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9ADBEB8-A54D-4A6B-9E96-E1AA9F82829E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9ADBEB8-A54D-4A6B-9E96-E1AA9F82829E}.Nuget|Any CPU.ActiveCfg = Nuget|Any CPU
+		{A9ADBEB8-A54D-4A6B-9E96-E1AA9F82829E}.Nuget|Any CPU.Build.0 = Nuget|Any CPU
+		{A9ADBEB8-A54D-4A6B-9E96-E1AA9F82829E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9ADBEB8-A54D-4A6B-9E96-E1AA9F82829E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83DDEBF7-120B-499D-89D0-2D730C5E79DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83DDEBF7-120B-499D-89D0-2D730C5E79DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83DDEBF7-120B-499D-89D0-2D730C5E79DF}.Nuget|Any CPU.ActiveCfg = Release|Any CPU
+		{83DDEBF7-120B-499D-89D0-2D730C5E79DF}.Nuget|Any CPU.Build.0 = Release|Any CPU
+		{83DDEBF7-120B-499D-89D0-2D730C5E79DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83DDEBF7-120B-499D-89D0-2D730C5E79DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE1EBEF9-AB81-4A7E-BD81-B5200853F84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE1EBEF9-AB81-4A7E-BD81-B5200853F84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE1EBEF9-AB81-4A7E-BD81-B5200853F84A}.Nuget|Any CPU.ActiveCfg = Release|Any CPU
+		{DE1EBEF9-AB81-4A7E-BD81-B5200853F84A}.Nuget|Any CPU.Build.0 = Release|Any CPU
+		{DE1EBEF9-AB81-4A7E-BD81-B5200853F84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE1EBEF9-AB81-4A7E-BD81-B5200853F84A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FDF28DB-0354-4B8B-9DE3-D050886602DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FDF28DB-0354-4B8B-9DE3-D050886602DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FDF28DB-0354-4B8B-9DE3-D050886602DD}.Nuget|Any CPU.ActiveCfg = Nuget|Any CPU
+		{4FDF28DB-0354-4B8B-9DE3-D050886602DD}.Nuget|Any CPU.Build.0 = Nuget|Any CPU
+		{4FDF28DB-0354-4B8B-9DE3-D050886602DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FDF28DB-0354-4B8B-9DE3-D050886602DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52298607-80D0-4A78-884F-5384CED1ED24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52298607-80D0-4A78-884F-5384CED1ED24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52298607-80D0-4A78-884F-5384CED1ED24}.Nuget|Any CPU.ActiveCfg = Release|Any CPU
+		{52298607-80D0-4A78-884F-5384CED1ED24}.Nuget|Any CPU.Build.0 = Release|Any CPU
+		{52298607-80D0-4A78-884F-5384CED1ED24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52298607-80D0-4A78-884F-5384CED1ED24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B66560-063A-4252-A8A7-2AA93FCD761D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B66560-063A-4252-A8A7-2AA93FCD761D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B66560-063A-4252-A8A7-2AA93FCD761D}.Nuget|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B66560-063A-4252-A8A7-2AA93FCD761D}.Nuget|Any CPU.Build.0 = Debug|Any CPU
+		{A1B66560-063A-4252-A8A7-2AA93FCD761D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B66560-063A-4252-A8A7-2AA93FCD761D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+

@@ -1,0 +1,207 @@
+﻿    @page {
+        size:auto; 
+        margin-bottom:5mm;
+    }
+
+    body { 
+        background-color: white !important;
+    }
+
+    .row {
+        margin-right: -20px !important;
+        margin-left: -10px !important;
+    }
+
+    #print-btn #update-btn #nav-left #nav-bar, #selectUnitContainer, .navbar, .sidebar-nav, .title, .identity, .printAnchor, header {
+        display: none;
+    }
+
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: left;
+    }
+
+    .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .col-md-12 {
+        width: 100%;
+    }
+
+    .col-md-11 {
+        width: 91.66666666666666%;
+    }
+
+    .col-md-10 {
+        width: 83.33333333333334%;
+    }
+
+    .col-md-9 {
+        width: 75%;
+    }
+
+    .col-md-8 {
+        width: 66.66666666666666%;
+    }
+
+    .col-md-7 {
+        width: 58.333333333333336%;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+
+    .col-md-5 {
+        width: 41.66666666666667%;
+    }
+
+    .col-md-4 {
+        width: 33.33333333333333%;
+    }
+
+    .col-md-3 {
+        width: 25%;
+    }
+
+    .col-md-2 {
+        width: 16.666666666666664%;
+    }
+
+    .col-md-1 {
+        width: 8.333333333333332%;
+    }
+
+    .col-md-2.col-5x-2 {
+        width: 20%;
+    }
+
+    .well .span12 {
+        width: 100%;
+        visibility: visible;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .sidebar-nav {
+        display: none;
+    }
+
+    body {
+        font-size: 10px;
+    }
+
+    button {
+        display: none !important;
+    }
+
+    input,
+    textarea {
+        border: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        font-size: 10px;
+        background-color: white;
+		display: inline;
+    }
+
+    [data-content="WorkCategoryHours"] {
+        border-right: 1px solid black;
+        margin-right: -6px !important;
+    }
+
+    [data-content="WorkCategoryHours"] div {
+        text-align: center;
+        width: 8.8%;
+    }
+
+    [disabled].form-control, [readonly].form-control, .form-control, fieldset, fieldset[disabled], label {
+        background-color: white;
+        padding: 1px 0;
+        font-size: 10px;
+        display: inline;
+        border: 0;
+        box-shadow: none;
+        transition: none;
+    }
+
+    #comments-supervisor {
+        height: 35px;
+    }
+	
+	hr {
+	    color: #666;
+	    margin-top: 1px !important;
+        margin-bottom: 1px !important;
+    }
+
+    h1, h2, h3, .h1, .h2, .h3 {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: 1px !important;
+        margin-bottom: 1px !important;
+    }
+
+    a:link:after, 
+    a:visited:after {
+         content: "";
+    }
+
+    .hidden-print {
+        display: none;
+    }
+
+    .visible-print {
+        display: inherit !important;
+    }
+
+    .col-left-pad10 {
+        padding-left: 10px;
+    }
+
+    .supervisor-comments-height {
+        height: 42px;
+    }
+
+    .cell-lower-inner {
+        padding-left: 25px !important;
+    }
+
+    .row[data-content="CalendarDate"] {
+        padding-bottom: 0 !important;
+     }
+
+    span[data-content="WorkCategoryHourTitle"] {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    div[data-content="WorkCategoryHour"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .wc-row {
+        padding-left: 6px;
+    }
+
+    div[data-content="RatingArea"] {
+        padding-right: 3px;
+    }
+
+    .row.row-fix {
+        margin-right: -15px;
+    }
+
+    .dp-item {
+        line-height: 10px;
+    }
+
+    #Rate {
+        margin-left: -5px;
+    }
+

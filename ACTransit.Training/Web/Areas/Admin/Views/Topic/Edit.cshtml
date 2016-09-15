@@ -1,0 +1,106 @@
+﻿@using ACTransit.Training.Web.Domain.Models
+@model TopicPageViewModel
+@{
+    ViewBag.Title = (Model.State == ViewModelState.New? "New" : "Update") + " Topic";
+    const string controller = "Topic";
+}
+
+<div class="content">
+    @using (@Html.BeginForm("Save", controller, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row form-group">
+                            @Html.LabelFor(model => model.CourseTypeId, "Course Type", new { @class = "col-md-2 col-sm-2 control-label" })
+                            <div class="col-md-6 col-sm-6">
+                                @Html.DropDownListFor(model => model.CourseTypeId, Model.CourseTypes, "Select...", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.CourseTypeId, null, new { @class = "field-validation-error" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            @Html.LabelFor(model => model.Name, new { @class = "col-md-2 col-sm-2 control-label" })
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @maxlength = 50 })
+                                @Html.ValidationMessageFor(model => model.Name, string.Empty, new { @class = "field-validation-error" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            @Html.LabelFor(model => model.Description, new { @class = "col-md-2 col-sm-2 control-label" })
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                @Html.TextAreaFor(model => model.Description, new { placeholder = "Enter text ...", style = "max-width: 100% !important; height: 150px", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Description, string.Empty, new { @class = "field-validation-error" })
+                            </div>
+                        </div>
+                        <div class="row form-group hidden">
+                            @Html.LabelFor(model => model.IsActive, "Is Active?", new { @class = "col-md-2 col-sm-2 control-label" })
+                            <div class="col-md-6 col-sm-6">
+                                @Html.CheckBoxFor(model => model.IsActive, new { @style = "margin-top: 10px" })
+                                @Html.ValidationMessageFor(model => model.IsActive, string.Empty, new { @class = "field-validation-error" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 40px">
+            @Html.HiddenFor(model => model.TopicId)
+            @Html.HiddenFor(model => model.State)
+
+            @Html.ActionLink("Cancel", "Index", controller, new { }, new { @class = "btn btn-default pull-right defaults" })
+            <button class="btn btn-default pull-right defaults">Save</button>
+
+            @if (Model.State ==ViewModelState.Edit)
+            {
+                <button id="btnDelete" class="btn btn-danger" type="button">Delete</button>
+            }
+
+        </div>
+
+
+    }
+
+</div>
+
+@section scripts
+{
+    <script>
+        $(function() {
+            $("#btnDiscoverBadge").click(function() {
+                //todo ask for badge. if can't find it, then open search
+            });
+
+            $("#chkExternalInstructor").change(function() {
+                $("#InstructorBadge").attr("readonly", $(this).is(":checked"));
+                $("#InstructorName").attr("readonly", !$(this).is(":checked"));
+                if ($(this).is(":checked")) {
+                    $("#InstructorBadge").val("");
+                    $("#InstructorName").focus();
+                } else {
+                    $("#InstructorName").val("");
+                    $("#InstructorBadge").focus();
+                }
+            });
+
+            $("#btnDelete").click(function() {
+                modal.show("Warning", "Are you sure you wish to delete this course?", { showRefresh: false, showCancel: true, showOk: true }).done(
+                    function (data) {
+                        if (data == 'OK') {
+                            Ajax.ajax('@Url.Action("Delete", controller)', {
+                                data: '{ id: @Model.TopicId}',
+                                dataType: 'json',
+                                type: 'DELETE',
+                                contentType: "application/json; charset=utf-8;"
+                            },waitBox).done(function () {
+                                    window.location = '@Url.Action("Index", controller)';
+                                });
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+

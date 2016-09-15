@@ -1,0 +1,91 @@
+﻿@using ACTransit.Training.Web.Infrastructure
+@{
+    const string token = "Enrollment";
+}
+<div class="conditions" style="position: relative">
+    <div class="column">
+        <div class="inline col1">
+            <label style="padding-right: 10px;" class="right">Course Type</label>
+        </div>
+        <div class="inline">
+            <select class="form-control column" data-bind="options:courseTypes, optionsText:'name', optionsValue:'courseTypeId', value:selectedCourseType"></select>
+        </div>
+    </div>
+    <div>
+        <div class="inline col1">
+            <label style="padding-right: 10px;" class="right">Course</label>
+        </div>
+        <div class="inline bootstraptheme" id="multiCheckComboTopic" style="width:280px;" data-bind="multiCheckCombo:courses, multiComboValue:selectedCourse,optionsText:'Text',optionsValue:'Value', optionsSelected:'Selected',multiCheckComboInitilized:cboCourseInit, onClosed:courseUpdated">
+            <input type="text" readonly />
+            <div><div><ul><li></li></ul></div></div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="inline col1">
+            <label style="padding-right: 10px;" class="right">From:</label>
+        </div>
+        <div class="inline">
+            <div class="inline">
+                <input type="text" class="form-control date column" maxlength="10" data-bind="value:dateFrom, dateTimeExtender:null,dateTimeOptions:{ closeOnDateSelect:true, timepicker: false, format: 'm/d/Y', resetImageClass: 'glyphicon glyphicon-erase'}" />
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="inline col1">
+            <label style="padding-right: 10px;" class="right">To:</label>
+        </div>
+        <div class="inline">
+            <input type="text" class="form-control date column" maxlength="10" data-bind="dateTimeExtender:null,dateTimeOptions:{closeOnDateSelect:true, timepicker: false, format: 'm/d/Y', resetImageUrl: resetImageClass: 'glyphicon glyphicon-erase' }, value:dateTo" />
+        </div>
+    </div>
+    <div class="column">
+        <label class="inline col-sm" style="padding-right: 10px">Employee:</label>
+        <div class="inline" style="width:280px;">
+            <div class="inline">
+                <input type="text" class="form-control column" data-bind="autocomplete:providEmployeeSource,autocompleteOptions:{label:employee, minLength:2}, value:employeeBadge, valueUpdate:'blur', attr:{title:employee} " placeholder="Employee Badge" />
+            </div>
+        </div>
+    </div>
+    <div class="column right-absolute">
+        @if (AuthorizeHelper.HasAccess(token))
+        {
+            <a class="btn btn-default" data-bind="click:$root.addNew">Add New</a>
+        }
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table list black mousesensitive">
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th style="width: 110px">Session Date</th>
+                <th style="width: 110px">Lecture Time</th>
+                <th style="width: 150px">Course</th>
+                <th>Note</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:enrollments">
+            <tr>
+                <td>
+                    <a data-bind="text:employee,click:$root.edit" href="#"></a>
+                </td>
+                <td>
+                    <a data-bind="text:sessionDateStr,click:$root.edit" href="#"></a>
+                </td>
+                <td data-bind="text:lectureTimeStr"></td>
+                <td data-bind="text:courseName"></td>
+                <td data-bind="text:note"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="pull-right" data-bind="if:totalPages()>1">
+    <ul class="pager">
+        <li data-bind="css:{'disabled':currentPage()<=1}"><a href="#" data-bind="click:firstPage" title="First page."><<</a></li>
+        <li data-bind="css:{'disabled':currentPage()<=1}"><a href="#" data-bind="click:previousPage" title="Previous"><</a></li>
+        <li data-bind="text:paggingText"></li>
+        <li data-bind="css:{'disabled':currentPage()>=totalPages()}"><a href="#" data-bind="click:nextPage" title="Next">></a></li>
+        <li data-bind="css:{'disabled':currentPage()>=totalPages()}"><a href="#" data-bind="click:lastPage" title="Last page">>></a></li>
+    </ul>
+</div>
+<div data-bind="if:totalPages()>1" style="height:50px;width:100px;"></div>

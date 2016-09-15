@@ -1,0 +1,2 @@
+﻿// Seeing this comment implies that the code generation for file 'C:\Working\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Training\TrainingContext.edmx'
+// failed. See the ErrorList for details.

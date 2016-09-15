@@ -1,0 +1,163 @@
+﻿@{    
+    ViewBag.Title = (ViewBag.Id == 0 ? "New" : "Update") + " Schedule";
+    string controller = ViewContext.RouteData.Values["Controller"].ToString();
+    const string dateFormat = "{0:MM/dd/yyyy}";
+    const string timeFormat = @"{0:hh\:mm}";
+}
+
+@section head
+{
+    <style type="text/css">
+        input[type="checkbox"]+label {
+            margin-right: 10px;
+            padding-left: 2px;
+        }
+        div.column>label {
+            vertical-align: top;
+        }
+    </style>
+}
+
+
+<div id="edit" data-role="page" data-bind="if:initialized()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="left" class="inline" style="width: 100%">
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px;">Course Type</label>
+                                <div class="inline" style="width:280px;">
+                                    <select class="form-control inline" data-bind="options:courseTypes, optionsText:'name', optionsValue:'courseTypeId', value: courseTypeId,optionsCaption: 'Choose...', css:{'input-validation-error':$root.courseTypeRequired}"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Course</label>
+                                <div class="inline" style="width:280px;">
+                                    <select class="form-control inline " data-bind="options:courses, optionsText:'name', optionsValue:'courseId', value: courseSchedule().courseId,optionsCaption: 'Choose...', css:{'input-validation-error':$root.courseRequired}"></select>                                    
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Note</label>
+                                <div class="inline" style="width:280px;">
+                                    <input type="text" class="form-control column" data-bind="value:courseSchedule().note" maxlength="50" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Description</label>
+                                <div class="inline" style="width:280px;">
+                                    <textarea class="form-control column" data-bind="value:courseSchedule().description" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Start Date</label>
+                                <div class="inline" style="width:150px;">
+                                    <input type="text" class="form-control date column" maxlength="10" data-bind="value:courseSchedule().beginEffDateStr, dateTimeExtender:null,dateTimeOptions:{ closeOnDateSelect:true, timepicker: false, format: 'm/d/Y', resetImageClass: 'glyphicon glyphicon-erase'},css:{'input-validation-error':$root.startDateRequired}" />
+                                </div>
+                            </div>
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">End Date</label>
+                                <div class="inline" style="width:150px;">
+                                    <input type="text" class="form-control date column" maxlength="10" data-bind="value:courseSchedule().endEffDateStr, dateTimeExtender:null,dateTimeOptions:{ closeOnDateSelect:true, timepicker: false, format: 'm/d/Y', resetImageClass: 'glyphicon glyphicon-erase'}, css:{'input-validation-error':$root.endDateRequired}" />
+                                </div>
+                            </div>
+                        </div>
+                       <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Time From</label>
+                                <div class="inline" style="width:150px;">
+                                    <input type="text" class="form-control date column" id="txtWhTime" data-bind="dateTimeExtender:null,dateTimeOptions:{datepicker: false, format: 'H:i'},value:courseSchedule().startTimeStr, valueUpdate:'blur',css:{'input-validation-error':$root.startTimeRequired} " class="form-control" style="padding-left:8px;padding-right: 8px" />
+                                </div>
+                            </div>
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Time To</label>
+                                <div class="inline" style="width:150px;">
+                                    <input type="text" class="form-control date column" id="txtWhTime" data-bind="dateTimeExtender:null,dateTimeOptions:{datepicker: false, format: 'H:i'} ,value:courseSchedule().endTimeStr, valueUpdate:'blur',css:{'input-validation-error':$root.endTimeRequired} " class="form-control" style="padding-left:8px;padding-right: 8px" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Total Seats</label>
+                                <div class="inline" style="width:280px;">
+                                    <input type="text" class="form-control column" id="txtWhTime" data-bind="value:courseSchedule().totalSeat" style="padding-left:8px;padding-right: 8px" />
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Division</label>
+                                <div class="inline" style="width:280px;">
+                                    <select class="form-control inline " data-bind="options:divisions,optionsText:'name',optionsValue:'divisionId',value: courseSchedule().divisionId,optionsCaption: 'Choose...'"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Frequency</label>
+                                <div class="inline">
+                                    <input type="checkbox" id="chkSun" value="1" data-type-bitflag data-bind="checked:sunday" /><label for="chkSun">Sunday</label>
+                                    <input type="checkbox" id="chkMon" value="2" data-type-bitflag data-bind="checked:monday" /><label for="chkMon">Monday</label>
+                                    <input type="checkbox" id="chkTue" value="4" data-type-bitflag data-bind="checked:tuesday" /><label for="chkTue">Tuesday</label>
+                                    <input type="checkbox" id="chkWed" value="8" data-type-bitflag data-bind="checked:wednesday" /><label for="chkWed">Wednesday</label>
+                                    <input type="checkbox" id="chkThu" value="16" data-type-bitflag data-bind="checked:thursday" /><label for="chkThu">Thursday</label>
+                                    <input type="checkbox" id="chkFri" value="32" data-type-bitflag data-bind="checked:friday" /><label for="chkFri">Friday</label>
+                                    <input type="checkbox" id="chkSat" value="64" data-type-bitflag data-bind="checked:saturday" /><label for="chkSat">Saturday</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m" style="padding-right: 10px">Instructors</label>
+                                <div class="inline" style="width:280px;">
+                                    <div class="column bootstraptheme" id="multiCheckComboTopic" style="width:280px;" data-bind="multiCheckCombo:instructors, multiComboValue:selectedInstructors,optionsText:'instructor',optionsValue:'instructorId', optionsSelected:'selected'">
+                                        <input type="text" readonly />
+                                        <div><div><ul><li></li></ul></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 40px;padding-right:15px;">
+        <button class="btn btn-default pull-right defaults" data-bind="click:$root.cancel">Cancel</button>
+        <button class="btn btn-default pull-right defaults" data-bind="click:$root.save">Save</button>
+
+        <button id="btnDelete" class="btn btn-danger" type="button" data-bind="click:$root.remove, visible:canBeDeleted">Delete</button>
+    </div>
+</div>
+
+
+
+
+
+@section scripts
+{
+    <script>
+    var dateFormat = 'm/d/Y';
+    var timeFormat = 'H:i';
+    $(function () {
+        var courseSchedule = new CourseSchedulePage('@Url.Action("")');
+            
+            ko.applyBindings(courseSchedule, document.getElementById("edit"));
+            courseSchedule.show(@ViewBag.Id);
+    });
+
+ 
+
+    </script>
+}
+
+

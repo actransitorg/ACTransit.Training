@@ -1,0 +1,90 @@
+﻿@using ACTransit.Training.Web.Domain.Models
+@model TopicsPageViewModel
+@{
+    ViewBag.Title = "Topics";
+    const string controller = "Topic";
+}
+
+@section head
+{
+}
+<div class="conditions">
+    @using (Html.BeginForm("", controller, FormMethod.Post, new { id = "frmSearch" }))
+    {
+        <div class="form-inline">
+            <div class="column" style="padding-right: 10px"><label>Course Type</label></div>
+            <div class="column bootstraptheme" id="multiCheckComboCourseType" style="width:280px;">
+                <input type="text" readonly />
+                <div>
+                    <div>
+                        <ul>
+                            @{
+        int counter = 0;
+        foreach (var courseType in Model.CourseTypes)
+        {
+            <li>
+                <input type="hidden" name="CourseTypes[@counter].Text" value="@courseType.Text" />
+                <input type="hidden" name="CourseTypes[@counter].Value" value="@courseType.Value" />
+                <input type="checkbox" id="CourseTypes_@courseType.Value" name="CourseTypes[@counter].Selected" value='true' checked='@courseType.Selected' data-value="@courseType.Value" />
+                <span>@courseType.Text</span>
+            </li>
+            counter++;
+        }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="JustShowActive" class="column hidden" style="padding-left: 10px;">
+                @Html.CheckBoxFor(m => m.JustShowActive)
+                @Html.LabelFor(m => m.JustShowActive)
+            </div>
+            <div class="column pull-right" style="padding: 0px 10px 0 0;">
+                @Html.ActionLink("Add New", "New", controller,new {}, new { @class = "btn btn-default" })
+            </div>
+        </div>
+
+    }
+</div>
+
+
+
+<div class="table-responsive">
+    <table class="table list black mousesensitive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>CourseType</th>                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Topics)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.Name, "Edit", controller, new { id = item.TopicId }, new { })
+                    </td>
+                    <td>@item.CourseTypeName</td>                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var multiCombo = $("#multiCheckComboCourseType").multiCheckCombo({
+                onClosed: function (e) {
+                    $("#frmSearch").submit();
+                },
+                delimiter: ','
+            });
+            $('#multiCheckComboCourseType input[type=button]').click(function () { multiCombo.close(); });
+
+            $('#JustShowActive input[type="checkbox"]').change(function () {
+                $("#frmSearch").submit();
+            });
+        });
+    </script>
+}

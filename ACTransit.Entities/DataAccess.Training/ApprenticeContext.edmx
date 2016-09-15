@@ -1,0 +1,1477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ApprenticeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DailyPerformance">
+          <Key>
+            <PropertyRef Name="DailyPerformanceId" />
+          </Key>
+          <Property Name="DailyPerformanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ParticipantId" />
+          </Key>
+          <Property Name="ParticipantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramId" Type="int" Nullable="false" />
+          <Property Name="Badge" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="ParticipantStatusId" Type="int" Nullable="false" />
+          <Property Name="CompletedDate" Type="date" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ParticipantProgramLevelGroup">
+          <Key>
+            <PropertyRef Name="ParticipantProgramLevelGroupId" />
+          </Key>
+          <Property Name="ParticipantProgramLevelGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParticipantId" Type="int" Nullable="false" />
+          <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+          <Property Name="BeginEffDate" Type="date" Nullable="false" />
+          <Property Name="ProgramLevelId" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ParticipantStatus">
+          <Key>
+            <PropertyRef Name="ParticipantStatusId" />
+          </Key>
+          <Property Name="ParticipantStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="ProgramId" />
+          </Key>
+          <Property Name="ProgramId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ProgramLevel">
+          <Key>
+            <PropertyRef Name="ProgramLevelId" />
+          </Key>
+          <Property Name="ProgramLevelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ProgramLevelGroup">
+          <Key>
+            <PropertyRef Name="ProgramLevelGroupId" />
+          </Key>
+          <Property Name="ProgramLevelGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="StartLevel" Type="int" Nullable="false" />
+          <Property Name="EndLevel" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ProgramLevelGroupDailyPerformance">
+          <Key>
+            <PropertyRef Name="ProgramLevelGroupId" />
+            <PropertyRef Name="DailyPerformanceId" />
+          </Key>
+          <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+          <Property Name="DailyPerformanceId" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Progress">
+          <Key>
+            <PropertyRef Name="ProgressId" />
+          </Key>
+          <Property Name="ProgressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParticipantProgramLevelGroupId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="ScoreTotal" Type="int" Nullable="false" />
+          <Property Name="ApprenticeApprovalDate" Type="datetime2" Precision="7" />
+          <Property Name="SupervisorBadge" Type="varchar" MaxLength="6" />
+          <Property Name="SupervisorApprovalDate" Type="datetime2" Precision="7" />
+          <Property Name="SuperintendentBadge" Type="varchar" MaxLength="6" />
+          <Property Name="SuperintendentApprovalDate" Type="datetime2" Precision="7" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ProgressDay">
+          <Key>
+            <PropertyRef Name="ProgressDayId" />
+          </Key>
+          <Property Name="ProgressDayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgressId" Type="int" Nullable="false" />
+          <Property Name="DivisionId" Type="bigint" Nullable="false" />
+          <Property Name="DailyPerformanceId" Type="int" Nullable="false" />
+          <Property Name="CalendarDay" Type="date" Nullable="false" />
+          <Property Name="SupervisorBadge" Type="varchar" MaxLength="6" />
+          <Property Name="SupervisorComment" Type="varchar" MaxLength="500" />
+          <Property Name="ApprenticeComment" Type="varchar" MaxLength="500" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="ProgressRatingAreaScore">
+          <Key>
+            <PropertyRef Name="ProgressRatingAreaScoreId" />
+          </Key>
+          <Property Name="ProgressRatingAreaScoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgressId" Type="int" Nullable="false" />
+          <Property Name="RatingAreaId" Type="int" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="RatingArea">
+          <Key>
+            <PropertyRef Name="RatingAreaId" />
+          </Key>
+          <Property Name="RatingAreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="RatingCategory">
+          <Key>
+            <PropertyRef Name="RatingCategoryId" />
+          </Key>
+          <Property Name="RatingCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="RatingCellItem">
+          <Key>
+            <PropertyRef Name="RatingCellItemId" />
+          </Key>
+          <Property Name="RatingCellItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="RatingTemplateCell">
+          <Key>
+            <PropertyRef Name="RatingTemplateCellId" />
+          </Key>
+          <Property Name="RatingTemplateCellId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+          <Property Name="RatingCategoryId" Type="int" Nullable="false" />
+          <Property Name="SortOrderCategory" Type="int" Nullable="false" />
+          <Property Name="RatingAreaId" Type="int" Nullable="false" />
+          <Property Name="SortOrderArea" Type="int" Nullable="false" />
+          <Property Name="RatingCellItemId" Type="int" Nullable="false" />
+          <Property Name="SortOrderItem" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="RatingTemplateCellScore">
+          <Key>
+            <PropertyRef Name="RatingTemplateCellScoreId" />
+          </Key>
+          <Property Name="RatingTemplateCellScoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RatingTemplateCellId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="WorkCategory">
+          <Key>
+            <PropertyRef Name="WorkCategoryId" />
+          </Key>
+          <Property Name="WorkCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="HourGoal" Type="int" Nullable="false" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="DateInactive" Type="date" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+          <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+        </EntityType>
+        <Association Name="FK_Participant_ParticipantStatus">
+          <End Role="ParticipantStatus" Type="Self.ParticipantStatus" Multiplicity="1" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantStatus">
+              <PropertyRef Name="ParticipantStatusId" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="ParticipantStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="1" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramId" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_ProgramLevel">
+          <End Role="ProgramLevel" Type="Self.ProgramLevel" Multiplicity="1" />
+          <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevel">
+              <PropertyRef Name="ProgramLevelId" />
+            </Principal>
+            <Dependent Role="ParticipantProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantLevel_Participant">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ParticipantId" />
+            </Principal>
+            <Dependent Role="ParticipantProgramLevelGroup">
+              <PropertyRef Name="ParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantLevel_ParticipantProgramLevelGroup">
+          <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="1" />
+          <End Role="Progress" Type="Self.Progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantProgramLevelGroup">
+              <PropertyRef Name="ParticipantProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="Progress">
+              <PropertyRef Name="ParticipantProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantLevel_ProgramLevelGroup">
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+          <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="ParticipantProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramLevel_ProgramLevelGroup">
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+          <End Role="ProgramLevel" Type="Self.ProgramLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="ProgramLevel">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramLevelGroup_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="1" />
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramId" />
+            </Principal>
+            <Dependent Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramLevelGroupDailyPerformance_DailyPerformanceId">
+          <End Role="DailyPerformance" Type="Self.DailyPerformance" Multiplicity="1" />
+          <End Role="ProgramLevelGroupDailyPerformance" Type="Self.ProgramLevelGroupDailyPerformance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyPerformance">
+              <PropertyRef Name="DailyPerformanceId" />
+            </Principal>
+            <Dependent Role="ProgramLevelGroupDailyPerformance">
+              <PropertyRef Name="DailyPerformanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramLevelGroupDailyPerformance_ProgramLevelGroup">
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+          <End Role="ProgramLevelGroupDailyPerformance" Type="Self.ProgramLevelGroupDailyPerformance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="ProgramLevelGroupDailyPerformance">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgressDay_DailyPerformance">
+          <End Role="DailyPerformance" Type="Self.DailyPerformance" Multiplicity="1" />
+          <End Role="ProgressDay" Type="Self.ProgressDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyPerformance">
+              <PropertyRef Name="DailyPerformanceId" />
+            </Principal>
+            <Dependent Role="ProgressDay">
+              <PropertyRef Name="DailyPerformanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgressDay_Progress">
+          <End Role="Progress" Type="Self.Progress" Multiplicity="1" />
+          <End Role="ProgressDay" Type="Self.ProgressDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Progress">
+              <PropertyRef Name="ProgressId" />
+            </Principal>
+            <Dependent Role="ProgressDay">
+              <PropertyRef Name="ProgressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgressRatingAreaScore_Progress">
+          <End Role="Progress" Type="Self.Progress" Multiplicity="1" />
+          <End Role="ProgressRatingAreaScore" Type="Self.ProgressRatingAreaScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Progress">
+              <PropertyRef Name="ProgressId" />
+            </Principal>
+            <Dependent Role="ProgressRatingAreaScore">
+              <PropertyRef Name="ProgressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgressRatingAreaScore_RatingArea">
+          <End Role="RatingArea" Type="Self.RatingArea" Multiplicity="1" />
+          <End Role="ProgressRatingAreaScore" Type="Self.ProgressRatingAreaScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingArea">
+              <PropertyRef Name="RatingAreaId" />
+            </Principal>
+            <Dependent Role="ProgressRatingAreaScore">
+              <PropertyRef Name="RatingAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCell_ProgramLevelGroup">
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCell">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCell_RatingArea">
+          <End Role="RatingArea" Type="Self.RatingArea" Multiplicity="1" />
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingArea">
+              <PropertyRef Name="RatingAreaId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCell">
+              <PropertyRef Name="RatingAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCell_RatingCategory">
+          <End Role="RatingCategory" Type="Self.RatingCategory" Multiplicity="1" />
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingCategory">
+              <PropertyRef Name="RatingCategoryId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCell">
+              <PropertyRef Name="RatingCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCell_RatingCellItem">
+          <End Role="RatingCellItem" Type="Self.RatingCellItem" Multiplicity="1" />
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingCellItem">
+              <PropertyRef Name="RatingCellItemId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCell">
+              <PropertyRef Name="RatingCellItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCellScore_RatingTemplateCellId">
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="1" />
+          <End Role="RatingTemplateCellScore" Type="Self.RatingTemplateCellScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingTemplateCell">
+              <PropertyRef Name="RatingTemplateCellId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCellScore">
+              <PropertyRef Name="RatingTemplateCellId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCategory_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="1" />
+          <End Role="WorkCategory" Type="Self.WorkCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramId" />
+            </Principal>
+            <Dependent Role="WorkCategory">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ApprenticeModelStoreContainer">
+          <EntitySet Name="DailyPerformance" EntityType="Self.DailyPerformance" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="Participant" EntityType="Self.Participant" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="ParticipantProgramLevelGroup" EntityType="Self.ParticipantProgramLevelGroup" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="ParticipantStatus" EntityType="Self.ParticipantStatus" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="Program" EntityType="Self.Program" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="ProgramLevel" EntityType="Self.ProgramLevel" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="ProgramLevelGroup" EntityType="Self.ProgramLevelGroup" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="ProgramLevelGroupDailyPerformance" EntityType="Self.ProgramLevelGroupDailyPerformance" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="Progress" EntityType="Self.Progress" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="ProgressDay" EntityType="Self.ProgressDay" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="ProgressRatingAreaScore" EntityType="Self.ProgressRatingAreaScore" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="RatingArea" EntityType="Self.RatingArea" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="RatingCategory" EntityType="Self.RatingCategory" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="RatingCellItem" EntityType="Self.RatingCellItem" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="RatingTemplateCell" EntityType="Self.RatingTemplateCell" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="RatingTemplateCellScore" EntityType="Self.RatingTemplateCellScore" Schema="Apprentice" store:Type="Tables" />
+          <EntitySet Name="WorkCategory" EntityType="Self.WorkCategory" Schema="Apprentice" store:Type="Tables" />
+          <AssociationSet Name="FK_Participant_ParticipantStatus" Association="Self.FK_Participant_ParticipantStatus">
+            <End Role="ParticipantStatus" EntitySet="ParticipantStatus" />
+            <End Role="Participant" EntitySet="Participant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_Program" Association="Self.FK_Participant_Program">
+            <End Role="Program" EntitySet="Program" />
+            <End Role="Participant" EntitySet="Participant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_ProgramLevel" Association="Self.FK_Participant_ProgramLevel">
+            <End Role="ProgramLevel" EntitySet="ProgramLevel" />
+            <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantLevel_Participant" Association="Self.FK_ParticipantLevel_Participant">
+            <End Role="Participant" EntitySet="Participant" />
+            <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantLevel_ParticipantProgramLevelGroup" Association="Self.FK_ParticipantLevel_ParticipantProgramLevelGroup">
+            <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroup" />
+            <End Role="Progress" EntitySet="Progress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantLevel_ProgramLevelGroup" Association="Self.FK_ParticipantLevel_ProgramLevelGroup">
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+            <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramLevel_ProgramLevelGroup" Association="Self.FK_ProgramLevel_ProgramLevelGroup">
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+            <End Role="ProgramLevel" EntitySet="ProgramLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramLevelGroup_Program" Association="Self.FK_ProgramLevelGroup_Program">
+            <End Role="Program" EntitySet="Program" />
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramLevelGroupDailyPerformance_DailyPerformanceId" Association="Self.FK_ProgramLevelGroupDailyPerformance_DailyPerformanceId">
+            <End Role="DailyPerformance" EntitySet="DailyPerformance" />
+            <End Role="ProgramLevelGroupDailyPerformance" EntitySet="ProgramLevelGroupDailyPerformance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramLevelGroupDailyPerformance_ProgramLevelGroup" Association="Self.FK_ProgramLevelGroupDailyPerformance_ProgramLevelGroup">
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+            <End Role="ProgramLevelGroupDailyPerformance" EntitySet="ProgramLevelGroupDailyPerformance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgressDay_DailyPerformance" Association="Self.FK_ProgressDay_DailyPerformance">
+            <End Role="DailyPerformance" EntitySet="DailyPerformance" />
+            <End Role="ProgressDay" EntitySet="ProgressDay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgressDay_Progress" Association="Self.FK_ProgressDay_Progress">
+            <End Role="Progress" EntitySet="Progress" />
+            <End Role="ProgressDay" EntitySet="ProgressDay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgressRatingAreaScore_Progress" Association="Self.FK_ProgressRatingAreaScore_Progress">
+            <End Role="Progress" EntitySet="Progress" />
+            <End Role="ProgressRatingAreaScore" EntitySet="ProgressRatingAreaScore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgressRatingAreaScore_RatingArea" Association="Self.FK_ProgressRatingAreaScore_RatingArea">
+            <End Role="RatingArea" EntitySet="RatingArea" />
+            <End Role="ProgressRatingAreaScore" EntitySet="ProgressRatingAreaScore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCell_ProgramLevelGroup" Association="Self.FK_RatingTemplateCell_ProgramLevelGroup">
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCell_RatingArea" Association="Self.FK_RatingTemplateCell_RatingArea">
+            <End Role="RatingArea" EntitySet="RatingArea" />
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCell_RatingCategory" Association="Self.FK_RatingTemplateCell_RatingCategory">
+            <End Role="RatingCategory" EntitySet="RatingCategory" />
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCell_RatingCellItem" Association="Self.FK_RatingTemplateCell_RatingCellItem">
+            <End Role="RatingCellItem" EntitySet="RatingCellItem" />
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCellScore_RatingTemplateCellId" Association="Self.FK_RatingTemplateCellScore_RatingTemplateCellId">
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCell" />
+            <End Role="RatingTemplateCellScore" EntitySet="RatingTemplateCellScore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCategory_Program" Association="Self.FK_WorkCategory_Program">
+            <End Role="Program" EntitySet="Program" />
+            <End Role="WorkCategory" EntitySet="WorkCategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ApprenticeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DailyPerformance">
+          <Key>
+            <PropertyRef Name="DailyPerformanceId" />
+          </Key>
+          <Property Name="DailyPerformanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ProgramLevelGroupDailyPerformances" Relationship="Self.FK_ProgramLevelGroupDailyPerformance_DailyPerformanceId" FromRole="DailyPerformance" ToRole="ProgramLevelGroupDailyPerformance" />
+          <NavigationProperty Name="ProgressDays" Relationship="Self.FK_ProgressDay_DailyPerformance" FromRole="DailyPerformance" ToRole="ProgressDay" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="ParticipantId" />
+          </Key>
+          <Property Name="ParticipantId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramId" Type="Int32" Nullable="false" />
+          <Property Name="Badge" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParticipantStatusId" Type="Int32" Nullable="false" />
+          <Property Name="CompletedDate" Type="DateTime" Precision="0" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ParticipantStatu" Relationship="Self.FK_Participant_ParticipantStatus" FromRole="Participant" ToRole="ParticipantStatus" />
+          <NavigationProperty Name="Program" Relationship="Self.FK_Participant_Program" FromRole="Participant" ToRole="Program" />
+          <NavigationProperty Name="ParticipantProgramLevelGroups" Relationship="Self.FK_ParticipantLevel_Participant" FromRole="Participant" ToRole="ParticipantProgramLevelGroup" />
+        </EntityType>
+        <EntityType Name="ParticipantProgramLevelGroup">
+          <Key>
+            <PropertyRef Name="ParticipantProgramLevelGroupId" />
+          </Key>
+          <Property Name="ParticipantProgramLevelGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParticipantId" Type="Int32" Nullable="false" />
+          <Property Name="ProgramLevelGroupId" Type="Int32" Nullable="false" />
+          <Property Name="BeginEffDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ProgramLevelId" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK_ParticipantLevel_Participant" FromRole="ParticipantProgramLevelGroup" ToRole="Participant" />
+          <NavigationProperty Name="ProgramLevel" Relationship="Self.FK_Participant_ProgramLevel" FromRole="ParticipantProgramLevelGroup" ToRole="ProgramLevel" />
+          <NavigationProperty Name="Progresses" Relationship="Self.FK_ParticipantLevel_ParticipantProgramLevelGroup" FromRole="ParticipantProgramLevelGroup" ToRole="Progress" />
+          <NavigationProperty Name="ProgramLevelGroup" Relationship="Self.FK_ParticipantLevel_ProgramLevelGroup" FromRole="ParticipantProgramLevelGroup" ToRole="ProgramLevelGroup" />
+        </EntityType>
+        <EntityType Name="ParticipantStatu">
+          <Key>
+            <PropertyRef Name="ParticipantStatusId" />
+          </Key>
+          <Property Name="ParticipantStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Participants" Relationship="Self.FK_Participant_ParticipantStatus" FromRole="ParticipantStatus" ToRole="Participant" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="ProgramId" />
+          </Key>
+          <Property Name="ProgramId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Participants" Relationship="Self.FK_Participant_Program" FromRole="Program" ToRole="Participant" />
+          <NavigationProperty Name="ProgramLevelGroups" Relationship="Self.FK_ProgramLevelGroup_Program" FromRole="Program" ToRole="ProgramLevelGroup" />
+          <NavigationProperty Name="WorkCategories" Relationship="Self.FK_WorkCategory_Program" FromRole="Program" ToRole="WorkCategory" />
+        </EntityType>
+        <EntityType Name="ProgramLevel">
+          <Key>
+            <PropertyRef Name="ProgramLevelId" />
+          </Key>
+          <Property Name="ProgramLevelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramLevelGroupId" Type="Int32" Nullable="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ParticipantProgramLevelGroups" Relationship="Self.FK_Participant_ProgramLevel" FromRole="ProgramLevel" ToRole="ParticipantProgramLevelGroup" />
+          <NavigationProperty Name="ProgramLevelGroup" Relationship="Self.FK_ProgramLevel_ProgramLevelGroup" FromRole="ProgramLevel" ToRole="ProgramLevelGroup" />
+        </EntityType>
+        <EntityType Name="ProgramLevelGroup">
+          <Key>
+            <PropertyRef Name="ProgramLevelGroupId" />
+          </Key>
+          <Property Name="ProgramLevelGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="StartLevel" Type="Int32" Nullable="false" />
+          <Property Name="EndLevel" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ParticipantProgramLevelGroups" Relationship="Self.FK_ParticipantLevel_ProgramLevelGroup" FromRole="ProgramLevelGroup" ToRole="ParticipantProgramLevelGroup" />
+          <NavigationProperty Name="Program" Relationship="Self.FK_ProgramLevelGroup_Program" FromRole="ProgramLevelGroup" ToRole="Program" />
+          <NavigationProperty Name="ProgramLevels" Relationship="Self.FK_ProgramLevel_ProgramLevelGroup" FromRole="ProgramLevelGroup" ToRole="ProgramLevel" />
+          <NavigationProperty Name="ProgramLevelGroupDailyPerformances" Relationship="Self.FK_ProgramLevelGroupDailyPerformance_ProgramLevelGroup" FromRole="ProgramLevelGroup" ToRole="ProgramLevelGroupDailyPerformance" />
+          <NavigationProperty Name="RatingTemplateCells" Relationship="Self.FK_RatingTemplateCell_ProgramLevelGroup" FromRole="ProgramLevelGroup" ToRole="RatingTemplateCell" />
+        </EntityType>
+        <EntityType Name="ProgramLevelGroupDailyPerformance">
+          <Key>
+            <PropertyRef Name="ProgramLevelGroupId" />
+            <PropertyRef Name="DailyPerformanceId" />
+          </Key>
+          <Property Name="ProgramLevelGroupId" Type="Int32" Nullable="false" />
+          <Property Name="DailyPerformanceId" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="DailyPerformance" Relationship="Self.FK_ProgramLevelGroupDailyPerformance_DailyPerformanceId" FromRole="ProgramLevelGroupDailyPerformance" ToRole="DailyPerformance" />
+          <NavigationProperty Name="ProgramLevelGroup" Relationship="Self.FK_ProgramLevelGroupDailyPerformance_ProgramLevelGroup" FromRole="ProgramLevelGroupDailyPerformance" ToRole="ProgramLevelGroup" />
+        </EntityType>
+        <EntityType Name="Progress">
+          <Key>
+            <PropertyRef Name="ProgressId" />
+          </Key>
+          <Property Name="ProgressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParticipantProgramLevelGroupId" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ScoreTotal" Type="Int32" Nullable="false" />
+          <Property Name="ApprenticeApprovalDate" Type="DateTime" Precision="7" />
+          <Property Name="SupervisorBadge" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="SupervisorApprovalDate" Type="DateTime" Precision="7" />
+          <Property Name="SuperintendentBadge" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="SuperintendentApprovalDate" Type="DateTime" Precision="7" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ParticipantProgramLevelGroup" Relationship="Self.FK_ParticipantLevel_ParticipantProgramLevelGroup" FromRole="Progress" ToRole="ParticipantProgramLevelGroup" />
+          <NavigationProperty Name="ProgressDays" Relationship="Self.FK_ProgressDay_Progress" FromRole="Progress" ToRole="ProgressDay" />
+          <NavigationProperty Name="ProgressRatingAreaScores" Relationship="Self.FK_ProgressRatingAreaScore_Progress" FromRole="Progress" ToRole="ProgressRatingAreaScore" />
+        </EntityType>
+        <EntityType Name="ProgressDay">
+          <Key>
+            <PropertyRef Name="ProgressDayId" />
+          </Key>
+          <Property Name="ProgressDayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgressId" Type="Int32" Nullable="false" />
+          <Property Name="DivisionId" Type="Int64" Nullable="false" />
+          <Property Name="DailyPerformanceId" Type="Int32" Nullable="false" />
+          <Property Name="CalendarDay" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SupervisorBadge" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="SupervisorComment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ApprenticeComment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="DailyPerformance" Relationship="Self.FK_ProgressDay_DailyPerformance" FromRole="ProgressDay" ToRole="DailyPerformance" />
+          <NavigationProperty Name="Progress" Relationship="Self.FK_ProgressDay_Progress" FromRole="ProgressDay" ToRole="Progress" />
+        </EntityType>
+        <EntityType Name="ProgressRatingAreaScore">
+          <Key>
+            <PropertyRef Name="ProgressRatingAreaScoreId" />
+          </Key>
+          <Property Name="ProgressRatingAreaScoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgressId" Type="Int32" Nullable="false" />
+          <Property Name="RatingAreaId" Type="Int32" Nullable="false" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Progress" Relationship="Self.FK_ProgressRatingAreaScore_Progress" FromRole="ProgressRatingAreaScore" ToRole="Progress" />
+          <NavigationProperty Name="RatingArea" Relationship="Self.FK_ProgressRatingAreaScore_RatingArea" FromRole="ProgressRatingAreaScore" ToRole="RatingArea" />
+        </EntityType>
+        <EntityType Name="RatingArea">
+          <Key>
+            <PropertyRef Name="RatingAreaId" />
+          </Key>
+          <Property Name="RatingAreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ProgressRatingAreaScores" Relationship="Self.FK_ProgressRatingAreaScore_RatingArea" FromRole="RatingArea" ToRole="ProgressRatingAreaScore" />
+          <NavigationProperty Name="RatingTemplateCells" Relationship="Self.FK_RatingTemplateCell_RatingArea" FromRole="RatingArea" ToRole="RatingTemplateCell" />
+        </EntityType>
+        <EntityType Name="RatingCategory">
+          <Key>
+            <PropertyRef Name="RatingCategoryId" />
+          </Key>
+          <Property Name="RatingCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="RatingTemplateCells" Relationship="Self.FK_RatingTemplateCell_RatingCategory" FromRole="RatingCategory" ToRole="RatingTemplateCell" />
+        </EntityType>
+        <EntityType Name="RatingCellItem">
+          <Key>
+            <PropertyRef Name="RatingCellItemId" />
+          </Key>
+          <Property Name="RatingCellItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="RatingTemplateCells" Relationship="Self.FK_RatingTemplateCell_RatingCellItem" FromRole="RatingCellItem" ToRole="RatingTemplateCell" />
+        </EntityType>
+        <EntityType Name="RatingTemplateCell">
+          <Key>
+            <PropertyRef Name="RatingTemplateCellId" />
+          </Key>
+          <Property Name="RatingTemplateCellId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramLevelGroupId" Type="Int32" Nullable="false" />
+          <Property Name="RatingCategoryId" Type="Int32" Nullable="false" />
+          <Property Name="SortOrderCategory" Type="Int32" Nullable="false" />
+          <Property Name="RatingAreaId" Type="Int32" Nullable="false" />
+          <Property Name="SortOrderArea" Type="Int32" Nullable="false" />
+          <Property Name="RatingCellItemId" Type="Int32" Nullable="false" />
+          <Property Name="SortOrderItem" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="ProgramLevelGroup" Relationship="Self.FK_RatingTemplateCell_ProgramLevelGroup" FromRole="RatingTemplateCell" ToRole="ProgramLevelGroup" />
+          <NavigationProperty Name="RatingArea" Relationship="Self.FK_RatingTemplateCell_RatingArea" FromRole="RatingTemplateCell" ToRole="RatingArea" />
+          <NavigationProperty Name="RatingCategory" Relationship="Self.FK_RatingTemplateCell_RatingCategory" FromRole="RatingTemplateCell" ToRole="RatingCategory" />
+          <NavigationProperty Name="RatingCellItem" Relationship="Self.FK_RatingTemplateCell_RatingCellItem" FromRole="RatingTemplateCell" ToRole="RatingCellItem" />
+          <NavigationProperty Name="RatingTemplateCellScores" Relationship="Self.FK_RatingTemplateCellScore_RatingTemplateCellId" FromRole="RatingTemplateCell" ToRole="RatingTemplateCellScore" />
+        </EntityType>
+        <EntityType Name="RatingTemplateCellScore">
+          <Key>
+            <PropertyRef Name="RatingTemplateCellScoreId" />
+          </Key>
+          <Property Name="RatingTemplateCellScoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RatingTemplateCellId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="RatingTemplateCell" Relationship="Self.FK_RatingTemplateCellScore_RatingTemplateCellId" FromRole="RatingTemplateCellScore" ToRole="RatingTemplateCell" />
+        </EntityType>
+        <EntityType Name="WorkCategory">
+          <Key>
+            <PropertyRef Name="WorkCategoryId" />
+          </Key>
+          <Property Name="WorkCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HourGoal" Type="Int32" Nullable="false" />
+          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="DateInactive" Type="DateTime" Precision="0" />
+          <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="UpdUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Program" Relationship="Self.FK_WorkCategory_Program" FromRole="WorkCategory" ToRole="Program" />
+        </EntityType>
+        <Association Name="FK_ProgramLevelGroupDailyPerformance_DailyPerformanceId">
+          <End Role="DailyPerformance" Type="Self.DailyPerformance" Multiplicity="1" />
+          <End Role="ProgramLevelGroupDailyPerformance" Type="Self.ProgramLevelGroupDailyPerformance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyPerformance">
+              <PropertyRef Name="DailyPerformanceId" />
+            </Principal>
+            <Dependent Role="ProgramLevelGroupDailyPerformance">
+              <PropertyRef Name="DailyPerformanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgressDay_DailyPerformance">
+          <End Role="DailyPerformance" Type="Self.DailyPerformance" Multiplicity="1" />
+          <End Role="ProgressDay" Type="Self.ProgressDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DailyPerformance">
+              <PropertyRef Name="DailyPerformanceId" />
+            </Principal>
+            <Dependent Role="ProgressDay">
+              <PropertyRef Name="DailyPerformanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_ParticipantStatus">
+          <End Role="ParticipantStatus" Type="Self.ParticipantStatu" Multiplicity="1" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantStatus">
+              <PropertyRef Name="ParticipantStatusId" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="ParticipantStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="1" />
+          <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramId" />
+            </Principal>
+            <Dependent Role="Participant">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantLevel_Participant">
+          <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+          <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participant">
+              <PropertyRef Name="ParticipantId" />
+            </Principal>
+            <Dependent Role="ParticipantProgramLevelGroup">
+              <PropertyRef Name="ParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participant_ProgramLevel">
+          <End Role="ProgramLevel" Type="Self.ProgramLevel" Multiplicity="1" />
+          <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevel">
+              <PropertyRef Name="ProgramLevelId" />
+            </Principal>
+            <Dependent Role="ParticipantProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantLevel_ParticipantProgramLevelGroup">
+          <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="1" />
+          <End Role="Progress" Type="Self.Progress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantProgramLevelGroup">
+              <PropertyRef Name="ParticipantProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="Progress">
+              <PropertyRef Name="ParticipantProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantLevel_ProgramLevelGroup">
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+          <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="ParticipantProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramLevelGroup_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="1" />
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramId" />
+            </Principal>
+            <Dependent Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCategory_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="1" />
+          <End Role="WorkCategory" Type="Self.WorkCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramId" />
+            </Principal>
+            <Dependent Role="WorkCategory">
+              <PropertyRef Name="ProgramId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramLevel_ProgramLevelGroup">
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+          <End Role="ProgramLevel" Type="Self.ProgramLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="ProgramLevel">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgramLevelGroupDailyPerformance_ProgramLevelGroup">
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+          <End Role="ProgramLevelGroupDailyPerformance" Type="Self.ProgramLevelGroupDailyPerformance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="ProgramLevelGroupDailyPerformance">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCell_ProgramLevelGroup">
+          <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProgramLevelGroup">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCell">
+              <PropertyRef Name="ProgramLevelGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgressDay_Progress">
+          <End Role="Progress" Type="Self.Progress" Multiplicity="1" />
+          <End Role="ProgressDay" Type="Self.ProgressDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Progress">
+              <PropertyRef Name="ProgressId" />
+            </Principal>
+            <Dependent Role="ProgressDay">
+              <PropertyRef Name="ProgressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgressRatingAreaScore_Progress">
+          <End Role="Progress" Type="Self.Progress" Multiplicity="1" />
+          <End Role="ProgressRatingAreaScore" Type="Self.ProgressRatingAreaScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Progress">
+              <PropertyRef Name="ProgressId" />
+            </Principal>
+            <Dependent Role="ProgressRatingAreaScore">
+              <PropertyRef Name="ProgressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProgressRatingAreaScore_RatingArea">
+          <End Role="RatingArea" Type="Self.RatingArea" Multiplicity="1" />
+          <End Role="ProgressRatingAreaScore" Type="Self.ProgressRatingAreaScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingArea">
+              <PropertyRef Name="RatingAreaId" />
+            </Principal>
+            <Dependent Role="ProgressRatingAreaScore">
+              <PropertyRef Name="RatingAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCell_RatingArea">
+          <End Role="RatingArea" Type="Self.RatingArea" Multiplicity="1" />
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingArea">
+              <PropertyRef Name="RatingAreaId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCell">
+              <PropertyRef Name="RatingAreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCell_RatingCategory">
+          <End Role="RatingCategory" Type="Self.RatingCategory" Multiplicity="1" />
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingCategory">
+              <PropertyRef Name="RatingCategoryId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCell">
+              <PropertyRef Name="RatingCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCell_RatingCellItem">
+          <End Role="RatingCellItem" Type="Self.RatingCellItem" Multiplicity="1" />
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingCellItem">
+              <PropertyRef Name="RatingCellItemId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCell">
+              <PropertyRef Name="RatingCellItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RatingTemplateCellScore_RatingTemplateCellId">
+          <End Role="RatingTemplateCell" Type="Self.RatingTemplateCell" Multiplicity="1" />
+          <End Role="RatingTemplateCellScore" Type="Self.RatingTemplateCellScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RatingTemplateCell">
+              <PropertyRef Name="RatingTemplateCellId" />
+            </Principal>
+            <Dependent Role="RatingTemplateCellScore">
+              <PropertyRef Name="RatingTemplateCellId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ApprenticeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DailyPerformances" EntityType="Self.DailyPerformance" />
+          <EntitySet Name="Participants" EntityType="Self.Participant" />
+          <EntitySet Name="ParticipantProgramLevelGroups" EntityType="Self.ParticipantProgramLevelGroup" />
+          <EntitySet Name="ParticipantStatus" EntityType="Self.ParticipantStatu" />
+          <EntitySet Name="Programs" EntityType="Self.Program" />
+          <EntitySet Name="ProgramLevels" EntityType="Self.ProgramLevel" />
+          <EntitySet Name="ProgramLevelGroups" EntityType="Self.ProgramLevelGroup" />
+          <EntitySet Name="ProgramLevelGroupDailyPerformances" EntityType="Self.ProgramLevelGroupDailyPerformance" />
+          <EntitySet Name="Progresses" EntityType="Self.Progress" />
+          <EntitySet Name="ProgressDays" EntityType="Self.ProgressDay" />
+          <EntitySet Name="ProgressRatingAreaScores" EntityType="Self.ProgressRatingAreaScore" />
+          <EntitySet Name="RatingAreas" EntityType="Self.RatingArea" />
+          <EntitySet Name="RatingCategories" EntityType="Self.RatingCategory" />
+          <EntitySet Name="RatingCellItems" EntityType="Self.RatingCellItem" />
+          <EntitySet Name="RatingTemplateCells" EntityType="Self.RatingTemplateCell" />
+          <EntitySet Name="RatingTemplateCellScores" EntityType="Self.RatingTemplateCellScore" />
+          <EntitySet Name="WorkCategories" EntityType="Self.WorkCategory" />
+          <AssociationSet Name="FK_ProgramLevelGroupDailyPerformance_DailyPerformanceId" Association="Self.FK_ProgramLevelGroupDailyPerformance_DailyPerformanceId">
+            <End Role="DailyPerformance" EntitySet="DailyPerformances" />
+            <End Role="ProgramLevelGroupDailyPerformance" EntitySet="ProgramLevelGroupDailyPerformances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgressDay_DailyPerformance" Association="Self.FK_ProgressDay_DailyPerformance">
+            <End Role="DailyPerformance" EntitySet="DailyPerformances" />
+            <End Role="ProgressDay" EntitySet="ProgressDays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_ParticipantStatus" Association="Self.FK_Participant_ParticipantStatus">
+            <End Role="ParticipantStatus" EntitySet="ParticipantStatus" />
+            <End Role="Participant" EntitySet="Participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_Program" Association="Self.FK_Participant_Program">
+            <End Role="Program" EntitySet="Programs" />
+            <End Role="Participant" EntitySet="Participants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantLevel_Participant" Association="Self.FK_ParticipantLevel_Participant">
+            <End Role="Participant" EntitySet="Participants" />
+            <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participant_ProgramLevel" Association="Self.FK_Participant_ProgramLevel">
+            <End Role="ProgramLevel" EntitySet="ProgramLevels" />
+            <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantLevel_ParticipantProgramLevelGroup" Association="Self.FK_ParticipantLevel_ParticipantProgramLevelGroup">
+            <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroups" />
+            <End Role="Progress" EntitySet="Progresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantLevel_ProgramLevelGroup" Association="Self.FK_ParticipantLevel_ProgramLevelGroup">
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroups" />
+            <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramLevelGroup_Program" Association="Self.FK_ProgramLevelGroup_Program">
+            <End Role="Program" EntitySet="Programs" />
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCategory_Program" Association="Self.FK_WorkCategory_Program">
+            <End Role="Program" EntitySet="Programs" />
+            <End Role="WorkCategory" EntitySet="WorkCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramLevel_ProgramLevelGroup" Association="Self.FK_ProgramLevel_ProgramLevelGroup">
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroups" />
+            <End Role="ProgramLevel" EntitySet="ProgramLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgramLevelGroupDailyPerformance_ProgramLevelGroup" Association="Self.FK_ProgramLevelGroupDailyPerformance_ProgramLevelGroup">
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroups" />
+            <End Role="ProgramLevelGroupDailyPerformance" EntitySet="ProgramLevelGroupDailyPerformances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCell_ProgramLevelGroup" Association="Self.FK_RatingTemplateCell_ProgramLevelGroup">
+            <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroups" />
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgressDay_Progress" Association="Self.FK_ProgressDay_Progress">
+            <End Role="Progress" EntitySet="Progresses" />
+            <End Role="ProgressDay" EntitySet="ProgressDays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgressRatingAreaScore_Progress" Association="Self.FK_ProgressRatingAreaScore_Progress">
+            <End Role="Progress" EntitySet="Progresses" />
+            <End Role="ProgressRatingAreaScore" EntitySet="ProgressRatingAreaScores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProgressRatingAreaScore_RatingArea" Association="Self.FK_ProgressRatingAreaScore_RatingArea">
+            <End Role="RatingArea" EntitySet="RatingAreas" />
+            <End Role="ProgressRatingAreaScore" EntitySet="ProgressRatingAreaScores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCell_RatingArea" Association="Self.FK_RatingTemplateCell_RatingArea">
+            <End Role="RatingArea" EntitySet="RatingAreas" />
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCell_RatingCategory" Association="Self.FK_RatingTemplateCell_RatingCategory">
+            <End Role="RatingCategory" EntitySet="RatingCategories" />
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCell_RatingCellItem" Association="Self.FK_RatingTemplateCell_RatingCellItem">
+            <End Role="RatingCellItem" EntitySet="RatingCellItems" />
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RatingTemplateCellScore_RatingTemplateCellId" Association="Self.FK_RatingTemplateCellScore_RatingTemplateCellId">
+            <End Role="RatingTemplateCell" EntitySet="RatingTemplateCells" />
+            <End Role="RatingTemplateCellScore" EntitySet="RatingTemplateCellScores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApprenticeModelStoreContainer" CdmEntityContainer="ApprenticeEntities">
+          <EntitySetMapping Name="DailyPerformances">
+            <EntityTypeMapping TypeName="ApprenticeModel.DailyPerformance">
+              <MappingFragment StoreEntitySet="DailyPerformance">
+                <ScalarProperty Name="DailyPerformanceId" ColumnName="DailyPerformanceId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participants">
+            <EntityTypeMapping TypeName="ApprenticeModel.Participant">
+              <MappingFragment StoreEntitySet="Participant">
+                <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="Badge" ColumnName="Badge" />
+                <ScalarProperty Name="ParticipantStatusId" ColumnName="ParticipantStatusId" />
+                <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParticipantProgramLevelGroups">
+            <EntityTypeMapping TypeName="ApprenticeModel.ParticipantProgramLevelGroup">
+              <MappingFragment StoreEntitySet="ParticipantProgramLevelGroup">
+                <ScalarProperty Name="ParticipantProgramLevelGroupId" ColumnName="ParticipantProgramLevelGroupId" />
+                <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+                <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+                <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+                <ScalarProperty Name="ProgramLevelId" ColumnName="ProgramLevelId" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParticipantStatus">
+            <EntityTypeMapping TypeName="ApprenticeModel.ParticipantStatu">
+              <MappingFragment StoreEntitySet="ParticipantStatus">
+                <ScalarProperty Name="ParticipantStatusId" ColumnName="ParticipantStatusId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Programs">
+            <EntityTypeMapping TypeName="ApprenticeModel.Program">
+              <MappingFragment StoreEntitySet="Program">
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramLevels">
+            <EntityTypeMapping TypeName="ApprenticeModel.ProgramLevel">
+              <MappingFragment StoreEntitySet="ProgramLevel">
+                <ScalarProperty Name="ProgramLevelId" ColumnName="ProgramLevelId" />
+                <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramLevelGroups">
+            <EntityTypeMapping TypeName="ApprenticeModel.ProgramLevelGroup">
+              <MappingFragment StoreEntitySet="ProgramLevelGroup">
+                <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StartLevel" ColumnName="StartLevel" />
+                <ScalarProperty Name="EndLevel" ColumnName="EndLevel" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramLevelGroupDailyPerformances">
+            <EntityTypeMapping TypeName="ApprenticeModel.ProgramLevelGroupDailyPerformance">
+              <MappingFragment StoreEntitySet="ProgramLevelGroupDailyPerformance">
+                <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+                <ScalarProperty Name="DailyPerformanceId" ColumnName="DailyPerformanceId" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Progresses">
+            <EntityTypeMapping TypeName="ApprenticeModel.Progress">
+              <MappingFragment StoreEntitySet="Progress">
+                <ScalarProperty Name="ProgressId" ColumnName="ProgressId" />
+                <ScalarProperty Name="ParticipantProgramLevelGroupId" ColumnName="ParticipantProgramLevelGroupId" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ScoreTotal" ColumnName="ScoreTotal" />
+                <ScalarProperty Name="ApprenticeApprovalDate" ColumnName="ApprenticeApprovalDate" />
+                <ScalarProperty Name="SupervisorBadge" ColumnName="SupervisorBadge" />
+                <ScalarProperty Name="SupervisorApprovalDate" ColumnName="SupervisorApprovalDate" />
+                <ScalarProperty Name="SuperintendentBadge" ColumnName="SuperintendentBadge" />
+                <ScalarProperty Name="SuperintendentApprovalDate" ColumnName="SuperintendentApprovalDate" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgressDays">
+            <EntityTypeMapping TypeName="ApprenticeModel.ProgressDay">
+              <MappingFragment StoreEntitySet="ProgressDay">
+                <ScalarProperty Name="ProgressDayId" ColumnName="ProgressDayId" />
+                <ScalarProperty Name="ProgressId" ColumnName="ProgressId" />
+                <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+                <ScalarProperty Name="DailyPerformanceId" ColumnName="DailyPerformanceId" />
+                <ScalarProperty Name="CalendarDay" ColumnName="CalendarDay" />
+                <ScalarProperty Name="SupervisorBadge" ColumnName="SupervisorBadge" />
+                <ScalarProperty Name="SupervisorComment" ColumnName="SupervisorComment" />
+                <ScalarProperty Name="ApprenticeComment" ColumnName="ApprenticeComment" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgressRatingAreaScores">
+            <EntityTypeMapping TypeName="ApprenticeModel.ProgressRatingAreaScore">
+              <MappingFragment StoreEntitySet="ProgressRatingAreaScore">
+                <ScalarProperty Name="ProgressRatingAreaScoreId" ColumnName="ProgressRatingAreaScoreId" />
+                <ScalarProperty Name="ProgressId" ColumnName="ProgressId" />
+                <ScalarProperty Name="RatingAreaId" ColumnName="RatingAreaId" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RatingAreas">
+            <EntityTypeMapping TypeName="ApprenticeModel.RatingArea">
+              <MappingFragment StoreEntitySet="RatingArea">
+                <ScalarProperty Name="RatingAreaId" ColumnName="RatingAreaId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RatingCategories">
+            <EntityTypeMapping TypeName="ApprenticeModel.RatingCategory">
+              <MappingFragment StoreEntitySet="RatingCategory">
+                <ScalarProperty Name="RatingCategoryId" ColumnName="RatingCategoryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RatingCellItems">
+            <EntityTypeMapping TypeName="ApprenticeModel.RatingCellItem">
+              <MappingFragment StoreEntitySet="RatingCellItem">
+                <ScalarProperty Name="RatingCellItemId" ColumnName="RatingCellItemId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RatingTemplateCells">
+            <EntityTypeMapping TypeName="ApprenticeModel.RatingTemplateCell">
+              <MappingFragment StoreEntitySet="RatingTemplateCell">
+                <ScalarProperty Name="RatingTemplateCellId" ColumnName="RatingTemplateCellId" />
+                <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+                <ScalarProperty Name="RatingCategoryId" ColumnName="RatingCategoryId" />
+                <ScalarProperty Name="SortOrderCategory" ColumnName="SortOrderCategory" />
+                <ScalarProperty Name="RatingAreaId" ColumnName="RatingAreaId" />
+                <ScalarProperty Name="SortOrderArea" ColumnName="SortOrderArea" />
+                <ScalarProperty Name="RatingCellItemId" ColumnName="RatingCellItemId" />
+                <ScalarProperty Name="SortOrderItem" ColumnName="SortOrderItem" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RatingTemplateCellScores">
+            <EntityTypeMapping TypeName="ApprenticeModel.RatingTemplateCellScore">
+              <MappingFragment StoreEntitySet="RatingTemplateCellScore">
+                <ScalarProperty Name="RatingTemplateCellScoreId" ColumnName="RatingTemplateCellScoreId" />
+                <ScalarProperty Name="RatingTemplateCellId" ColumnName="RatingTemplateCellId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkCategories">
+            <EntityTypeMapping TypeName="ApprenticeModel.WorkCategory">
+              <MappingFragment StoreEntitySet="WorkCategory">
+                <ScalarProperty Name="WorkCategoryId" ColumnName="WorkCategoryId" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="HourGoal" ColumnName="HourGoal" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="DateInactive" ColumnName="DateInactive" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+                <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

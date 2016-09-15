@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="EmployeeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EmployeesLocations" EntityType="Models.EmployeesLocation" />
+    <EntitySet Name="Employees" EntityType="Models.Employee" />
+    <EntitySet Name="VContacts_list" EntityType="Models.VContacts_list" />
+    <EntitySet Name="EmployeeAlls" EntityType="Models.EmployeeAll" />
+  </EntityContainer>
+  <EntityType Name="EmployeesLocation">
+    <Key>
+      <PropertyRef Name="EmployeesLocationId" />
+    </Key>
+    <Property Name="EmployeesLocationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Badge" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BeginEffDate" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="EndEffDate" Type="DateTime" Precision="0" Nullable="false" />
+    <Property Name="Empl_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Per_Org" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="AddUserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddDateTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="UpdUserId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdDateTime" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Emp_Id" />
+    </Key>
+    <Property Name="Emp_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddUserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AddDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="Badge" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Pref_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="NTLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hire_Dt" Type="DateTime" Precision="3" />
+    <Property Name="HireTime" Type="Time" Precision="7" />
+    <Property Name="Rehire_Dt" Type="DateTime" Precision="3" />
+    <Property Name="BusDriverQualDate" Type="DateTime" Precision="3" />
+    <Property Name="BusDriverQualTime" Type="Time" Precision="7" />
+    <Property Name="LastWorkDate" Type="DateTime" Precision="3" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="Address01" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Address02" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PreferredPhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="WorkPhone" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="26" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Empl_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DeptId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DeptName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Company" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="JobCode" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="PayGroup" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Empl_Type" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="RegTempFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FT_PT_Flag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Per_Org" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="SupervisorId" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="SupervisorName" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDate" Type="DateTime" Precision="3" />
+    <Property Name="ActionReason" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="TermDate" Type="DateTime" Precision="3" />
+    <Property Name="UnionCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="EEO4Code" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EEOJobGroup" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CompFrequency" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CompRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AnnualRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MonthlyRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="HourlyRate" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Grade" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Step" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="PositionNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="PositionEntryDate" Type="DateTime" Precision="3" />
+    <Property Name="Sex" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EthnicGroup" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Veteran" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Citizen" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="Disabled" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Marital" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="AsOfDate" Type="DateTime" Precision="3" />
+    <Property Name="EffectiveDate" Type="DateTime" Precision="3" />
+    <Property Name="VacHoursEntitlement" Type="Decimal" Precision="6" Scale="2" />
+    <Property Name="VacHoursCarryover" Type="Decimal" Precision="6" Scale="2" />
+    <Property Name="DriverLicenseNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DriverLicenseExpirationDate" Type="DateTime" Precision="0" />
+    <Property Name="MedicalExpirationDate" Type="DateTime" Precision="0" />
+    <Property Name="StepStartDate" Type="DateTime" Precision="0" />
+    <Property Name="WorkShift" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ScheduledDaysOff" Type="String" MaxLength="27" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VContacts_list">
+    <Key>
+      <PropertyRef Name="Badge" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Department" />
+      <PropertyRef Name="BusinessPhone" />
+      <PropertyRef Name="DeptId" />
+      <PropertyRef Name="JobTitle" />
+    </Key>
+    <Property Name="Badge" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessPhone" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeptId" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="JobTitle" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SupervisorName" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EmployeeAll">
+    <Key>
+      <PropertyRef Name="Badge" />
+      <PropertyRef Name="Empl_Status" />
+      <PropertyRef Name="BeginEffDate" />
+      <PropertyRef Name="EndEffDate" />
+      <PropertyRef Name="EmployeesLocationId" />
+      <PropertyRef Name="InEmpTable" />
+    </Key>
+    <Property Name="Badge" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="152" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Division" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Per_Org" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NTLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Empl_Status" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DeptName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="BeginEffDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndEffDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EmployeesLocationId" Type="Int64" Nullable="false" />
+    <Property Name="InEmpTable" Type="Int32" Nullable="false" />
+    <Property Name="JobTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="StepStartDate" Type="DateTime" Precision="0" />
+    <Property Name="WorkShift" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ScheduledDaysOff" Type="String" MaxLength="27" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,92 @@
+﻿<div id="divMessageBox" class="center-block" style="position: fixed;right: 5px;top:6px;display: none">
+    <label class="label label-warning" style="font-size: 1.5em;">some text will be shown here</label>
+</div>
+
+<div class="modal fade" id="globalModal" tabindex="-1" role="dialog" aria-labelledby="globalModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="globalModalTitle">Modal title</h4>
+            </div>
+            <div class="modal-body" id="globalModalBody">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-modal-role="ok" >OK</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" data-modal-role="close">Close</button>                
+                <button type="button" class="btn btn-primary" onclick="location.reload()" data-modal-role="refresh">Refresh The Page</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = {
+        show: function (title, body, options) {
+            var prom = $.Deferred();
+            var okButton = $("#globalModal button[data-modal-role='ok']");
+            var cancelButton = $("#globalModal button[data-modal-role='close']");
+            var refreshButton = $("#globalModal button[data-modal-role='refresh']");
+            options = options || [];
+            if (typeof (options.showRefresh) === "undefined")
+                options.showRefresh = true;
+            if (!options.showRefresh)
+                refreshButton.hide();
+            else
+                refreshButton.show();
+
+
+            if (!options.showOk)
+                options.showOk = false;
+
+            if (!options.showCancel)
+                options.showCancel = false;
+
+            if (!options.showOk) 
+                okButton.hide();
+            else
+                okButton.show();
+
+            if (options.showCancel)
+                cancelButton.html("Cancel");
+            else
+                cancelButton.html("Close");
+
+            var reason = 'Cancel';
+            okButton.click(function () {
+                reason = 'OK';
+            });
+
+            cancelButton.click(function () {
+                reason = 'Cancel';
+            });
+
+            refreshButton.click(function () {
+                reason = 'Refresh';
+            });
+
+
+            $("#globalModalTitle").html(title);
+            $("#globalModalBody").html(body);
+
+            
+            $("#globalModal").modal();
+            $('#globalModal').on('hidden.bs.modal', function (e) {
+                prom.resolve(reason);
+            });
+
+            return prom;            
+        },
+        hide: function () { $("#globalModal").modal('hide'); }        
+    }
+    var fadeBox=
+    {
+        show: function (message) {
+            $("#divMessageBox").stop(true,true);
+            $("#divMessageBox label").html(message);
+            $("#divMessageBox").show();
+            $("#divMessageBox").fadeOut(5000);
+        }
+    }
+</script>

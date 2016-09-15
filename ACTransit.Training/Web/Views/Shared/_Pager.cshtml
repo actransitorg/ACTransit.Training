@@ -1,0 +1,67 @@
+﻿@using ACTransit.Training.Web.Domain.Interfaces
+@model IPagingRequired
+<div class="pull-right">
+    <ul class="pager hidden">
+        <li data-type="first"><a style="cursor: pointer"><<</a></li>
+        <li data-type="previous"><a style="cursor: pointer"><</a></li>
+        <li data-type="text"></li>
+        <li data-type="next"><a style="cursor: pointer">></a></li>
+        <li data-type="last"><a style="cursor: pointer">>></a></li>
+    </ul>
+</div>
+<div style="height:50px;width:100px;"></div>
+<script>
+var Pager = function (currentForm,submitFunction) {
+    var me = this;
+    var rowsPerPage = @Model.RowsPerPage;
+    var skipRows = @Model.SkipRows;
+    var numberOfRows = @Model.TotalRows;
+    var currentPage = skipRows == 0 ? 1 : (Math.round(skipRows / rowsPerPage)+1);
+    var totalPages = Math.ceil(numberOfRows / rowsPerPage);
+    me.initial = function () {
+        var skipRowsName = '@Html.IdFor(m => m.SkipRows)';
+        var firstLi = $('ul.pager>li[data-type="first"]');
+        var prevLi = $('ul.pager>li[data-type="previous"]');
+        var textLi = $('ul.pager>li[data-type="text"]');
+        var nextLi = $('ul.pager>li[data-type="next"]');
+        var lastLi = $('ul.pager>li[data-type="last"]');
+        $('#' + currentForm).append('<input type="hidden" id="@Html.IdFor(m => m.SkipRows)" name="@Html.IdFor(m => m.SkipRows)" value="@Model.SkipRows">');
+        $('#' + currentForm).append('<input type="hidden" id="@Html.IdFor(m => m.RowsPerPage)" name="@Html.IdFor(m => m.RowsPerPage)" value="@Model.RowsPerPage">');
+        if (totalPages > 1)
+            $('ul.pager').removeClass('hidden');
+        $(textLi).html(currentPage + " of " + totalPages);
+        if (currentPage <= 1) {
+            $(firstLi).addClass('disabled');
+            $(prevLi).addClass('disabled');
+        }
+        if (currentPage >= totalPages) {
+            $(nextLi).addClass('disabled');   
+            $(lastLi).addClass('disabled');   
+        }      
+        $(firstLi).find(">a").click(function() {
+            if (currentPage >1) {
+                $('#' + skipRowsName).val(0);
+                if (submitFunction) submitFunction();
+            }
+        });        
+        $(prevLi).find(">a").click(function() {
+            if (currentPage >1) {
+                $('#' + skipRowsName).val((currentPage - 2) * rowsPerPage);
+                if (submitFunction) submitFunction();
+            }
+        });
+        $(nextLi).find(">a").click(function() {
+            if (currentPage <totalPages) {
+                $('#' + skipRowsName).val(currentPage  * rowsPerPage);
+                if (submitFunction) submitFunction();
+            }
+        });
+        $(lastLi).find(">a").click(function() {
+            if (currentPage <totalPages) {
+                $('#' + skipRowsName).val((totalPages -1) * rowsPerPage);
+                if (submitFunction) submitFunction();
+            }
+        });
+    };
+}
+</script>

@@ -1,0 +1,17 @@
+﻿@using ACTransit.Training.Web.Domain.Apprentice.Models
+@model ParticipantProgressDaysViewModel
+
+@foreach (var item in @Model.Items)
+{
+    <div class="accordion-toggle collapsed" data-id="@item.ProgressDayId">
+        <div class="row row-height">
+            <div class="col-md-4 indent-column">
+                @item.CalendarDate.DayOfWeek.ToString() (@item.CalendarDate.ToString("M/d"))
+            </div>
+            <div class="col-md-1">
+                <button class="btn @Model.HighlightButton(item) row-valign" data-id="@item.ProgressDayId" onclick="location.href='@Url.Action("EvaluateProgressDayForm", "Apprentice")/@item.ProgressDayId';">@Model.EvaluationText(item)</button>
+            </div>
+            <div class="col-md-6">&nbsp;</div>
+        </div>
+    </div>
+}

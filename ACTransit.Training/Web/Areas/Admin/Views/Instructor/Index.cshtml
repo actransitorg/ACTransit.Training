@@ -1,0 +1,106 @@
+﻿@using ACTransit.Training.Web.Domain.Models
+@model ACTransit.Training.Web.Domain.Models.InstructorsPageViewModel
+@{
+    ViewBag.Title = "Instructors";
+    const string controller = "Instructor";
+}
+
+<div class="conditions">
+    @using (Html.BeginForm("Index", controller, FormMethod.Post, new { id = "frmFilter" }))
+    {
+        <div class="form-inline">
+            <div class="column" style="padding-right: 10px"><label>Course Type</label></div>
+            <div class="column bootstraptheme" id="multiCheckComboCourseType" style="width:280px;">
+                <input type="text" readonly />
+                <div>
+                    <div>
+                        <ul>
+                            @{
+        int counter = 0;
+        foreach (var courseType in Model.CourseTypes)
+        {
+            <li>
+                <input type="hidden" name="CourseTypes[@counter].Text" value="@courseType.Text" />
+                <input type="hidden" name="CourseTypes[@counter].Value" value="@courseType.Value" />
+                <input type="checkbox" id="CourseTypes_@courseType.Value" name="CourseTypes[@counter].Selected" value='true' checked='@courseType.Selected' data-value="@courseType.Value" />
+                <span>@courseType.Text</span>
+            </li>
+            counter++;
+        }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="JustShowActive" class="column" style="padding-left: 10px;">
+                @Html.CheckBoxFor(m => m.JustShowActive)
+                @Html.LabelFor(m => m.JustShowActive)
+            </div>
+            <div id="JustShowNonEmployees" class="column" style="padding-left: 10px;">
+                @Html.CheckBoxFor(m => m.JustShowNonEmployees)
+                @Html.LabelFor(m => m.JustShowNonEmployees)
+            </div>
+            <div class="column right" style="float: right">
+                @Html.ActionLink("Add New", "New", controller, new { }, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    }
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="table-responsive">
+    <table class="table list black mousesensitive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th style="width: 80px">Badge</th>
+                <th>Course Type</th>
+                <th style="width:70px">Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Instructors)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.Instructor, "Edit", controller, new { id = item.InstructorId }, new { })                        
+                    </td>
+                    <td>@item.Badge</td>
+                    <td>@item.CourseTypeName</td>
+                    <td>@(item.IsActive.GetValueOrDefault()?"Yes":"No")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(function() {
+            var multiCombo = $("#multiCheckComboCourseType").multiCheckCombo({
+                onClosed: function(e) {
+                    if (e.changedSinceOpened) $("#frmFilter").submit();
+                },
+                //allButton: {text:"All", top:true},
+                delimiter: ','
+            });
+            $('#multiCheckComboCourseType input[type=button]').click(function() { multiCombo.close(); });
+
+
+            $('#JustShowActive input[type="checkbox"]').change(function () {
+                $("#frmFilter").submit();
+            });
+            $('#JustShowNonEmployees input[type="checkbox"]').change(function () {
+                $("#frmFilter").submit();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,2200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrainingContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DailyPerformance">
+    <Key>
+      <PropertyRef Name="DailyPerformanceId" />
+    </Key>
+    <Property Name="DailyPerformanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="DailyPerformanceProgramLevelGroup">
+    <Key>
+      <PropertyRef Name="DailyPerformanceProgramLevelGroupId" />
+    </Key>
+    <Property Name="DailyPerformanceProgramLevelGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DailyPerformanceId" Type="int" Nullable="false" />
+    <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Participant">
+    <Key>
+      <PropertyRef Name="ParticipantId" />
+    </Key>
+    <Property Name="ParticipantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="CompletedDate" Type="date" />
+    <Property Name="EstimatedCompletedDate" Type="date" />
+    <Property Name="ParticipantStatusId" Type="int" Nullable="false" />
+    <Property Name="ProgramLevelId" Type="int" />
+    <Property Name="UseEmployeeStep" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ParticipantProgramLevelGroup">
+    <Key>
+      <PropertyRef Name="ParticipantProgramLevelGroupId" />
+    </Key>
+    <Property Name="ParticipantProgramLevelGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParticipantId" Type="int" Nullable="false" />
+    <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="BeginEffDate" Type="date" Nullable="false" />
+    <Property Name="EndEffDate" Type="date" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ParticipantStatus">
+    <Key>
+      <PropertyRef Name="ParticipantStatusId" />
+    </Key>
+    <Property Name="ParticipantStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ParticipantWork">
+    <Key>
+      <PropertyRef Name="ParticipantId" />
+      <PropertyRef Name="WorkOrderNum" />
+      <PropertyRef Name="TaskNum" />
+      <PropertyRef Name="WorkDate" />
+    </Key>
+    <Property Name="ParticipantId" Type="int" Nullable="false" />
+    <Property Name="WorkOrderNum" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="TaskNum" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="WorkDate" Type="date" Nullable="false" />
+    <Property Name="WorkCategoryId" Type="int" Nullable="false" />
+    <Property Name="WorkHour" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="IsReadOnly" Type="bit" Nullable="false" />
+    <Property Name="VehicleId" Type="varchar" MaxLength="5" />
+    <Property Name="SeriesNum" Type="varchar" MaxLength="25" />
+    <Property Name="TrainingSeriesName" Type="varchar" MaxLength="50" />
+    <Property Name="CompCode" Type="varchar" MaxLength="5" />
+    <Property Name="CompDescription" Type="varchar" MaxLength="50" />
+    <Property Name="TaskComment" Type="varchar(max)" />
+    <Property Name="JobDescCode" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ParticipantWorkSeed">
+    <Key>
+      <PropertyRef Name="ParticipantWorkSeedId" />
+    </Key>
+    <Property Name="ParticipantWorkSeedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParticipantId" Type="int" Nullable="false" />
+    <Property Name="WorkCategoryId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="WorkHour" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="ProgramId" />
+    </Key>
+    <Property Name="ProgramId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProgramType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ProgramLevel">
+    <Key>
+      <PropertyRef Name="ProgramLevelId" />
+    </Key>
+    <Property Name="ProgramLevelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="Level" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ProgramLevelGroup">
+    <Key>
+      <PropertyRef Name="ProgramLevelGroupId" />
+    </Key>
+    <Property Name="ProgramLevelGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+    <Property Name="StartLevel" Type="int" Nullable="false" />
+    <Property Name="EndLevel" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Progress">
+    <Key>
+      <PropertyRef Name="ProgressId" />
+    </Key>
+    <Property Name="ProgressId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParticipantProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="ScoreTotal" Type="int" Nullable="false" />
+    <Property Name="EvaluationDate" Type="datetime2" Precision="7" />
+    <Property Name="SupervisorBadge" Type="varchar" MaxLength="6" />
+    <Property Name="SuperintendentBadge" Type="varchar" MaxLength="6" />
+    <Property Name="SuperintendentApprovalDate" Type="datetime2" Precision="7" />
+    <Property Name="ScheduledDaysOff" Type="varchar" MaxLength="27" />
+    <Property Name="Historical" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ProgressDay">
+    <Key>
+      <PropertyRef Name="ProgressDayId" />
+    </Key>
+    <Property Name="ProgressDayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgressId" Type="int" Nullable="false" />
+    <Property Name="DivisionId" Type="bigint" Nullable="false" />
+    <Property Name="DailyPerformanceId" Type="int" />
+    <Property Name="ProgramLevelId" Type="int" Nullable="false" />
+    <Property Name="CalendarDate" Type="date" Nullable="false" />
+    <Property Name="ApprenticeDayOff" Type="bit" Nullable="false" />
+    <Property Name="SupervisorBadge" Type="varchar" MaxLength="6" />
+    <Property Name="Comment" Type="varchar" MaxLength="2048" />
+    <Property Name="CommentDate" Type="datetime2" Precision="7" />
+    <Property Name="CommentBadge" Type="varchar" MaxLength="6" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="ProgressRatingCellScore">
+    <Key>
+      <PropertyRef Name="ProgressId" />
+      <PropertyRef Name="RatingCellScoreId" />
+    </Key>
+    <Property Name="ProgressId" Type="int" Nullable="false" />
+    <Property Name="RatingCellScoreId" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="RatingArea">
+    <Key>
+      <PropertyRef Name="RatingAreaId" />
+    </Key>
+    <Property Name="RatingAreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="RatingCategory">
+    <Key>
+      <PropertyRef Name="RatingCategoryId" />
+    </Key>
+    <Property Name="RatingCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="RatingCell">
+    <Key>
+      <PropertyRef Name="RatingCellId" />
+    </Key>
+    <Property Name="RatingCellId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="RatingCategoryId" Type="int" Nullable="false" />
+    <Property Name="SortOrderCategory" Type="int" Nullable="false" />
+    <Property Name="RatingAreaId" Type="int" Nullable="false" />
+    <Property Name="SortOrderArea" Type="int" Nullable="false" />
+    <Property Name="RatingItemId" Type="int" Nullable="false" />
+    <Property Name="SortOrderCell" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="RatingCellScore">
+    <Key>
+      <PropertyRef Name="RatingCellScoreId" />
+    </Key>
+    <Property Name="RatingCellScoreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RatingCellId" Type="int" Nullable="false" />
+    <Property Name="Score" Type="int" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="RatingItem">
+    <Key>
+      <PropertyRef Name="RatingItemId" />
+    </Key>
+    <Property Name="RatingItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="WorkCategory">
+    <Key>
+      <PropertyRef Name="WorkCategoryId" />
+    </Key>
+    <Property Name="WorkCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="ShortDescription" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HourGoal" Type="int" Nullable="false" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="InactiveDate" Type="date" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseTypeId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="HasWheelTime" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="CourseEnrollment">
+    <Key>
+      <PropertyRef Name="CourseEnrollmentId" />
+    </Key>
+    <Property Name="CourseEnrollmentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseScheduleId" Type="bigint" Nullable="false" />
+    <Property Name="Badge" Type="varchar" MaxLength="10" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="Note" Type="varchar" MaxLength="255" />
+    <Property Name="IsUnenrolled" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="CourseSchedule">
+    <Key>
+      <PropertyRef Name="CourseScheduleId" />
+    </Key>
+    <Property Name="CourseScheduleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="Note" Type="varchar" MaxLength="50" />
+    <Property Name="BeginEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="EndEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+    <Property Name="TotalSeat" Type="int" />
+    <Property Name="DivisionId" Type="bigint" />
+    <Property Name="Frequency" Type="bigint" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="CourseScheduleInstructor">
+    <Key>
+      <PropertyRef Name="CourseScheduleId" />
+      <PropertyRef Name="InstructorId" />
+    </Key>
+    <Property Name="CourseScheduleId" Type="bigint" Nullable="false" />
+    <Property Name="InstructorId" Type="bigint" Nullable="false" />
+    <Property Name="IsPrimary" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CourseTopic">
+    <Key>
+      <PropertyRef Name="CourseTopicId" />
+    </Key>
+    <Property Name="CourseTopicId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="TopicId" Type="bigint" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="CourseType">
+    <Key>
+      <PropertyRef Name="CourseTypeId" />
+    </Key>
+    <Property Name="CourseTypeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="DivisionId" />
+    </Key>
+    <Property Name="DivisionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enrollment">
+    <Key>
+      <PropertyRef Name="EnrollmentId" />
+    </Key>
+    <Property Name="EnrollmentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseEnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="SessionDate" Type="date" Nullable="false" />
+    <Property Name="LectureTime" Type="float" Nullable="false" />
+    <Property Name="Note" Type="varchar" MaxLength="1000" />
+    <Property Name="LetterGrade" Type="varchar" MaxLength="2" />
+    <Property Name="IsAbsent" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="EnrollmentInstructor">
+    <Key>
+      <PropertyRef Name="EnrollmentInstructorId" />
+    </Key>
+    <Property Name="EnrollmentInstructorId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="InstructorId" Type="bigint" Nullable="false" />
+    <Property Name="IsPrimary" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="EnrollmentTopic">
+    <Key>
+      <PropertyRef Name="EnrollmentTopicId" />
+    </Key>
+    <Property Name="EnrollmentTopicId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="TopicId" Type="bigint" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="EnrollmentVehicle">
+    <Key>
+      <PropertyRef Name="EnrollmentVehicleId" />
+    </Key>
+    <Property Name="EnrollmentVehicleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="VehicleId" Type="varchar" MaxLength="6" />
+    <Property Name="WheelTime" Type="float" />
+    <Property Name="RouteAlpha" Type="varchar" MaxLength="5" />
+    <Property Name="QualifiedTraining" Type="bit" Nullable="false" />
+    <Property Name="OUGLiftRampOps" Type="bit" Nullable="false" />
+    <Property Name="OUGSecurement" Type="bit" Nullable="false" />
+    <Property Name="VehicleGroup" Type="varchar" MaxLength="20" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="EnrollmentVehicleRoute">
+    <Key>
+      <PropertyRef Name="EnrollmentVehicleId" />
+      <PropertyRef Name="RouteAlpha" />
+    </Key>
+    <Property Name="EnrollmentVehicleId" Type="bigint" Nullable="false" />
+    <Property Name="RouteAlpha" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Grade">
+    <Key>
+      <PropertyRef Name="LetterGrade" />
+    </Key>
+    <Property Name="LetterGrade" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="25" />
+    <Property Name="IsPassing" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Instructor">
+    <Key>
+      <PropertyRef Name="InstructorId" />
+    </Key>
+    <Property Name="InstructorId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Badge" Type="varchar" MaxLength="10" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="CourseTypeId" Type="bigint" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="bigint" Nullable="false" />
+    <Property Name="ParentMenuId" Type="bigint" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Link" Type="varchar" MaxLength="500" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+    <Property Name="NewWindow" Type="bit" Nullable="false" />
+    <Property Name="AccessToken" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NonEmployee">
+    <Key>
+      <PropertyRef Name="NonEmployeeId" />
+    </Key>
+    <Property Name="NonEmployeeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="255" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="TopicId" />
+    </Key>
+    <Property Name="TopicId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseTypeId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="1000" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="TopicTypeId" Type="bigint" />
+    <Property Name="Code" Type="varchar" MaxLength="10" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="TopicType">
+    <Key>
+      <PropertyRef Name="TopicTypeId" />
+    </Key>
+    <Property Name="TopicTypeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="512" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.Apprentice.ParticipantWorkDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ParticipantWorkDetail">
+    <Key>
+      <PropertyRef Name="ProgramName" />
+      <PropertyRef Name="Badge" />
+      <PropertyRef Name="ParticipantId" />
+      <PropertyRef Name="ProgramId" />
+      <PropertyRef Name="ProgressStartDate" />
+      <PropertyRef Name="WorkHour" />
+      <PropertyRef Name="WorkCategoryShortDescription" />
+      <PropertyRef Name="WorkCategoryName" />
+      <PropertyRef Name="WorkCategoryId" />
+      <PropertyRef Name="Level" />
+      <PropertyRef Name="ParticipantStatusId" />
+    </Key>
+    <Property Name="ProgramName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="121" />
+    <Property Name="EmployeeNameLastFirst" Type="varchar" MaxLength="122" />
+    <Property Name="ParticipantId" Type="int" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+    <Property Name="ProgressStartDate" Type="date" Nullable="false" />
+    <Property Name="WorkHour" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="WorkCategoryTitleGoal" Type="varchar" MaxLength="8000" />
+    <Property Name="WorkCategorySortOrder" Type="int" />
+    <Property Name="WorkCategoryShortDescription" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="WorkCategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkCategoryId" Type="int" Nullable="false" />
+    <Property Name="CompletedDate" Type="date" />
+    <Property Name="EmployeeDivision" Type="varchar" MaxLength="3" />
+    <Property Name="EmployeeWorkShift" Type="varchar" MaxLength="30" />
+    <Property Name="EmployeeScheduledDaysOff" Type="varchar" MaxLength="27" />
+    <Property Name="Level" Type="int" Nullable="false" />
+    <Property Name="ParticipantStatusId" Type="int" Nullable="false" />
+    <Property Name="ScoreTotal" Type="int" />
+    <Property Name="SeedValue" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.Apprentice.WorksheetParticipantDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WorksheetParticipantDetail">
+    <Key>
+      <PropertyRef Name="ParticipantId" />
+      <PropertyRef Name="Badge" />
+      <PropertyRef Name="ProgressStartDate" />
+      <PropertyRef Name="ScoreTotal" />
+      <PropertyRef Name="CalendarDate" />
+      <PropertyRef Name="ProgramLevelGroupId" />
+      <PropertyRef Name="ProgressId" />
+      <PropertyRef Name="ProgressDayId" />
+      <PropertyRef Name="DivisionId" />
+      <PropertyRef Name="ParticipantStatusId" />
+      <PropertyRef Name="ProgramLevelId" />
+      <PropertyRef Name="ParticipantProgramLevelGroupId" />
+      <PropertyRef Name="ProgramId" />
+    </Key>
+    <Property Name="ParticipantId" Type="int" Nullable="false" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="ProgramCompletedDate" Type="date" />
+    <Property Name="ProgressStartDate" Type="date" Nullable="false" />
+    <Property Name="ScoreTotal" Type="int" Nullable="false" />
+    <Property Name="Score" Type="int" />
+    <Property Name="CalendarDate" Type="date" Nullable="false" />
+    <Property Name="DaySupervisorBadge" Type="varchar" MaxLength="6" />
+    <Property Name="Comment" Type="varchar" MaxLength="2048" />
+    <Property Name="CommentDate" Type="datetime2" Precision="7" />
+    <Property Name="CommentBadge" Type="varchar" MaxLength="6" />
+    <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="RatingCategoryId" Type="int" />
+    <Property Name="RatingAreaId" Type="int" />
+    <Property Name="RatingItemId" Type="int" />
+    <Property Name="RatingCellId" Type="int" />
+    <Property Name="RatingCellScoreId" Type="int" />
+    <Property Name="ProgressId" Type="int" Nullable="false" />
+    <Property Name="ProgressDayId" Type="int" Nullable="false" />
+    <Property Name="EvaluationDate" Type="datetime2" Precision="7" />
+    <Property Name="SupervisorBadge" Type="varchar" MaxLength="6" />
+    <Property Name="SuperintendentBadge" Type="varchar" MaxLength="6" />
+    <Property Name="SuperintendentApprovalDate" Type="datetime2" Precision="7" />
+    <Property Name="DivisionId" Type="bigint" Nullable="false" />
+    <Property Name="DailyPerformanceId" Type="int" />
+    <Property Name="ParticipantStatusId" Type="int" Nullable="false" />
+    <Property Name="ProgramLevelId" Type="int" Nullable="false" />
+    <Property Name="ParticipantProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Training.Apprentice.WorksheetParticipantWork' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="WorksheetParticipantWork">
+          <Property Name="Badge" Type="varchar" MaxLength="6" />
+          <Property Name="WeekStartDate" Type="datetime" />
+          <Property Name="WorkDate" Type="datetime" />
+          <Property Name="Weekday" Type="nvarchar" MaxLength="30" />
+          <Property Name="LaborHour" Type="numeric" Precision="38" Scale="2" />
+          <Property Name="WorkCategoryId" Type="int" />
+          <Property Name="WorkCategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="Comment" Type="varchar(max)" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.Apprentice.WorksheetScoreTemplate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WorksheetScoreTemplate">
+    <Key>
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Area" />
+      <PropertyRef Name="Item" />
+      <PropertyRef Name="SortOrderCategory" />
+      <PropertyRef Name="SortOrderArea" />
+      <PropertyRef Name="SortOrderCell" />
+      <PropertyRef Name="Score" />
+      <PropertyRef Name="RatingCellScoreId" />
+      <PropertyRef Name="RatingCellId" />
+      <PropertyRef Name="ProgramLevelGroupId" />
+      <PropertyRef Name="RatingCategoryId" />
+      <PropertyRef Name="RatingAreaId" />
+      <PropertyRef Name="RatingItemId" />
+      <PropertyRef Name="StartLevel" />
+    </Key>
+    <Property Name="ProgramGroup" Type="varchar" MaxLength="1000" />
+    <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Area" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Item" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SortOrderCategory" Type="int" Nullable="false" />
+    <Property Name="SortOrderArea" Type="int" Nullable="false" />
+    <Property Name="SortOrderCell" Type="int" Nullable="false" />
+    <Property Name="Score" Type="int" Nullable="false" />
+    <Property Name="RatingCellScoreId" Type="int" Nullable="false" />
+    <Property Name="RatingCellId" Type="int" Nullable="false" />
+    <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="RatingCategoryId" Type="int" Nullable="false" />
+    <Property Name="RatingAreaId" Type="int" Nullable="false" />
+    <Property Name="RatingItemId" Type="int" Nullable="false" />
+    <Property Name="StartLevel" Type="int" Nullable="false" />
+    <Property Name="SortOrder" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.Apprentice.WorksheetTemplate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WorksheetTemplate">
+    <Key>
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Area" />
+      <PropertyRef Name="Item" />
+      <PropertyRef Name="SortOrderCategory" />
+      <PropertyRef Name="SortOrderArea" />
+      <PropertyRef Name="SortOrderCell" />
+      <PropertyRef Name="RatingCellId" />
+      <PropertyRef Name="ProgramLevelGroupId" />
+      <PropertyRef Name="RatingCategoryId" />
+      <PropertyRef Name="RatingAreaId" />
+      <PropertyRef Name="RatingItemId" />
+      <PropertyRef Name="StartLevel" />
+    </Key>
+    <Property Name="ProgramGroup" Type="varchar" MaxLength="1000" />
+    <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Area" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Item" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SortOrderCategory" Type="int" Nullable="false" />
+    <Property Name="SortOrderArea" Type="int" Nullable="false" />
+    <Property Name="SortOrderCell" Type="int" Nullable="false" />
+    <Property Name="RatingCellId" Type="int" Nullable="false" />
+    <Property Name="ProgramLevelGroupId" Type="int" Nullable="false" />
+    <Property Name="RatingCategoryId" Type="int" Nullable="false" />
+    <Property Name="RatingAreaId" Type="int" Nullable="false" />
+    <Property Name="RatingItemId" Type="int" Nullable="false" />
+    <Property Name="StartLevel" Type="int" Nullable="false" />
+    <Property Name="SortOrder" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.ComponentTopic' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ComponentTopic">
+    <Key>
+      <PropertyRef Name="TopicId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="CourseTypeId" />
+    </Key>
+    <Property Name="TopicId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CourseTypeId" Type="bigint" Nullable="false" />
+    <Property Name="TopicTypeId" Type="bigint" />
+    <Property Name="Code" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.CourseRoster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CourseRoster">
+    <Key>
+      <PropertyRef Name="CourseName" />
+      <PropertyRef Name="BeginEffDate" />
+      <PropertyRef Name="EndEffDate" />
+      <PropertyRef Name="CourseType" />
+      <PropertyRef Name="CourseTypeId" />
+      <PropertyRef Name="IsUnenrolled" />
+      <PropertyRef Name="CourseId" />
+      <PropertyRef Name="CourseScheduleId" />
+      <PropertyRef Name="CourseEnrollmentId" />
+    </Key>
+    <Property Name="CourseRosterRow" Type="bigint" />
+    <Property Name="CourseName" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Division" Type="varchar" MaxLength="8" />
+    <Property Name="Trainee" Type="varchar" MaxLength="121" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" />
+    <Property Name="TraineeDeptName" Type="varchar" MaxLength="30" />
+    <Property Name="TraineeLocation" Type="varchar" MaxLength="3" />
+    <Property Name="SessionTerm" Type="varchar" MaxLength="8000" />
+    <Property Name="BeginEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="EndEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+    <Property Name="CourseType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseTypeId" Type="bigint" Nullable="false" />
+    <Property Name="IsUnenrolled" Type="bit" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="DivisionId" Type="bigint" />
+    <Property Name="CourseScheduleId" Type="bigint" Nullable="false" />
+    <Property Name="CourseEnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="CourseEnrollmentNote" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.CourseRosterBase' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CourseRosterBase">
+    <Key>
+      <PropertyRef Name="CourseScheduleId" />
+      <PropertyRef Name="CourseName" />
+      <PropertyRef Name="BeginEffDate" />
+      <PropertyRef Name="EndEffDate" />
+      <PropertyRef Name="CourseType" />
+      <PropertyRef Name="CourseTypeId" />
+      <PropertyRef Name="IsUnenrolled" />
+      <PropertyRef Name="CourseId" />
+      <PropertyRef Name="CourseEnrollmentId" />
+    </Key>
+    <Property Name="CourseScheduleId" Type="bigint" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Badge" Type="varchar" MaxLength="10" />
+    <Property Name="BeginEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="EndEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+    <Property Name="CourseType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseTypeId" Type="bigint" Nullable="false" />
+    <Property Name="IsUnenrolled" Type="bit" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="DivisionId" Type="bigint" />
+    <Property Name="CourseEnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="CourseEnrollmentNote" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.CourseScheduleDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CourseScheduleDetail">
+    <Key>
+      <PropertyRef Name="CourseName" />
+      <PropertyRef Name="BeginEffDate" />
+      <PropertyRef Name="EndEffDate" />
+      <PropertyRef Name="CourseType" />
+      <PropertyRef Name="CourseTypeId" />
+      <PropertyRef Name="CourseId" />
+      <PropertyRef Name="CourseScheduleId" />
+      <PropertyRef Name="RowNum" />
+    </Key>
+    <Property Name="RowNum" Type="bigint" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Division" Type="varchar" MaxLength="8" />
+    <Property Name="Trainee" Type="varchar" MaxLength="121" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" />
+    <Property Name="TraineeDeptName" Type="varchar" MaxLength="30" />
+    <Property Name="TraineeLocation" Type="varchar" MaxLength="3" />
+    <Property Name="SessionTerm" Type="varchar" MaxLength="8000" />
+    <Property Name="BeginEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="EndEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+    <Property Name="CourseType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseTypeId" Type="bigint" Nullable="false" />
+    <Property Name="IsUnenrolled" Type="bit" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="DivisionId" Type="bigint" />
+    <Property Name="CourseScheduleId" Type="bigint" Nullable="false" />
+    <Property Name="CourseEnrollmentId" Type="bigint" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="CourseEnrollmentNote" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.EnrollmentList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EnrollmentList">
+    <Key>
+      <PropertyRef Name="CourseName" />
+      <PropertyRef Name="BeginEffDate" />
+      <PropertyRef Name="EndEffDate" />
+      <PropertyRef Name="CourseType" />
+      <PropertyRef Name="CourseTypeId" />
+      <PropertyRef Name="IsUnenrolled" />
+      <PropertyRef Name="CourseId" />
+      <PropertyRef Name="CourseScheduleId" />
+      <PropertyRef Name="CourseEnrollmentId" />
+    </Key>
+    <Property Name="EnrollmentId" Type="bigint" />
+    <Property Name="SessionDate" Type="date" />
+    <Property Name="LectureTime" Type="float" />
+    <Property Name="IsAbsent" Type="bit" />
+    <Property Name="Note" Type="varchar" MaxLength="1000" />
+    <Property Name="CourseRosterRow" Type="bigint" />
+    <Property Name="CourseName" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Division" Type="varchar" MaxLength="8" />
+    <Property Name="Trainee" Type="varchar" MaxLength="121" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" />
+    <Property Name="TraineeDeptName" Type="varchar" MaxLength="30" />
+    <Property Name="TraineeLocation" Type="varchar" MaxLength="3" />
+    <Property Name="SessionTerm" Type="varchar" MaxLength="8000" />
+    <Property Name="BeginEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="EndEffDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="EndTime" Type="time" Precision="7" />
+    <Property Name="CourseType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CourseTypeId" Type="bigint" Nullable="false" />
+    <Property Name="IsUnenrolled" Type="bit" Nullable="false" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="DivisionId" Type="bigint" />
+    <Property Name="CourseScheduleId" Type="bigint" Nullable="false" />
+    <Property Name="CourseEnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="CourseEnrollmentNote" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.EnrollmentTopicTypeOneBase' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EnrollmentTopicTypeOneBase">
+    <Key>
+      <PropertyRef Name="SessionDate" />
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="EnrollmentId" />
+      <PropertyRef Name="TopicId" />
+    </Key>
+    <Property Name="SessionDate" Type="date" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="TopicId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.EnrollmentTopicTypeOtherBase' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EnrollmentTopicTypeOtherBase">
+    <Key>
+      <PropertyRef Name="SessionDate" />
+      <PropertyRef Name="Code" />
+      <PropertyRef Name="EnrollmentId" />
+      <PropertyRef Name="TopicId" />
+    </Key>
+    <Property Name="SessionDate" Type="date" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="TopicId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.EnrollmentTraineeDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EnrollmentTraineeDetail">
+    <Key>
+      <PropertyRef Name="CourseName" />
+      <PropertyRef Name="SessionDate" />
+      <PropertyRef Name="LectureTime" />
+      <PropertyRef Name="IsUnenrolled" />
+      <PropertyRef Name="IsAbsent" />
+      <PropertyRef Name="CourseId" />
+      <PropertyRef Name="CourseTypeId" />
+      <PropertyRef Name="EnrollmentId" />
+    </Key>
+    <Property Name="Trainee" Type="varchar" MaxLength="121" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" />
+    <Property Name="CourseName" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="SessionDate" Type="date" Nullable="false" />
+    <Property Name="LectureTime" Type="float" Nullable="false" />
+    <Property Name="WheelTime" Type="float" />
+    <Property Name="TotalMinute" Type="float" />
+    <Property Name="WheelMinute" Type="float" />
+    <Property Name="VehicleId" Type="varchar" MaxLength="6" />
+    <Property Name="Vehicle" Type="varchar" MaxLength="40" />
+    <Property Name="QualifiedTraining" Type="bit" />
+    <Property Name="RouteAlpha" Type="nvarchar(max)" />
+    <Property Name="IsUnenrolled" Type="bit" Nullable="false" />
+    <Property Name="IsAbsent" Type="bit" Nullable="false" />
+    <Property Name="EquipmentGroupNum" Type="varchar" MaxLength="12" />
+    <Property Name="TrainingSeriesName" Type="varchar" MaxLength="50" />
+    <Property Name="SessionTerm" Type="varchar" MaxLength="8000" />
+    <Property Name="TraineeLocation" Type="varchar" MaxLength="3" />
+    <Property Name="Division" Type="varchar" MaxLength="8" />
+    <Property Name="DivisionId" Type="bigint" />
+    <Property Name="Note" Type="varchar" MaxLength="1000" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="CourseId" Type="bigint" Nullable="false" />
+    <Property Name="CourseTypeId" Type="bigint" Nullable="false" />
+    <Property Name="EnrollmentVehicleId" Type="bigint" />
+    <Property Name="EnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="LetterGrade" Type="varchar" MaxLength="2" />
+    <Property Name="InstructorId" Type="bigint" />
+    <Property Name="Trainer" Type="varchar" MaxLength="122" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.EnrollmentVehicleTime' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EnrollmentVehicleTime">
+    <Key>
+      <PropertyRef Name="LectureTime" />
+      <PropertyRef Name="EnrollmentId" />
+      <PropertyRef Name="CourseEnrollmentId" />
+      <PropertyRef Name="SessionDate" />
+      <PropertyRef Name="IsAbsent" />
+    </Key>
+    <Property Name="TotalMinute" Type="float" />
+    <Property Name="WheelMinute" Type="float" />
+    <Property Name="LectureMinute" Type="float" />
+    <Property Name="LectureTime" Type="float" Nullable="false" />
+    <Property Name="Row" Type="bigint" />
+    <Property Name="EnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="CourseEnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="SessionDate" Type="date" Nullable="false" />
+    <Property Name="IsAbsent" Type="bit" Nullable="false" />
+    <Property Name="LetterGrade" Type="varchar" MaxLength="2" />
+    <Property Name="Note" Type="varchar" MaxLength="1000" />
+    <Property Name="EnrollmentVehicleId" Type="bigint" />
+    <Property Name="VehicleId" Type="varchar" MaxLength="6" />
+    <Property Name="WheelTime" Type="float" />
+    <Property Name="RouteAlpha" Type="nvarchar(max)" />
+    <Property Name="QualifiedTraining" Type="bit" />
+    <Property Name="OUGLiftRampOps" Type="bit" />
+    <Property Name="OUGSecurement" Type="bit" />
+    <Property Name="VehicleGroup" Type="varchar" MaxLength="20" />
+    <Property Name="Vehicle" Type="varchar" MaxLength="40" />
+    <Property Name="EquipmentGroupNum" Type="varchar" MaxLength="12" />
+    <Property Name="TrainingSeriesName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.EquipmentGroupVehicle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EquipmentGroupVehicle">
+    <Key>
+      <PropertyRef Name="EquipmentGroupNum" />
+    </Key>
+    <Property Name="EquipmentGroupNum" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="SeriesNum" Type="varchar" MaxLength="25" />
+    <Property Name="TrainingSeriesName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.InstructorEnrollmentList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="InstructorEnrollmentList">
+    <Key>
+      <PropertyRef Name="IsPreferred" />
+      <PropertyRef Name="EnrollmentId" />
+    </Key>
+    <Property Name="IsPreferred" Type="int" Nullable="false" />
+    <Property Name="RowPreferred" Type="bigint" />
+    <Property Name="IsPrimary" Type="bit" />
+    <Property Name="EnrollmentInstructorId" Type="bigint" />
+    <Property Name="EnrollmentId" Type="bigint" Nullable="false" />
+    <Property Name="Trainer" Type="varchar" MaxLength="122" />
+    <Property Name="CourseTypeId" Type="bigint" />
+    <Property Name="Badge" Type="varchar" MaxLength="10" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="InstructorId" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.InstructorList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="InstructorList">
+    <Key>
+      <PropertyRef Name="InstructorId" />
+    </Key>
+    <Property Name="Trainer" Type="varchar" MaxLength="122" />
+    <Property Name="CourseTypeId" Type="bigint" />
+    <Property Name="Badge" Type="varchar" MaxLength="10" />
+    <Property Name="NonEmployeeId" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="InstructorId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Training.dbo.RouteAlphaSorted' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="RouteAlphaSorted">
+          <Property Name="RouteAlpha" Type="varchar" MaxLength="15" />
+          <Property Name="SortOrder" Type="bigint" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Training.dbo.RouteList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RouteList">
+    <Key>
+      <PropertyRef Name="RouteAlpha" />
+      <PropertyRef Name="SortOrder" />
+    </Key>
+    <Property Name="RouteAlpha" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Course_CourseType">
+    <End Role="CourseType" Type="Self.CourseType" Multiplicity="1" />
+    <End Role="Course" Type="Self.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseType">
+        <PropertyRef Name="CourseTypeId" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CourseTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseEnrolment_CourseSchedule">
+    <End Role="CourseSchedule" Type="Self.CourseSchedule" Multiplicity="1" />
+    <End Role="CourseEnrollment" Type="Self.CourseEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseSchedule">
+        <PropertyRef Name="CourseScheduleId" />
+      </Principal>
+      <Dependent Role="CourseEnrollment">
+        <PropertyRef Name="CourseScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseEnrolment_NonEmployee">
+    <End Role="NonEmployee" Type="Self.NonEmployee" Multiplicity="0..1" />
+    <End Role="CourseEnrollment" Type="Self.CourseEnrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NonEmployee">
+        <PropertyRef Name="NonEmployeeId" />
+      </Principal>
+      <Dependent Role="CourseEnrollment">
+        <PropertyRef Name="NonEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseSchedule_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="CourseSchedule" Type="Self.CourseSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="CourseSchedule">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseSchedule_Division">
+    <End Role="Division" Type="Self.Division" Multiplicity="0..1" />
+    <End Role="CourseSchedule" Type="Self.CourseSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="DivisionId" />
+      </Principal>
+      <Dependent Role="CourseSchedule">
+        <PropertyRef Name="DivisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseScheduleInstructor_CourseSchedule">
+    <End Role="CourseSchedule" Type="Self.CourseSchedule" Multiplicity="1" />
+    <End Role="CourseScheduleInstructor" Type="Self.CourseScheduleInstructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseSchedule">
+        <PropertyRef Name="CourseScheduleId" />
+      </Principal>
+      <Dependent Role="CourseScheduleInstructor">
+        <PropertyRef Name="CourseScheduleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseScheduleInstructor_Instructor">
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="CourseScheduleInstructor" Type="Self.CourseScheduleInstructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="InstructorId" />
+      </Principal>
+      <Dependent Role="CourseScheduleInstructor">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseTopic_Course">
+    <End Role="Course" Type="Self.Course" Multiplicity="1" />
+    <End Role="CourseTopic" Type="Self.CourseTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="CourseTopic">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseTopic_Topic">
+    <End Role="Topic" Type="Self.Topic" Multiplicity="1" />
+    <End Role="CourseTopic" Type="Self.CourseTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="TopicId" />
+      </Principal>
+      <Dependent Role="CourseTopic">
+        <PropertyRef Name="TopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DailyPerformanceProgramLevelGroup_DailyPerformanceId">
+    <End Role="DailyPerformance" Type="Self.DailyPerformance" Multiplicity="1" />
+    <End Role="DailyPerformanceProgramLevelGroup" Type="Self.DailyPerformanceProgramLevelGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DailyPerformance">
+        <PropertyRef Name="DailyPerformanceId" />
+      </Principal>
+      <Dependent Role="DailyPerformanceProgramLevelGroup">
+        <PropertyRef Name="DailyPerformanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DailyPerformanceProgramLevelGroup_ProgramLevelGroup">
+    <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+    <End Role="DailyPerformanceProgramLevelGroup" Type="Self.DailyPerformanceProgramLevelGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramLevelGroup">
+        <PropertyRef Name="ProgramLevelGroupId" />
+      </Principal>
+      <Dependent Role="DailyPerformanceProgramLevelGroup">
+        <PropertyRef Name="ProgramLevelGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollment_CourseEnrollment">
+    <End Role="CourseEnrollment" Type="Self.CourseEnrollment" Multiplicity="1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseEnrollment">
+        <PropertyRef Name="CourseEnrollmentId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="CourseEnrollmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enrollment_Grade">
+    <End Role="Grade" Type="Self.Grade" Multiplicity="0..1" />
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grade">
+        <PropertyRef Name="LetterGrade" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="LetterGrade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrollmentInstructor_Enrollment">
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="1" />
+    <End Role="EnrollmentInstructor" Type="Self.EnrollmentInstructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Enrollment">
+        <PropertyRef Name="EnrollmentId" />
+      </Principal>
+      <Dependent Role="EnrollmentInstructor">
+        <PropertyRef Name="EnrollmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrollmentInstructor_Instructor">
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="1" />
+    <End Role="EnrollmentInstructor" Type="Self.EnrollmentInstructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructor">
+        <PropertyRef Name="InstructorId" />
+      </Principal>
+      <Dependent Role="EnrollmentInstructor">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrollmentTopic_Enrollment">
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="1" />
+    <End Role="EnrollmentTopic" Type="Self.EnrollmentTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Enrollment">
+        <PropertyRef Name="EnrollmentId" />
+      </Principal>
+      <Dependent Role="EnrollmentTopic">
+        <PropertyRef Name="EnrollmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrollmentTopic_Topic">
+    <End Role="Topic" Type="Self.Topic" Multiplicity="1" />
+    <End Role="EnrollmentTopic" Type="Self.EnrollmentTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="TopicId" />
+      </Principal>
+      <Dependent Role="EnrollmentTopic">
+        <PropertyRef Name="TopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrollmentVehicle_Enrollment">
+    <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="1" />
+    <End Role="EnrollmentVehicle" Type="Self.EnrollmentVehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Enrollment">
+        <PropertyRef Name="EnrollmentId" />
+      </Principal>
+      <Dependent Role="EnrollmentVehicle">
+        <PropertyRef Name="EnrollmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrollmentVehicleRoute_EnrollmentVehicle">
+    <End Role="EnrollmentVehicle" Type="Self.EnrollmentVehicle" Multiplicity="1" />
+    <End Role="EnrollmentVehicleRoute" Type="Self.EnrollmentVehicleRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnrollmentVehicle">
+        <PropertyRef Name="EnrollmentVehicleId" />
+      </Principal>
+      <Dependent Role="EnrollmentVehicleRoute">
+        <PropertyRef Name="EnrollmentVehicleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Instructor_CourseTypeId">
+    <End Role="CourseType" Type="Self.CourseType" Multiplicity="0..1" />
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseType">
+        <PropertyRef Name="CourseTypeId" />
+      </Principal>
+      <Dependent Role="Instructor">
+        <PropertyRef Name="CourseTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Instructor_NonEmployee">
+    <End Role="NonEmployee" Type="Self.NonEmployee" Multiplicity="0..1" />
+    <End Role="Instructor" Type="Self.Instructor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NonEmployee">
+        <PropertyRef Name="NonEmployeeId" />
+      </Principal>
+      <Dependent Role="Instructor">
+        <PropertyRef Name="NonEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_ParentMenuId">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+    <End Role="Menu1" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="MenuId" />
+      </Principal>
+      <Dependent Role="Menu1">
+        <PropertyRef Name="ParentMenuId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participant_ParticipantStatus">
+    <End Role="ParticipantStatus" Type="Self.ParticipantStatus" Multiplicity="1" />
+    <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParticipantStatus">
+        <PropertyRef Name="ParticipantStatusId" />
+      </Principal>
+      <Dependent Role="Participant">
+        <PropertyRef Name="ParticipantStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participant_Program">
+    <End Role="Program" Type="Self.Program" Multiplicity="1" />
+    <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramId" />
+      </Principal>
+      <Dependent Role="Participant">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Participant_ProgramLevel">
+    <End Role="ProgramLevel" Type="Self.ProgramLevel" Multiplicity="0..1" />
+    <End Role="Participant" Type="Self.Participant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramLevel">
+        <PropertyRef Name="ProgramLevelId" />
+      </Principal>
+      <Dependent Role="Participant">
+        <PropertyRef Name="ProgramLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantLevel_Participant">
+    <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+    <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Participant">
+        <PropertyRef Name="ParticipantId" />
+      </Principal>
+      <Dependent Role="ParticipantProgramLevelGroup">
+        <PropertyRef Name="ParticipantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantLevel_ParticipantProgramLevelGroup">
+    <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="1" />
+    <End Role="Progress" Type="Self.Progress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParticipantProgramLevelGroup">
+        <PropertyRef Name="ParticipantProgramLevelGroupId" />
+      </Principal>
+      <Dependent Role="Progress">
+        <PropertyRef Name="ParticipantProgramLevelGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantLevel_ProgramLevelGroup">
+    <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+    <End Role="ParticipantProgramLevelGroup" Type="Self.ParticipantProgramLevelGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramLevelGroup">
+        <PropertyRef Name="ProgramLevelGroupId" />
+      </Principal>
+      <Dependent Role="ParticipantProgramLevelGroup">
+        <PropertyRef Name="ProgramLevelGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantWork_Participant">
+    <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+    <End Role="ParticipantWork" Type="Self.ParticipantWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Participant">
+        <PropertyRef Name="ParticipantId" />
+      </Principal>
+      <Dependent Role="ParticipantWork">
+        <PropertyRef Name="ParticipantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantWork_WorkCategory">
+    <End Role="WorkCategory" Type="Self.WorkCategory" Multiplicity="1" />
+    <End Role="ParticipantWork" Type="Self.ParticipantWork" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkCategory">
+        <PropertyRef Name="WorkCategoryId" />
+      </Principal>
+      <Dependent Role="ParticipantWork">
+        <PropertyRef Name="WorkCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantWorkSeed_Participant">
+    <End Role="Participant" Type="Self.Participant" Multiplicity="1" />
+    <End Role="ParticipantWorkSeed" Type="Self.ParticipantWorkSeed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Participant">
+        <PropertyRef Name="ParticipantId" />
+      </Principal>
+      <Dependent Role="ParticipantWorkSeed">
+        <PropertyRef Name="ParticipantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantWorkSeed_WorkCategory">
+    <End Role="WorkCategory" Type="Self.WorkCategory" Multiplicity="1" />
+    <End Role="ParticipantWorkSeed" Type="Self.ParticipantWorkSeed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkCategory">
+        <PropertyRef Name="WorkCategoryId" />
+      </Principal>
+      <Dependent Role="ParticipantWorkSeed">
+        <PropertyRef Name="WorkCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramLevel_ProgramLevelGroup">
+    <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+    <End Role="ProgramLevel" Type="Self.ProgramLevel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramLevelGroup">
+        <PropertyRef Name="ProgramLevelGroupId" />
+      </Principal>
+      <Dependent Role="ProgramLevel">
+        <PropertyRef Name="ProgramLevelGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramLevelGroup_Program">
+    <End Role="Program" Type="Self.Program" Multiplicity="1" />
+    <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramId" />
+      </Principal>
+      <Dependent Role="ProgramLevelGroup">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgressDay_DailyPerformance">
+    <End Role="DailyPerformance" Type="Self.DailyPerformance" Multiplicity="0..1" />
+    <End Role="ProgressDay" Type="Self.ProgressDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DailyPerformance">
+        <PropertyRef Name="DailyPerformanceId" />
+      </Principal>
+      <Dependent Role="ProgressDay">
+        <PropertyRef Name="DailyPerformanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgressDay_Division">
+    <End Role="Division" Type="Self.Division" Multiplicity="1" />
+    <End Role="ProgressDay" Type="Self.ProgressDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="DivisionId" />
+      </Principal>
+      <Dependent Role="ProgressDay">
+        <PropertyRef Name="DivisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgressDay_ProgramLevel">
+    <End Role="ProgramLevel" Type="Self.ProgramLevel" Multiplicity="1" />
+    <End Role="ProgressDay" Type="Self.ProgressDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramLevel">
+        <PropertyRef Name="ProgramLevelId" />
+      </Principal>
+      <Dependent Role="ProgressDay">
+        <PropertyRef Name="ProgramLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgressDay_Progress">
+    <End Role="Progress" Type="Self.Progress" Multiplicity="1" />
+    <End Role="ProgressDay" Type="Self.ProgressDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Progress">
+        <PropertyRef Name="ProgressId" />
+      </Principal>
+      <Dependent Role="ProgressDay">
+        <PropertyRef Name="ProgressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgressRatingCellScore_Progress">
+    <End Role="Progress" Type="Self.Progress" Multiplicity="1" />
+    <End Role="ProgressRatingCellScore" Type="Self.ProgressRatingCellScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Progress">
+        <PropertyRef Name="ProgressId" />
+      </Principal>
+      <Dependent Role="ProgressRatingCellScore">
+        <PropertyRef Name="ProgressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgressRatingCellScore_RatingCell">
+    <End Role="RatingCellScore" Type="Self.RatingCellScore" Multiplicity="1" />
+    <End Role="ProgressRatingCellScore" Type="Self.ProgressRatingCellScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RatingCellScore">
+        <PropertyRef Name="RatingCellScoreId" />
+      </Principal>
+      <Dependent Role="ProgressRatingCellScore">
+        <PropertyRef Name="RatingCellScoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RatingCell_ProgramLevelGroup">
+    <End Role="ProgramLevelGroup" Type="Self.ProgramLevelGroup" Multiplicity="1" />
+    <End Role="RatingCell" Type="Self.RatingCell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramLevelGroup">
+        <PropertyRef Name="ProgramLevelGroupId" />
+      </Principal>
+      <Dependent Role="RatingCell">
+        <PropertyRef Name="ProgramLevelGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RatingCell_RatingArea">
+    <End Role="RatingArea" Type="Self.RatingArea" Multiplicity="1" />
+    <End Role="RatingCell" Type="Self.RatingCell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RatingArea">
+        <PropertyRef Name="RatingAreaId" />
+      </Principal>
+      <Dependent Role="RatingCell">
+        <PropertyRef Name="RatingAreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RatingCell_RatingCategory">
+    <End Role="RatingCategory" Type="Self.RatingCategory" Multiplicity="1" />
+    <End Role="RatingCell" Type="Self.RatingCell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RatingCategory">
+        <PropertyRef Name="RatingCategoryId" />
+      </Principal>
+      <Dependent Role="RatingCell">
+        <PropertyRef Name="RatingCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RatingCell_RatingItem">
+    <End Role="RatingItem" Type="Self.RatingItem" Multiplicity="1" />
+    <End Role="RatingCell" Type="Self.RatingCell" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RatingItem">
+        <PropertyRef Name="RatingItemId" />
+      </Principal>
+      <Dependent Role="RatingCell">
+        <PropertyRef Name="RatingItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RatingCellScore_RatingCellId">
+    <End Role="RatingCell" Type="Self.RatingCell" Multiplicity="1" />
+    <End Role="RatingCellScore" Type="Self.RatingCellScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RatingCell">
+        <PropertyRef Name="RatingCellId" />
+      </Principal>
+      <Dependent Role="RatingCellScore">
+        <PropertyRef Name="RatingCellId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Topic_CourseTypeId">
+    <End Role="CourseType" Type="Self.CourseType" Multiplicity="1" />
+    <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseType">
+        <PropertyRef Name="CourseTypeId" />
+      </Principal>
+      <Dependent Role="Topic">
+        <PropertyRef Name="CourseTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Topic_TopicTypeId">
+    <End Role="TopicType" Type="Self.TopicType" Multiplicity="0..1" />
+    <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TopicType">
+        <PropertyRef Name="TopicTypeId" />
+      </Principal>
+      <Dependent Role="Topic">
+        <PropertyRef Name="TopicTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkCategory_Program">
+    <End Role="Program" Type="Self.Program" Multiplicity="1" />
+    <End Role="WorkCategory" Type="Self.WorkCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="ProgramId" />
+      </Principal>
+      <Dependent Role="WorkCategory">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetActionItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Apprentice">
+    <Parameter Name="Badge" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetApprenticeDetailUnitTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Apprentice">
+    <Parameter Name="Badge" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetParticipantWork" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Apprentice">
+    <Parameter Name="StartDate" Type="date" Mode="In" />
+    <Parameter Name="EndDate" Type="date" Mode="In" />
+    <Parameter Name="Badge" Type="varchar" Mode="In" />
+    <Parameter Name="Summarize" Type="bit" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="ProgramId" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="SyncParticipantWork" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Apprentice" />
+  <Function Name="SyncWithEnterprise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Apprentice">
+    <Parameter Name="TodayAsDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="CharToTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="list" Type="ntext" Mode="In" />
+    <Parameter Name="delimiter" Type="nchar" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="listpos" Type="int" Nullable="false" />
+          <Property Name="str" Type="varchar" MaxLength="4000" />
+          <Property Name="nstr" Type="nvarchar" MaxLength="2000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="GetAttendanceList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseTypeId" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="Trainee" Type="varchar" Mode="In" />
+    <Parameter Name="Attended" Type="varchar" Mode="In" />
+    <Parameter Name="CourseId" Type="varchar" Mode="In" />
+    <Parameter Name="Division" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetEnrollmentTraineeDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseTypeId" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="QualifiedTraining" Type="bit" Mode="In" />
+    <Parameter Name="EquipmentGroupNum" Type="varchar" Mode="In" />
+    <Parameter Name="RouteAlpha" Type="varchar" Mode="In" />
+    <Parameter Name="CourseId" Type="varchar" Mode="In" />
+    <Parameter Name="Trainee" Type="varchar" Mode="In" />
+    <Parameter Name="InstructorId" Type="varchar" Mode="In" />
+    <Parameter Name="TopicId" Type="varchar" Mode="In" />
+    <Parameter Name="ShowTopic" Type="bit" Mode="In" />
+    <Parameter Name="Div" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="TrainingContextStoreContainer">
+    <EntitySet Name="DailyPerformance" EntityType="Self.DailyPerformance" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="DailyPerformanceProgramLevelGroup" EntityType="Self.DailyPerformanceProgramLevelGroup" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="Participant" EntityType="Self.Participant" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="ParticipantProgramLevelGroup" EntityType="Self.ParticipantProgramLevelGroup" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="ParticipantStatus" EntityType="Self.ParticipantStatus" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="ParticipantWork" EntityType="Self.ParticipantWork" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="ParticipantWorkSeed" EntityType="Self.ParticipantWorkSeed" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="Program" EntityType="Self.Program" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="ProgramLevel" EntityType="Self.ProgramLevel" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="ProgramLevelGroup" EntityType="Self.ProgramLevelGroup" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="Progress" EntityType="Self.Progress" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="ProgressDay" EntityType="Self.ProgressDay" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="ProgressRatingCellScore" EntityType="Self.ProgressRatingCellScore" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="RatingArea" EntityType="Self.RatingArea" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="RatingCategory" EntityType="Self.RatingCategory" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="RatingCell" EntityType="Self.RatingCell" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="RatingCellScore" EntityType="Self.RatingCellScore" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="RatingItem" EntityType="Self.RatingItem" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="WorkCategory" EntityType="Self.WorkCategory" Schema="Apprentice" store:Type="Tables" />
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseEnrollment" EntityType="Self.CourseEnrollment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseSchedule" EntityType="Self.CourseSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseScheduleInstructor" EntityType="Self.CourseScheduleInstructor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseTopic" EntityType="Self.CourseTopic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseType" EntityType="Self.CourseType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Enrollment" EntityType="Self.Enrollment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnrollmentInstructor" EntityType="Self.EnrollmentInstructor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnrollmentTopic" EntityType="Self.EnrollmentTopic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnrollmentVehicle" EntityType="Self.EnrollmentVehicle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnrollmentVehicleRoute" EntityType="Self.EnrollmentVehicleRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grade" EntityType="Self.Grade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instructor" EntityType="Self.Instructor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NonEmployee" EntityType="Self.NonEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TopicType" EntityType="Self.TopicType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParticipantWorkDetail" EntityType="Self.ParticipantWorkDetail" store:Type="Views" store:Schema="Apprentice">
+      <DefiningQuery>SELECT 
+    [ParticipantWorkDetail].[ProgramName] AS [ProgramName], 
+    [ParticipantWorkDetail].[Badge] AS [Badge], 
+    [ParticipantWorkDetail].[EmployeeName] AS [EmployeeName], 
+    [ParticipantWorkDetail].[EmployeeNameLastFirst] AS [EmployeeNameLastFirst], 
+    [ParticipantWorkDetail].[ParticipantId] AS [ParticipantId], 
+    [ParticipantWorkDetail].[ProgramId] AS [ProgramId], 
+    [ParticipantWorkDetail].[ProgressStartDate] AS [ProgressStartDate], 
+    [ParticipantWorkDetail].[WorkHour] AS [WorkHour], 
+    [ParticipantWorkDetail].[WorkCategoryTitleGoal] AS [WorkCategoryTitleGoal], 
+    [ParticipantWorkDetail].[WorkCategorySortOrder] AS [WorkCategorySortOrder], 
+    [ParticipantWorkDetail].[WorkCategoryShortDescription] AS [WorkCategoryShortDescription], 
+    [ParticipantWorkDetail].[WorkCategoryName] AS [WorkCategoryName], 
+    [ParticipantWorkDetail].[WorkCategoryId] AS [WorkCategoryId], 
+    [ParticipantWorkDetail].[CompletedDate] AS [CompletedDate], 
+    [ParticipantWorkDetail].[EmployeeDivision] AS [EmployeeDivision], 
+    [ParticipantWorkDetail].[EmployeeWorkShift] AS [EmployeeWorkShift], 
+    [ParticipantWorkDetail].[EmployeeScheduledDaysOff] AS [EmployeeScheduledDaysOff], 
+    [ParticipantWorkDetail].[Level] AS [Level], 
+    [ParticipantWorkDetail].[ParticipantStatusId] AS [ParticipantStatusId], 
+    [ParticipantWorkDetail].[ScoreTotal] AS [ScoreTotal], 
+    [ParticipantWorkDetail].[SeedValue] AS [SeedValue]
+    FROM [Apprentice].[ParticipantWorkDetail] AS [ParticipantWorkDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WorksheetParticipantDetail" EntityType="Self.WorksheetParticipantDetail" store:Type="Views" store:Schema="Apprentice">
+      <DefiningQuery>SELECT 
+    [WorksheetParticipantDetail].[ParticipantId] AS [ParticipantId], 
+    [WorksheetParticipantDetail].[Badge] AS [Badge], 
+    [WorksheetParticipantDetail].[ProgramCompletedDate] AS [ProgramCompletedDate], 
+    [WorksheetParticipantDetail].[ProgressStartDate] AS [ProgressStartDate], 
+    [WorksheetParticipantDetail].[ScoreTotal] AS [ScoreTotal], 
+    [WorksheetParticipantDetail].[Score] AS [Score], 
+    [WorksheetParticipantDetail].[CalendarDate] AS [CalendarDate], 
+    [WorksheetParticipantDetail].[DaySupervisorBadge] AS [DaySupervisorBadge], 
+    [WorksheetParticipantDetail].[Comment] AS [Comment], 
+    [WorksheetParticipantDetail].[CommentDate] AS [CommentDate], 
+    [WorksheetParticipantDetail].[CommentBadge] AS [CommentBadge], 
+    [WorksheetParticipantDetail].[ProgramLevelGroupId] AS [ProgramLevelGroupId], 
+    [WorksheetParticipantDetail].[RatingCategoryId] AS [RatingCategoryId], 
+    [WorksheetParticipantDetail].[RatingAreaId] AS [RatingAreaId], 
+    [WorksheetParticipantDetail].[RatingItemId] AS [RatingItemId], 
+    [WorksheetParticipantDetail].[RatingCellId] AS [RatingCellId], 
+    [WorksheetParticipantDetail].[RatingCellScoreId] AS [RatingCellScoreId], 
+    [WorksheetParticipantDetail].[ProgressId] AS [ProgressId], 
+    [WorksheetParticipantDetail].[ProgressDayId] AS [ProgressDayId], 
+    [WorksheetParticipantDetail].[EvaluationDate] AS [EvaluationDate], 
+    [WorksheetParticipantDetail].[SupervisorBadge] AS [SupervisorBadge], 
+    [WorksheetParticipantDetail].[SuperintendentBadge] AS [SuperintendentBadge], 
+    [WorksheetParticipantDetail].[SuperintendentApprovalDate] AS [SuperintendentApprovalDate], 
+    [WorksheetParticipantDetail].[DivisionId] AS [DivisionId], 
+    [WorksheetParticipantDetail].[DailyPerformanceId] AS [DailyPerformanceId], 
+    [WorksheetParticipantDetail].[ParticipantStatusId] AS [ParticipantStatusId], 
+    [WorksheetParticipantDetail].[ProgramLevelId] AS [ProgramLevelId], 
+    [WorksheetParticipantDetail].[ParticipantProgramLevelGroupId] AS [ParticipantProgramLevelGroupId], 
+    [WorksheetParticipantDetail].[ProgramId] AS [ProgramId]
+    FROM [Apprentice].[WorksheetParticipantDetail] AS [WorksheetParticipantDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WorksheetScoreTemplate" EntityType="Self.WorksheetScoreTemplate" store:Type="Views" store:Schema="Apprentice">
+      <DefiningQuery>SELECT 
+    [WorksheetScoreTemplate].[ProgramGroup] AS [ProgramGroup], 
+    [WorksheetScoreTemplate].[Category] AS [Category], 
+    [WorksheetScoreTemplate].[Area] AS [Area], 
+    [WorksheetScoreTemplate].[Item] AS [Item], 
+    [WorksheetScoreTemplate].[SortOrderCategory] AS [SortOrderCategory], 
+    [WorksheetScoreTemplate].[SortOrderArea] AS [SortOrderArea], 
+    [WorksheetScoreTemplate].[SortOrderCell] AS [SortOrderCell], 
+    [WorksheetScoreTemplate].[Score] AS [Score], 
+    [WorksheetScoreTemplate].[RatingCellScoreId] AS [RatingCellScoreId], 
+    [WorksheetScoreTemplate].[RatingCellId] AS [RatingCellId], 
+    [WorksheetScoreTemplate].[ProgramLevelGroupId] AS [ProgramLevelGroupId], 
+    [WorksheetScoreTemplate].[RatingCategoryId] AS [RatingCategoryId], 
+    [WorksheetScoreTemplate].[RatingAreaId] AS [RatingAreaId], 
+    [WorksheetScoreTemplate].[RatingItemId] AS [RatingItemId], 
+    [WorksheetScoreTemplate].[StartLevel] AS [StartLevel], 
+    [WorksheetScoreTemplate].[SortOrder] AS [SortOrder]
+    FROM [Apprentice].[WorksheetScoreTemplate] AS [WorksheetScoreTemplate]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WorksheetTemplate" EntityType="Self.WorksheetTemplate" store:Type="Views" store:Schema="Apprentice">
+      <DefiningQuery>SELECT 
+    [WorksheetTemplate].[ProgramGroup] AS [ProgramGroup], 
+    [WorksheetTemplate].[Category] AS [Category], 
+    [WorksheetTemplate].[Area] AS [Area], 
+    [WorksheetTemplate].[Item] AS [Item], 
+    [WorksheetTemplate].[SortOrderCategory] AS [SortOrderCategory], 
+    [WorksheetTemplate].[SortOrderArea] AS [SortOrderArea], 
+    [WorksheetTemplate].[SortOrderCell] AS [SortOrderCell], 
+    [WorksheetTemplate].[RatingCellId] AS [RatingCellId], 
+    [WorksheetTemplate].[ProgramLevelGroupId] AS [ProgramLevelGroupId], 
+    [WorksheetTemplate].[RatingCategoryId] AS [RatingCategoryId], 
+    [WorksheetTemplate].[RatingAreaId] AS [RatingAreaId], 
+    [WorksheetTemplate].[RatingItemId] AS [RatingItemId], 
+    [WorksheetTemplate].[StartLevel] AS [StartLevel], 
+    [WorksheetTemplate].[SortOrder] AS [SortOrder]
+    FROM [Apprentice].[WorksheetTemplate] AS [WorksheetTemplate]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ComponentTopic" EntityType="Self.ComponentTopic" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ComponentTopic].[TopicId] AS [TopicId], 
+    [ComponentTopic].[Name] AS [Name], 
+    [ComponentTopic].[Description] AS [Description], 
+    [ComponentTopic].[IsActive] AS [IsActive], 
+    [ComponentTopic].[CourseTypeId] AS [CourseTypeId], 
+    [ComponentTopic].[TopicTypeId] AS [TopicTypeId], 
+    [ComponentTopic].[Code] AS [Code]
+    FROM [dbo].[ComponentTopic] AS [ComponentTopic]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CourseRoster" EntityType="Self.CourseRoster" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CourseRoster].[CourseRosterRow] AS [CourseRosterRow], 
+    [CourseRoster].[CourseName] AS [CourseName], 
+    [CourseRoster].[Division] AS [Division], 
+    [CourseRoster].[Trainee] AS [Trainee], 
+    [CourseRoster].[Badge] AS [Badge], 
+    [CourseRoster].[TraineeDeptName] AS [TraineeDeptName], 
+    [CourseRoster].[TraineeLocation] AS [TraineeLocation], 
+    [CourseRoster].[SessionTerm] AS [SessionTerm], 
+    [CourseRoster].[BeginEffDate] AS [BeginEffDate], 
+    [CourseRoster].[EndEffDate] AS [EndEffDate], 
+    [CourseRoster].[StartTime] AS [StartTime], 
+    [CourseRoster].[EndTime] AS [EndTime], 
+    [CourseRoster].[CourseType] AS [CourseType], 
+    [CourseRoster].[CourseTypeId] AS [CourseTypeId], 
+    [CourseRoster].[IsUnenrolled] AS [IsUnenrolled], 
+    [CourseRoster].[CourseId] AS [CourseId], 
+    [CourseRoster].[DivisionId] AS [DivisionId], 
+    [CourseRoster].[CourseScheduleId] AS [CourseScheduleId], 
+    [CourseRoster].[CourseEnrollmentId] AS [CourseEnrollmentId], 
+    [CourseRoster].[NonEmployeeId] AS [NonEmployeeId], 
+    [CourseRoster].[CourseEnrollmentNote] AS [CourseEnrollmentNote]
+    FROM [dbo].[CourseRoster] AS [CourseRoster]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CourseRosterBase" EntityType="Self.CourseRosterBase" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CourseRosterBase].[CourseScheduleId] AS [CourseScheduleId], 
+    [CourseRosterBase].[CourseName] AS [CourseName], 
+    [CourseRosterBase].[Badge] AS [Badge], 
+    [CourseRosterBase].[BeginEffDate] AS [BeginEffDate], 
+    [CourseRosterBase].[EndEffDate] AS [EndEffDate], 
+    [CourseRosterBase].[StartTime] AS [StartTime], 
+    [CourseRosterBase].[EndTime] AS [EndTime], 
+    [CourseRosterBase].[CourseType] AS [CourseType], 
+    [CourseRosterBase].[CourseTypeId] AS [CourseTypeId], 
+    [CourseRosterBase].[IsUnenrolled] AS [IsUnenrolled], 
+    [CourseRosterBase].[CourseId] AS [CourseId], 
+    [CourseRosterBase].[DivisionId] AS [DivisionId], 
+    [CourseRosterBase].[CourseEnrollmentId] AS [CourseEnrollmentId], 
+    [CourseRosterBase].[NonEmployeeId] AS [NonEmployeeId], 
+    [CourseRosterBase].[CourseEnrollmentNote] AS [CourseEnrollmentNote]
+    FROM [dbo].[CourseRosterBase] AS [CourseRosterBase]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CourseScheduleDetail" EntityType="Self.CourseScheduleDetail" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CourseScheduleDetail].[RowNum] AS [RowNum], 
+    [CourseScheduleDetail].[CourseName] AS [CourseName], 
+    [CourseScheduleDetail].[Division] AS [Division], 
+    [CourseScheduleDetail].[Trainee] AS [Trainee], 
+    [CourseScheduleDetail].[Badge] AS [Badge], 
+    [CourseScheduleDetail].[TraineeDeptName] AS [TraineeDeptName], 
+    [CourseScheduleDetail].[TraineeLocation] AS [TraineeLocation], 
+    [CourseScheduleDetail].[SessionTerm] AS [SessionTerm], 
+    [CourseScheduleDetail].[BeginEffDate] AS [BeginEffDate], 
+    [CourseScheduleDetail].[EndEffDate] AS [EndEffDate], 
+    [CourseScheduleDetail].[StartTime] AS [StartTime], 
+    [CourseScheduleDetail].[EndTime] AS [EndTime], 
+    [CourseScheduleDetail].[CourseType] AS [CourseType], 
+    [CourseScheduleDetail].[CourseTypeId] AS [CourseTypeId], 
+    [CourseScheduleDetail].[IsUnenrolled] AS [IsUnenrolled], 
+    [CourseScheduleDetail].[CourseId] AS [CourseId], 
+    [CourseScheduleDetail].[DivisionId] AS [DivisionId], 
+    [CourseScheduleDetail].[CourseScheduleId] AS [CourseScheduleId], 
+    [CourseScheduleDetail].[CourseEnrollmentId] AS [CourseEnrollmentId], 
+    [CourseScheduleDetail].[NonEmployeeId] AS [NonEmployeeId], 
+    [CourseScheduleDetail].[CourseEnrollmentNote] AS [CourseEnrollmentNote]
+    FROM [dbo].[CourseScheduleDetail] AS [CourseScheduleDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EnrollmentList" EntityType="Self.EnrollmentList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EnrollmentList].[EnrollmentId] AS [EnrollmentId], 
+    [EnrollmentList].[SessionDate] AS [SessionDate], 
+    [EnrollmentList].[LectureTime] AS [LectureTime], 
+    [EnrollmentList].[IsAbsent] AS [IsAbsent], 
+    [EnrollmentList].[Note] AS [Note], 
+    [EnrollmentList].[CourseRosterRow] AS [CourseRosterRow], 
+    [EnrollmentList].[CourseName] AS [CourseName], 
+    [EnrollmentList].[Division] AS [Division], 
+    [EnrollmentList].[Trainee] AS [Trainee], 
+    [EnrollmentList].[Badge] AS [Badge], 
+    [EnrollmentList].[TraineeDeptName] AS [TraineeDeptName], 
+    [EnrollmentList].[TraineeLocation] AS [TraineeLocation], 
+    [EnrollmentList].[SessionTerm] AS [SessionTerm], 
+    [EnrollmentList].[BeginEffDate] AS [BeginEffDate], 
+    [EnrollmentList].[EndEffDate] AS [EndEffDate], 
+    [EnrollmentList].[StartTime] AS [StartTime], 
+    [EnrollmentList].[EndTime] AS [EndTime], 
+    [EnrollmentList].[CourseType] AS [CourseType], 
+    [EnrollmentList].[CourseTypeId] AS [CourseTypeId], 
+    [EnrollmentList].[IsUnenrolled] AS [IsUnenrolled], 
+    [EnrollmentList].[CourseId] AS [CourseId], 
+    [EnrollmentList].[DivisionId] AS [DivisionId], 
+    [EnrollmentList].[CourseScheduleId] AS [CourseScheduleId], 
+    [EnrollmentList].[CourseEnrollmentId] AS [CourseEnrollmentId], 
+    [EnrollmentList].[NonEmployeeId] AS [NonEmployeeId], 
+    [EnrollmentList].[CourseEnrollmentNote] AS [CourseEnrollmentNote]
+    FROM [dbo].[EnrollmentList] AS [EnrollmentList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EnrollmentTopicTypeOneBase" EntityType="Self.EnrollmentTopicTypeOneBase" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EnrollmentTopicTypeOneBase].[SessionDate] AS [SessionDate], 
+    [EnrollmentTopicTypeOneBase].[Code] AS [Code], 
+    [EnrollmentTopicTypeOneBase].[EnrollmentId] AS [EnrollmentId], 
+    [EnrollmentTopicTypeOneBase].[TopicId] AS [TopicId]
+    FROM [dbo].[EnrollmentTopicTypeOneBase] AS [EnrollmentTopicTypeOneBase]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EnrollmentTopicTypeOtherBase" EntityType="Self.EnrollmentTopicTypeOtherBase" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EnrollmentTopicTypeOtherBase].[SessionDate] AS [SessionDate], 
+    [EnrollmentTopicTypeOtherBase].[Code] AS [Code], 
+    [EnrollmentTopicTypeOtherBase].[EnrollmentId] AS [EnrollmentId], 
+    [EnrollmentTopicTypeOtherBase].[TopicId] AS [TopicId]
+    FROM [dbo].[EnrollmentTopicTypeOtherBase] AS [EnrollmentTopicTypeOtherBase]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EnrollmentTraineeDetail" EntityType="Self.EnrollmentTraineeDetail" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EnrollmentTraineeDetail].[Trainee] AS [Trainee], 
+    [EnrollmentTraineeDetail].[Badge] AS [Badge], 
+    [EnrollmentTraineeDetail].[CourseName] AS [CourseName], 
+    [EnrollmentTraineeDetail].[SessionDate] AS [SessionDate], 
+    [EnrollmentTraineeDetail].[LectureTime] AS [LectureTime], 
+    [EnrollmentTraineeDetail].[WheelTime] AS [WheelTime], 
+    [EnrollmentTraineeDetail].[TotalMinute] AS [TotalMinute], 
+    [EnrollmentTraineeDetail].[WheelMinute] AS [WheelMinute], 
+    [EnrollmentTraineeDetail].[VehicleId] AS [VehicleId], 
+    [EnrollmentTraineeDetail].[Vehicle] AS [Vehicle], 
+    [EnrollmentTraineeDetail].[QualifiedTraining] AS [QualifiedTraining], 
+    [EnrollmentTraineeDetail].[RouteAlpha] AS [RouteAlpha], 
+    [EnrollmentTraineeDetail].[IsUnenrolled] AS [IsUnenrolled], 
+    [EnrollmentTraineeDetail].[IsAbsent] AS [IsAbsent], 
+    [EnrollmentTraineeDetail].[EquipmentGroupNum] AS [EquipmentGroupNum], 
+    [EnrollmentTraineeDetail].[TrainingSeriesName] AS [TrainingSeriesName], 
+    [EnrollmentTraineeDetail].[SessionTerm] AS [SessionTerm], 
+    [EnrollmentTraineeDetail].[TraineeLocation] AS [TraineeLocation], 
+    [EnrollmentTraineeDetail].[Division] AS [Division], 
+    [EnrollmentTraineeDetail].[DivisionId] AS [DivisionId], 
+    [EnrollmentTraineeDetail].[Note] AS [Note], 
+    [EnrollmentTraineeDetail].[NonEmployeeId] AS [NonEmployeeId], 
+    [EnrollmentTraineeDetail].[CourseId] AS [CourseId], 
+    [EnrollmentTraineeDetail].[CourseTypeId] AS [CourseTypeId], 
+    [EnrollmentTraineeDetail].[EnrollmentVehicleId] AS [EnrollmentVehicleId], 
+    [EnrollmentTraineeDetail].[EnrollmentId] AS [EnrollmentId], 
+    [EnrollmentTraineeDetail].[LetterGrade] AS [LetterGrade], 
+    [EnrollmentTraineeDetail].[InstructorId] AS [InstructorId], 
+    [EnrollmentTraineeDetail].[Trainer] AS [Trainer]
+    FROM [dbo].[EnrollmentTraineeDetail] AS [EnrollmentTraineeDetail]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EnrollmentVehicleTime" EntityType="Self.EnrollmentVehicleTime" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EnrollmentVehicleTime].[TotalMinute] AS [TotalMinute], 
+    [EnrollmentVehicleTime].[WheelMinute] AS [WheelMinute], 
+    [EnrollmentVehicleTime].[LectureMinute] AS [LectureMinute], 
+    [EnrollmentVehicleTime].[LectureTime] AS [LectureTime], 
+    [EnrollmentVehicleTime].[Row] AS [Row], 
+    [EnrollmentVehicleTime].[EnrollmentId] AS [EnrollmentId], 
+    [EnrollmentVehicleTime].[CourseEnrollmentId] AS [CourseEnrollmentId], 
+    [EnrollmentVehicleTime].[SessionDate] AS [SessionDate], 
+    [EnrollmentVehicleTime].[IsAbsent] AS [IsAbsent], 
+    [EnrollmentVehicleTime].[LetterGrade] AS [LetterGrade], 
+    [EnrollmentVehicleTime].[Note] AS [Note], 
+    [EnrollmentVehicleTime].[EnrollmentVehicleId] AS [EnrollmentVehicleId], 
+    [EnrollmentVehicleTime].[VehicleId] AS [VehicleId], 
+    [EnrollmentVehicleTime].[WheelTime] AS [WheelTime], 
+    [EnrollmentVehicleTime].[RouteAlpha] AS [RouteAlpha], 
+    [EnrollmentVehicleTime].[QualifiedTraining] AS [QualifiedTraining], 
+    [EnrollmentVehicleTime].[OUGLiftRampOps] AS [OUGLiftRampOps], 
+    [EnrollmentVehicleTime].[OUGSecurement] AS [OUGSecurement], 
+    [EnrollmentVehicleTime].[VehicleGroup] AS [VehicleGroup], 
+    [EnrollmentVehicleTime].[Vehicle] AS [Vehicle], 
+    [EnrollmentVehicleTime].[EquipmentGroupNum] AS [EquipmentGroupNum], 
+    [EnrollmentVehicleTime].[TrainingSeriesName] AS [TrainingSeriesName]
+    FROM [dbo].[EnrollmentVehicleTime] AS [EnrollmentVehicleTime]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EquipmentGroupVehicle" EntityType="Self.EquipmentGroupVehicle" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EquipmentGroupVehicle].[EquipmentGroupNum] AS [EquipmentGroupNum], 
+    [EquipmentGroupVehicle].[SeriesNum] AS [SeriesNum], 
+    [EquipmentGroupVehicle].[TrainingSeriesName] AS [TrainingSeriesName]
+    FROM [dbo].[EquipmentGroupVehicle] AS [EquipmentGroupVehicle]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="InstructorEnrollmentList" EntityType="Self.InstructorEnrollmentList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [InstructorEnrollmentList].[IsPreferred] AS [IsPreferred], 
+    [InstructorEnrollmentList].[RowPreferred] AS [RowPreferred], 
+    [InstructorEnrollmentList].[IsPrimary] AS [IsPrimary], 
+    [InstructorEnrollmentList].[EnrollmentInstructorId] AS [EnrollmentInstructorId], 
+    [InstructorEnrollmentList].[EnrollmentId] AS [EnrollmentId], 
+    [InstructorEnrollmentList].[Trainer] AS [Trainer], 
+    [InstructorEnrollmentList].[CourseTypeId] AS [CourseTypeId], 
+    [InstructorEnrollmentList].[Badge] AS [Badge], 
+    [InstructorEnrollmentList].[NonEmployeeId] AS [NonEmployeeId], 
+    [InstructorEnrollmentList].[IsActive] AS [IsActive], 
+    [InstructorEnrollmentList].[InstructorId] AS [InstructorId]
+    FROM [dbo].[InstructorEnrollmentList] AS [InstructorEnrollmentList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="InstructorList" EntityType="Self.InstructorList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [InstructorList].[Trainer] AS [Trainer], 
+    [InstructorList].[CourseTypeId] AS [CourseTypeId], 
+    [InstructorList].[Badge] AS [Badge], 
+    [InstructorList].[NonEmployeeId] AS [NonEmployeeId], 
+    [InstructorList].[IsActive] AS [IsActive], 
+    [InstructorList].[InstructorId] AS [InstructorId]
+    FROM [dbo].[InstructorList] AS [InstructorList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="RouteList" EntityType="Self.RouteList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RouteList].[RouteAlpha] AS [RouteAlpha], 
+    [RouteList].[SortOrder] AS [SortOrder]
+    FROM [dbo].[RouteList] AS [RouteList]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Course_CourseType" Association="Self.FK_Course_CourseType">
+      <End Role="CourseType" EntitySet="CourseType" />
+      <End Role="Course" EntitySet="Course" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseEnrolment_CourseSchedule" Association="Self.FK_CourseEnrolment_CourseSchedule">
+      <End Role="CourseSchedule" EntitySet="CourseSchedule" />
+      <End Role="CourseEnrollment" EntitySet="CourseEnrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseEnrolment_NonEmployee" Association="Self.FK_CourseEnrolment_NonEmployee">
+      <End Role="NonEmployee" EntitySet="NonEmployee" />
+      <End Role="CourseEnrollment" EntitySet="CourseEnrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseSchedule_Course" Association="Self.FK_CourseSchedule_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="CourseSchedule" EntitySet="CourseSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseSchedule_Division" Association="Self.FK_CourseSchedule_Division">
+      <End Role="Division" EntitySet="Division" />
+      <End Role="CourseSchedule" EntitySet="CourseSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseScheduleInstructor_CourseSchedule" Association="Self.FK_CourseScheduleInstructor_CourseSchedule">
+      <End Role="CourseSchedule" EntitySet="CourseSchedule" />
+      <End Role="CourseScheduleInstructor" EntitySet="CourseScheduleInstructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseScheduleInstructor_Instructor" Association="Self.FK_CourseScheduleInstructor_Instructor">
+      <End Role="Instructor" EntitySet="Instructor" />
+      <End Role="CourseScheduleInstructor" EntitySet="CourseScheduleInstructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseTopic_Course" Association="Self.FK_CourseTopic_Course">
+      <End Role="Course" EntitySet="Course" />
+      <End Role="CourseTopic" EntitySet="CourseTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseTopic_Topic" Association="Self.FK_CourseTopic_Topic">
+      <End Role="Topic" EntitySet="Topic" />
+      <End Role="CourseTopic" EntitySet="CourseTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DailyPerformanceProgramLevelGroup_DailyPerformanceId" Association="Self.FK_DailyPerformanceProgramLevelGroup_DailyPerformanceId">
+      <End Role="DailyPerformance" EntitySet="DailyPerformance" />
+      <End Role="DailyPerformanceProgramLevelGroup" EntitySet="DailyPerformanceProgramLevelGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DailyPerformanceProgramLevelGroup_ProgramLevelGroup" Association="Self.FK_DailyPerformanceProgramLevelGroup_ProgramLevelGroup">
+      <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+      <End Role="DailyPerformanceProgramLevelGroup" EntitySet="DailyPerformanceProgramLevelGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_CourseEnrollment" Association="Self.FK_Enrollment_CourseEnrollment">
+      <End Role="CourseEnrollment" EntitySet="CourseEnrollment" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enrollment_Grade" Association="Self.FK_Enrollment_Grade">
+      <End Role="Grade" EntitySet="Grade" />
+      <End Role="Enrollment" EntitySet="Enrollment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrollmentInstructor_Enrollment" Association="Self.FK_EnrollmentInstructor_Enrollment">
+      <End Role="Enrollment" EntitySet="Enrollment" />
+      <End Role="EnrollmentInstructor" EntitySet="EnrollmentInstructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrollmentInstructor_Instructor" Association="Self.FK_EnrollmentInstructor_Instructor">
+      <End Role="Instructor" EntitySet="Instructor" />
+      <End Role="EnrollmentInstructor" EntitySet="EnrollmentInstructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrollmentTopic_Enrollment" Association="Self.FK_EnrollmentTopic_Enrollment">
+      <End Role="Enrollment" EntitySet="Enrollment" />
+      <End Role="EnrollmentTopic" EntitySet="EnrollmentTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrollmentTopic_Topic" Association="Self.FK_EnrollmentTopic_Topic">
+      <End Role="Topic" EntitySet="Topic" />
+      <End Role="EnrollmentTopic" EntitySet="EnrollmentTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrollmentVehicle_Enrollment" Association="Self.FK_EnrollmentVehicle_Enrollment">
+      <End Role="Enrollment" EntitySet="Enrollment" />
+      <End Role="EnrollmentVehicle" EntitySet="EnrollmentVehicle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrollmentVehicleRoute_EnrollmentVehicle" Association="Self.FK_EnrollmentVehicleRoute_EnrollmentVehicle">
+      <End Role="EnrollmentVehicle" EntitySet="EnrollmentVehicle" />
+      <End Role="EnrollmentVehicleRoute" EntitySet="EnrollmentVehicleRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Instructor_CourseTypeId" Association="Self.FK_Instructor_CourseTypeId">
+      <End Role="CourseType" EntitySet="CourseType" />
+      <End Role="Instructor" EntitySet="Instructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Instructor_NonEmployee" Association="Self.FK_Instructor_NonEmployee">
+      <End Role="NonEmployee" EntitySet="NonEmployee" />
+      <End Role="Instructor" EntitySet="Instructor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_ParentMenuId" Association="Self.FK_Menu_ParentMenuId">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Menu1" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participant_ParticipantStatus" Association="Self.FK_Participant_ParticipantStatus">
+      <End Role="ParticipantStatus" EntitySet="ParticipantStatus" />
+      <End Role="Participant" EntitySet="Participant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participant_Program" Association="Self.FK_Participant_Program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="Participant" EntitySet="Participant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Participant_ProgramLevel" Association="Self.FK_Participant_ProgramLevel">
+      <End Role="ProgramLevel" EntitySet="ProgramLevel" />
+      <End Role="Participant" EntitySet="Participant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantLevel_Participant" Association="Self.FK_ParticipantLevel_Participant">
+      <End Role="Participant" EntitySet="Participant" />
+      <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantLevel_ParticipantProgramLevelGroup" Association="Self.FK_ParticipantLevel_ParticipantProgramLevelGroup">
+      <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroup" />
+      <End Role="Progress" EntitySet="Progress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantLevel_ProgramLevelGroup" Association="Self.FK_ParticipantLevel_ProgramLevelGroup">
+      <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+      <End Role="ParticipantProgramLevelGroup" EntitySet="ParticipantProgramLevelGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantWork_Participant" Association="Self.FK_ParticipantWork_Participant">
+      <End Role="Participant" EntitySet="Participant" />
+      <End Role="ParticipantWork" EntitySet="ParticipantWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantWork_WorkCategory" Association="Self.FK_ParticipantWork_WorkCategory">
+      <End Role="WorkCategory" EntitySet="WorkCategory" />
+      <End Role="ParticipantWork" EntitySet="ParticipantWork" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantWorkSeed_Participant" Association="Self.FK_ParticipantWorkSeed_Participant">
+      <End Role="Participant" EntitySet="Participant" />
+      <End Role="ParticipantWorkSeed" EntitySet="ParticipantWorkSeed" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantWorkSeed_WorkCategory" Association="Self.FK_ParticipantWorkSeed_WorkCategory">
+      <End Role="WorkCategory" EntitySet="WorkCategory" />
+      <End Role="ParticipantWorkSeed" EntitySet="ParticipantWorkSeed" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramLevel_ProgramLevelGroup" Association="Self.FK_ProgramLevel_ProgramLevelGroup">
+      <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+      <End Role="ProgramLevel" EntitySet="ProgramLevel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramLevelGroup_Program" Association="Self.FK_ProgramLevelGroup_Program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgressDay_DailyPerformance" Association="Self.FK_ProgressDay_DailyPerformance">
+      <End Role="DailyPerformance" EntitySet="DailyPerformance" />
+      <End Role="ProgressDay" EntitySet="ProgressDay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgressDay_Division" Association="Self.FK_ProgressDay_Division">
+      <End Role="Division" EntitySet="Division" />
+      <End Role="ProgressDay" EntitySet="ProgressDay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgressDay_ProgramLevel" Association="Self.FK_ProgressDay_ProgramLevel">
+      <End Role="ProgramLevel" EntitySet="ProgramLevel" />
+      <End Role="ProgressDay" EntitySet="ProgressDay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgressDay_Progress" Association="Self.FK_ProgressDay_Progress">
+      <End Role="Progress" EntitySet="Progress" />
+      <End Role="ProgressDay" EntitySet="ProgressDay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgressRatingCellScore_Progress" Association="Self.FK_ProgressRatingCellScore_Progress">
+      <End Role="Progress" EntitySet="Progress" />
+      <End Role="ProgressRatingCellScore" EntitySet="ProgressRatingCellScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgressRatingCellScore_RatingCell" Association="Self.FK_ProgressRatingCellScore_RatingCell">
+      <End Role="RatingCellScore" EntitySet="RatingCellScore" />
+      <End Role="ProgressRatingCellScore" EntitySet="ProgressRatingCellScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RatingCell_ProgramLevelGroup" Association="Self.FK_RatingCell_ProgramLevelGroup">
+      <End Role="ProgramLevelGroup" EntitySet="ProgramLevelGroup" />
+      <End Role="RatingCell" EntitySet="RatingCell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RatingCell_RatingArea" Association="Self.FK_RatingCell_RatingArea">
+      <End Role="RatingArea" EntitySet="RatingArea" />
+      <End Role="RatingCell" EntitySet="RatingCell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RatingCell_RatingCategory" Association="Self.FK_RatingCell_RatingCategory">
+      <End Role="RatingCategory" EntitySet="RatingCategory" />
+      <End Role="RatingCell" EntitySet="RatingCell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RatingCell_RatingItem" Association="Self.FK_RatingCell_RatingItem">
+      <End Role="RatingItem" EntitySet="RatingItem" />
+      <End Role="RatingCell" EntitySet="RatingCell" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RatingCellScore_RatingCellId" Association="Self.FK_RatingCellScore_RatingCellId">
+      <End Role="RatingCell" EntitySet="RatingCell" />
+      <End Role="RatingCellScore" EntitySet="RatingCellScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Topic_CourseTypeId" Association="Self.FK_Topic_CourseTypeId">
+      <End Role="CourseType" EntitySet="CourseType" />
+      <End Role="Topic" EntitySet="Topic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Topic_TopicTypeId" Association="Self.FK_Topic_TopicTypeId">
+      <End Role="TopicType" EntitySet="TopicType" />
+      <End Role="Topic" EntitySet="Topic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkCategory_Program" Association="Self.FK_WorkCategory_Program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="WorkCategory" EntitySet="WorkCategory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

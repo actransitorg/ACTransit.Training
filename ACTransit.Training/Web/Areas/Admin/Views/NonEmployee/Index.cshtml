@@ -1,0 +1,55 @@
+﻿@using ACTransit.Training.Web.Domain.Models
+@model NonEmployeesPageViewModel
+@{
+    ViewBag.Title = "Non Employees";
+    const string controller = "NonEmployee";
+}
+
+@section head
+{
+}
+
+<div class="conditions">
+    @using (Html.BeginForm("Index", controller, FormMethod.Post, new { id = "frmFilter" }))
+    {
+        <div id="JustShowActive" class="column" style="padding-left: 10px;">
+            @Html.CheckBoxFor(m => m.JustShowActive)
+            @Html.LabelFor(m => m.JustShowActive)
+        </div>
+        <div class="column right-absolute" style="float: right">
+            @Html.ActionLink("Add New", "New", controller, new { }, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+
+<div class="table-responsive">
+    <table class="table list black mousesensitive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th style="width:70px">Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.NonEmployees)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.Name, "Edit", controller, new { id = item.NonEmployeeId }, new { })
+                    </td>
+                    <td>@(item.IsActive?"Yes":"No")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $(function() {
+            $("div.conditions input").change(function () {
+                $("#frmFilter").submit();
+            });
+        });
+    </script>
+}

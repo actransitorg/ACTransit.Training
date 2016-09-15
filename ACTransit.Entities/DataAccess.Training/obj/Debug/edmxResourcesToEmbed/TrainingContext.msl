@@ -1,0 +1,1019 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrainingContextStoreContainer" CdmEntityContainer="TrainingEntities">
+    <EntitySetMapping Name="DailyPerformances">
+      <EntityTypeMapping TypeName="TrainingContext.DailyPerformance">
+        <MappingFragment StoreEntitySet="DailyPerformance">
+          <ScalarProperty Name="DailyPerformanceId" ColumnName="DailyPerformanceId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailyPerformanceProgramLevelGroups">
+      <EntityTypeMapping TypeName="TrainingContext.DailyPerformanceProgramLevelGroup">
+        <MappingFragment StoreEntitySet="DailyPerformanceProgramLevelGroup">
+          <ScalarProperty Name="DailyPerformanceProgramLevelGroupId" ColumnName="DailyPerformanceProgramLevelGroupId" />
+          <ScalarProperty Name="DailyPerformanceId" ColumnName="DailyPerformanceId" />
+          <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participants">
+      <EntityTypeMapping TypeName="TrainingContext.Participant">
+        <MappingFragment StoreEntitySet="Participant">
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="EstimatedCompletedDate" ColumnName="EstimatedCompletedDate" />
+          <ScalarProperty Name="ParticipantStatusId" ColumnName="ParticipantStatusId" />
+          <ScalarProperty Name="ProgramLevelId" ColumnName="ProgramLevelId" />
+          <ScalarProperty Name="UseEmployeeStep" ColumnName="UseEmployeeStep" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipantProgramLevelGroups">
+      <EntityTypeMapping TypeName="TrainingContext.ParticipantProgramLevelGroup">
+        <MappingFragment StoreEntitySet="ParticipantProgramLevelGroup">
+          <ScalarProperty Name="ParticipantProgramLevelGroupId" ColumnName="ParticipantProgramLevelGroupId" />
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipantStatus">
+      <EntityTypeMapping TypeName="TrainingContext.ParticipantStatus">
+        <MappingFragment StoreEntitySet="ParticipantStatus">
+          <ScalarProperty Name="ParticipantStatusId" ColumnName="ParticipantStatusId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipantWorks">
+      <EntityTypeMapping TypeName="TrainingContext.ParticipantWork">
+        <MappingFragment StoreEntitySet="ParticipantWork">
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="WorkOrderNum" ColumnName="WorkOrderNum" />
+          <ScalarProperty Name="TaskNum" ColumnName="TaskNum" />
+          <ScalarProperty Name="WorkDate" ColumnName="WorkDate" />
+          <ScalarProperty Name="WorkCategoryId" ColumnName="WorkCategoryId" />
+          <ScalarProperty Name="WorkHour" ColumnName="WorkHour" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="IsReadOnly" ColumnName="IsReadOnly" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="SeriesNum" ColumnName="SeriesNum" />
+          <ScalarProperty Name="TrainingSeriesName" ColumnName="TrainingSeriesName" />
+          <ScalarProperty Name="CompCode" ColumnName="CompCode" />
+          <ScalarProperty Name="CompDescription" ColumnName="CompDescription" />
+          <ScalarProperty Name="TaskComment" ColumnName="TaskComment" />
+          <ScalarProperty Name="JobDescCode" ColumnName="JobDescCode" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipantWorkSeeds">
+      <EntityTypeMapping TypeName="TrainingContext.ParticipantWorkSeed">
+        <MappingFragment StoreEntitySet="ParticipantWorkSeed">
+          <ScalarProperty Name="ParticipantWorkSeedId" ColumnName="ParticipantWorkSeedId" />
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="WorkCategoryId" ColumnName="WorkCategoryId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="WorkHour" ColumnName="WorkHour" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="TrainingContext.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProgramType" ColumnName="ProgramType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramLevels">
+      <EntityTypeMapping TypeName="TrainingContext.ProgramLevel">
+        <MappingFragment StoreEntitySet="ProgramLevel">
+          <ScalarProperty Name="ProgramLevelId" ColumnName="ProgramLevelId" />
+          <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramLevelGroups">
+      <EntityTypeMapping TypeName="TrainingContext.ProgramLevelGroup">
+        <MappingFragment StoreEntitySet="ProgramLevelGroup">
+          <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartLevel" ColumnName="StartLevel" />
+          <ScalarProperty Name="EndLevel" ColumnName="EndLevel" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Progresses">
+      <EntityTypeMapping TypeName="TrainingContext.Progress">
+        <MappingFragment StoreEntitySet="Progress">
+          <ScalarProperty Name="ProgressId" ColumnName="ProgressId" />
+          <ScalarProperty Name="ParticipantProgramLevelGroupId" ColumnName="ParticipantProgramLevelGroupId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ScoreTotal" ColumnName="ScoreTotal" />
+          <ScalarProperty Name="EvaluationDate" ColumnName="EvaluationDate" />
+          <ScalarProperty Name="SupervisorBadge" ColumnName="SupervisorBadge" />
+          <ScalarProperty Name="SuperintendentBadge" ColumnName="SuperintendentBadge" />
+          <ScalarProperty Name="SuperintendentApprovalDate" ColumnName="SuperintendentApprovalDate" />
+          <ScalarProperty Name="ScheduledDaysOff" ColumnName="ScheduledDaysOff" />
+          <ScalarProperty Name="Historical" ColumnName="Historical" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgressDays">
+      <EntityTypeMapping TypeName="TrainingContext.ProgressDay">
+        <MappingFragment StoreEntitySet="ProgressDay">
+          <ScalarProperty Name="ProgressDayId" ColumnName="ProgressDayId" />
+          <ScalarProperty Name="ProgressId" ColumnName="ProgressId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="DailyPerformanceId" ColumnName="DailyPerformanceId" />
+          <ScalarProperty Name="ProgramLevelId" ColumnName="ProgramLevelId" />
+          <ScalarProperty Name="CalendarDate" ColumnName="CalendarDate" />
+          <ScalarProperty Name="ApprenticeDayOff" ColumnName="ApprenticeDayOff" />
+          <ScalarProperty Name="SupervisorBadge" ColumnName="SupervisorBadge" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="CommentBadge" ColumnName="CommentBadge" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgressRatingCellScores">
+      <EntityTypeMapping TypeName="TrainingContext.ProgressRatingCellScore">
+        <MappingFragment StoreEntitySet="ProgressRatingCellScore">
+          <ScalarProperty Name="ProgressId" ColumnName="ProgressId" />
+          <ScalarProperty Name="RatingCellScoreId" ColumnName="RatingCellScoreId" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RatingAreas">
+      <EntityTypeMapping TypeName="TrainingContext.RatingArea">
+        <MappingFragment StoreEntitySet="RatingArea">
+          <ScalarProperty Name="RatingAreaId" ColumnName="RatingAreaId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RatingCategories">
+      <EntityTypeMapping TypeName="TrainingContext.RatingCategory">
+        <MappingFragment StoreEntitySet="RatingCategory">
+          <ScalarProperty Name="RatingCategoryId" ColumnName="RatingCategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RatingCells">
+      <EntityTypeMapping TypeName="TrainingContext.RatingCell">
+        <MappingFragment StoreEntitySet="RatingCell">
+          <ScalarProperty Name="RatingCellId" ColumnName="RatingCellId" />
+          <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+          <ScalarProperty Name="RatingCategoryId" ColumnName="RatingCategoryId" />
+          <ScalarProperty Name="SortOrderCategory" ColumnName="SortOrderCategory" />
+          <ScalarProperty Name="RatingAreaId" ColumnName="RatingAreaId" />
+          <ScalarProperty Name="SortOrderArea" ColumnName="SortOrderArea" />
+          <ScalarProperty Name="RatingItemId" ColumnName="RatingItemId" />
+          <ScalarProperty Name="SortOrderCell" ColumnName="SortOrderCell" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RatingCellScores">
+      <EntityTypeMapping TypeName="TrainingContext.RatingCellScore">
+        <MappingFragment StoreEntitySet="RatingCellScore">
+          <ScalarProperty Name="RatingCellScoreId" ColumnName="RatingCellScoreId" />
+          <ScalarProperty Name="RatingCellId" ColumnName="RatingCellId" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RatingItems">
+      <EntityTypeMapping TypeName="TrainingContext.RatingItem">
+        <MappingFragment StoreEntitySet="RatingItem">
+          <ScalarProperty Name="RatingItemId" ColumnName="RatingItemId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkCategories">
+      <EntityTypeMapping TypeName="TrainingContext.WorkCategory">
+        <MappingFragment StoreEntitySet="WorkCategory">
+          <ScalarProperty Name="WorkCategoryId" ColumnName="WorkCategoryId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="HourGoal" ColumnName="HourGoal" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="InactiveDate" ColumnName="InactiveDate" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="TrainingContext.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="HasWheelTime" ColumnName="HasWheelTime" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseEnrollments">
+      <EntityTypeMapping TypeName="TrainingContext.CourseEnrollment">
+        <MappingFragment StoreEntitySet="CourseEnrollment">
+          <ScalarProperty Name="CourseEnrollmentId" ColumnName="CourseEnrollmentId" />
+          <ScalarProperty Name="CourseScheduleId" ColumnName="CourseScheduleId" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="IsUnenrolled" ColumnName="IsUnenrolled" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseSchedules">
+      <EntityTypeMapping TypeName="TrainingContext.CourseSchedule">
+        <MappingFragment StoreEntitySet="CourseSchedule">
+          <ScalarProperty Name="CourseScheduleId" ColumnName="CourseScheduleId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="TotalSeat" ColumnName="TotalSeat" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseScheduleInstructors">
+      <EntityTypeMapping TypeName="TrainingContext.CourseScheduleInstructor">
+        <MappingFragment StoreEntitySet="CourseScheduleInstructor">
+          <ScalarProperty Name="CourseScheduleId" ColumnName="CourseScheduleId" />
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+          <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseTopics">
+      <EntityTypeMapping TypeName="TrainingContext.CourseTopic">
+        <MappingFragment StoreEntitySet="CourseTopic">
+          <ScalarProperty Name="CourseTopicId" ColumnName="CourseTopicId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseTypes">
+      <EntityTypeMapping TypeName="TrainingContext.CourseType">
+        <MappingFragment StoreEntitySet="CourseType">
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="TrainingContext.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollments">
+      <EntityTypeMapping TypeName="TrainingContext.Enrollment">
+        <MappingFragment StoreEntitySet="Enrollment">
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="CourseEnrollmentId" ColumnName="CourseEnrollmentId" />
+          <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+          <ScalarProperty Name="LectureTime" ColumnName="LectureTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="LetterGrade" ColumnName="LetterGrade" />
+          <ScalarProperty Name="IsAbsent" ColumnName="IsAbsent" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentInstructors">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentInstructor">
+        <MappingFragment StoreEntitySet="EnrollmentInstructor">
+          <ScalarProperty Name="EnrollmentInstructorId" ColumnName="EnrollmentInstructorId" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+          <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentTopics">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentTopic">
+        <MappingFragment StoreEntitySet="EnrollmentTopic">
+          <ScalarProperty Name="EnrollmentTopicId" ColumnName="EnrollmentTopicId" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentVehicles">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentVehicle">
+        <MappingFragment StoreEntitySet="EnrollmentVehicle">
+          <ScalarProperty Name="EnrollmentVehicleId" ColumnName="EnrollmentVehicleId" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="WheelTime" ColumnName="WheelTime" />
+          <ScalarProperty Name="RouteAlpha" ColumnName="RouteAlpha" />
+          <ScalarProperty Name="QualifiedTraining" ColumnName="QualifiedTraining" />
+          <ScalarProperty Name="OUGLiftRampOps" ColumnName="OUGLiftRampOps" />
+          <ScalarProperty Name="OUGSecurement" ColumnName="OUGSecurement" />
+          <ScalarProperty Name="VehicleGroup" ColumnName="VehicleGroup" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentVehicleRoutes">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentVehicleRoute">
+        <MappingFragment StoreEntitySet="EnrollmentVehicleRoute">
+          <ScalarProperty Name="EnrollmentVehicleId" ColumnName="EnrollmentVehicleId" />
+          <ScalarProperty Name="RouteAlpha" ColumnName="RouteAlpha" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grades">
+      <EntityTypeMapping TypeName="TrainingContext.Grade">
+        <MappingFragment StoreEntitySet="Grade">
+          <ScalarProperty Name="LetterGrade" ColumnName="LetterGrade" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsPassing" ColumnName="IsPassing" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="TrainingContext.Instructor">
+        <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="TrainingContext.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="NewWindow" ColumnName="NewWindow" />
+          <ScalarProperty Name="AccessToken" ColumnName="AccessToken" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NonEmployees">
+      <EntityTypeMapping TypeName="TrainingContext.NonEmployee">
+        <MappingFragment StoreEntitySet="NonEmployee">
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="TrainingContext.Topic">
+        <MappingFragment StoreEntitySet="Topic">
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TopicTypeId" ColumnName="TopicTypeId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopicTypes">
+      <EntityTypeMapping TypeName="TrainingContext.TopicType">
+        <MappingFragment StoreEntitySet="TopicType">
+          <ScalarProperty Name="TopicTypeId" ColumnName="TopicTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+          <ScalarProperty Name="AddDateTime" ColumnName="AddDateTime" />
+          <ScalarProperty Name="UpdUserId" ColumnName="UpdUserId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParticipantWorkDetails">
+      <EntityTypeMapping TypeName="TrainingContext.ParticipantWorkDetail">
+        <MappingFragment StoreEntitySet="ParticipantWorkDetail">
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeNameLastFirst" ColumnName="EmployeeNameLastFirst" />
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="ProgressStartDate" ColumnName="ProgressStartDate" />
+          <ScalarProperty Name="WorkHour" ColumnName="WorkHour" />
+          <ScalarProperty Name="WorkCategoryTitleGoal" ColumnName="WorkCategoryTitleGoal" />
+          <ScalarProperty Name="WorkCategorySortOrder" ColumnName="WorkCategorySortOrder" />
+          <ScalarProperty Name="WorkCategoryShortDescription" ColumnName="WorkCategoryShortDescription" />
+          <ScalarProperty Name="WorkCategoryName" ColumnName="WorkCategoryName" />
+          <ScalarProperty Name="WorkCategoryId" ColumnName="WorkCategoryId" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="EmployeeDivision" ColumnName="EmployeeDivision" />
+          <ScalarProperty Name="EmployeeWorkShift" ColumnName="EmployeeWorkShift" />
+          <ScalarProperty Name="EmployeeScheduledDaysOff" ColumnName="EmployeeScheduledDaysOff" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="ParticipantStatusId" ColumnName="ParticipantStatusId" />
+          <ScalarProperty Name="ScoreTotal" ColumnName="ScoreTotal" />
+          <ScalarProperty Name="SeedValue" ColumnName="SeedValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorksheetParticipantDetails">
+      <EntityTypeMapping TypeName="TrainingContext.WorksheetParticipantDetail">
+        <MappingFragment StoreEntitySet="WorksheetParticipantDetail">
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="ProgramCompletedDate" ColumnName="ProgramCompletedDate" />
+          <ScalarProperty Name="ProgressStartDate" ColumnName="ProgressStartDate" />
+          <ScalarProperty Name="ScoreTotal" ColumnName="ScoreTotal" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CalendarDate" ColumnName="CalendarDate" />
+          <ScalarProperty Name="DaySupervisorBadge" ColumnName="DaySupervisorBadge" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="CommentBadge" ColumnName="CommentBadge" />
+          <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+          <ScalarProperty Name="RatingCategoryId" ColumnName="RatingCategoryId" />
+          <ScalarProperty Name="RatingAreaId" ColumnName="RatingAreaId" />
+          <ScalarProperty Name="RatingItemId" ColumnName="RatingItemId" />
+          <ScalarProperty Name="RatingCellId" ColumnName="RatingCellId" />
+          <ScalarProperty Name="RatingCellScoreId" ColumnName="RatingCellScoreId" />
+          <ScalarProperty Name="ProgressId" ColumnName="ProgressId" />
+          <ScalarProperty Name="ProgressDayId" ColumnName="ProgressDayId" />
+          <ScalarProperty Name="EvaluationDate" ColumnName="EvaluationDate" />
+          <ScalarProperty Name="SupervisorBadge" ColumnName="SupervisorBadge" />
+          <ScalarProperty Name="SuperintendentBadge" ColumnName="SuperintendentBadge" />
+          <ScalarProperty Name="SuperintendentApprovalDate" ColumnName="SuperintendentApprovalDate" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="DailyPerformanceId" ColumnName="DailyPerformanceId" />
+          <ScalarProperty Name="ParticipantStatusId" ColumnName="ParticipantStatusId" />
+          <ScalarProperty Name="ProgramLevelId" ColumnName="ProgramLevelId" />
+          <ScalarProperty Name="ParticipantProgramLevelGroupId" ColumnName="ParticipantProgramLevelGroupId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorksheetScoreTemplates">
+      <EntityTypeMapping TypeName="TrainingContext.WorksheetScoreTemplate">
+        <MappingFragment StoreEntitySet="WorksheetScoreTemplate">
+          <ScalarProperty Name="ProgramGroup" ColumnName="ProgramGroup" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="SortOrderCategory" ColumnName="SortOrderCategory" />
+          <ScalarProperty Name="SortOrderArea" ColumnName="SortOrderArea" />
+          <ScalarProperty Name="SortOrderCell" ColumnName="SortOrderCell" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="RatingCellScoreId" ColumnName="RatingCellScoreId" />
+          <ScalarProperty Name="RatingCellId" ColumnName="RatingCellId" />
+          <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+          <ScalarProperty Name="RatingCategoryId" ColumnName="RatingCategoryId" />
+          <ScalarProperty Name="RatingAreaId" ColumnName="RatingAreaId" />
+          <ScalarProperty Name="RatingItemId" ColumnName="RatingItemId" />
+          <ScalarProperty Name="StartLevel" ColumnName="StartLevel" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorksheetTemplates">
+      <EntityTypeMapping TypeName="TrainingContext.WorksheetTemplate">
+        <MappingFragment StoreEntitySet="WorksheetTemplate">
+          <ScalarProperty Name="ProgramGroup" ColumnName="ProgramGroup" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="SortOrderCategory" ColumnName="SortOrderCategory" />
+          <ScalarProperty Name="SortOrderArea" ColumnName="SortOrderArea" />
+          <ScalarProperty Name="SortOrderCell" ColumnName="SortOrderCell" />
+          <ScalarProperty Name="RatingCellId" ColumnName="RatingCellId" />
+          <ScalarProperty Name="ProgramLevelGroupId" ColumnName="ProgramLevelGroupId" />
+          <ScalarProperty Name="RatingCategoryId" ColumnName="RatingCategoryId" />
+          <ScalarProperty Name="RatingAreaId" ColumnName="RatingAreaId" />
+          <ScalarProperty Name="RatingItemId" ColumnName="RatingItemId" />
+          <ScalarProperty Name="StartLevel" ColumnName="StartLevel" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComponentTopics">
+      <EntityTypeMapping TypeName="TrainingContext.ComponentTopic">
+        <MappingFragment StoreEntitySet="ComponentTopic">
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="TopicTypeId" ColumnName="TopicTypeId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseRosters">
+      <EntityTypeMapping TypeName="TrainingContext.CourseRoster">
+        <MappingFragment StoreEntitySet="CourseRoster">
+          <ScalarProperty Name="CourseRosterRow" ColumnName="CourseRosterRow" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Trainee" ColumnName="Trainee" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="TraineeDeptName" ColumnName="TraineeDeptName" />
+          <ScalarProperty Name="TraineeLocation" ColumnName="TraineeLocation" />
+          <ScalarProperty Name="SessionTerm" ColumnName="SessionTerm" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="IsUnenrolled" ColumnName="IsUnenrolled" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="CourseScheduleId" ColumnName="CourseScheduleId" />
+          <ScalarProperty Name="CourseEnrollmentId" ColumnName="CourseEnrollmentId" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="CourseEnrollmentNote" ColumnName="CourseEnrollmentNote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseRosterBases">
+      <EntityTypeMapping TypeName="TrainingContext.CourseRosterBase">
+        <MappingFragment StoreEntitySet="CourseRosterBase">
+          <ScalarProperty Name="CourseScheduleId" ColumnName="CourseScheduleId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="IsUnenrolled" ColumnName="IsUnenrolled" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="CourseEnrollmentId" ColumnName="CourseEnrollmentId" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="CourseEnrollmentNote" ColumnName="CourseEnrollmentNote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseScheduleDetails">
+      <EntityTypeMapping TypeName="TrainingContext.CourseScheduleDetail">
+        <MappingFragment StoreEntitySet="CourseScheduleDetail">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Trainee" ColumnName="Trainee" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="TraineeDeptName" ColumnName="TraineeDeptName" />
+          <ScalarProperty Name="TraineeLocation" ColumnName="TraineeLocation" />
+          <ScalarProperty Name="SessionTerm" ColumnName="SessionTerm" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="IsUnenrolled" ColumnName="IsUnenrolled" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="CourseScheduleId" ColumnName="CourseScheduleId" />
+          <ScalarProperty Name="CourseEnrollmentId" ColumnName="CourseEnrollmentId" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="CourseEnrollmentNote" ColumnName="CourseEnrollmentNote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentLists">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentList">
+        <MappingFragment StoreEntitySet="EnrollmentList">
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+          <ScalarProperty Name="LectureTime" ColumnName="LectureTime" />
+          <ScalarProperty Name="IsAbsent" ColumnName="IsAbsent" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CourseRosterRow" ColumnName="CourseRosterRow" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Trainee" ColumnName="Trainee" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="TraineeDeptName" ColumnName="TraineeDeptName" />
+          <ScalarProperty Name="TraineeLocation" ColumnName="TraineeLocation" />
+          <ScalarProperty Name="SessionTerm" ColumnName="SessionTerm" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="IsUnenrolled" ColumnName="IsUnenrolled" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="CourseScheduleId" ColumnName="CourseScheduleId" />
+          <ScalarProperty Name="CourseEnrollmentId" ColumnName="CourseEnrollmentId" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="CourseEnrollmentNote" ColumnName="CourseEnrollmentNote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentTopicTypeOneBases">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentTopicTypeOneBase">
+        <MappingFragment StoreEntitySet="EnrollmentTopicTypeOneBase">
+          <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentTopicTypeOtherBases">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentTopicTypeOtherBase">
+        <MappingFragment StoreEntitySet="EnrollmentTopicTypeOtherBase">
+          <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentTraineeDetails">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentTraineeDetail">
+        <MappingFragment StoreEntitySet="EnrollmentTraineeDetail">
+          <ScalarProperty Name="Trainee" ColumnName="Trainee" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+          <ScalarProperty Name="LectureTime" ColumnName="LectureTime" />
+          <ScalarProperty Name="WheelTime" ColumnName="WheelTime" />
+          <ScalarProperty Name="TotalMinute" ColumnName="TotalMinute" />
+          <ScalarProperty Name="WheelMinute" ColumnName="WheelMinute" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="QualifiedTraining" ColumnName="QualifiedTraining" />
+          <ScalarProperty Name="RouteAlpha" ColumnName="RouteAlpha" />
+          <ScalarProperty Name="IsUnenrolled" ColumnName="IsUnenrolled" />
+          <ScalarProperty Name="IsAbsent" ColumnName="IsAbsent" />
+          <ScalarProperty Name="EquipmentGroupNum" ColumnName="EquipmentGroupNum" />
+          <ScalarProperty Name="TrainingSeriesName" ColumnName="TrainingSeriesName" />
+          <ScalarProperty Name="SessionTerm" ColumnName="SessionTerm" />
+          <ScalarProperty Name="TraineeLocation" ColumnName="TraineeLocation" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="EnrollmentVehicleId" ColumnName="EnrollmentVehicleId" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="LetterGrade" ColumnName="LetterGrade" />
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+          <ScalarProperty Name="Trainer" ColumnName="Trainer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentVehicleTimes">
+      <EntityTypeMapping TypeName="TrainingContext.EnrollmentVehicleTime">
+        <MappingFragment StoreEntitySet="EnrollmentVehicleTime">
+          <ScalarProperty Name="TotalMinute" ColumnName="TotalMinute" />
+          <ScalarProperty Name="WheelMinute" ColumnName="WheelMinute" />
+          <ScalarProperty Name="LectureMinute" ColumnName="LectureMinute" />
+          <ScalarProperty Name="LectureTime" ColumnName="LectureTime" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="CourseEnrollmentId" ColumnName="CourseEnrollmentId" />
+          <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+          <ScalarProperty Name="IsAbsent" ColumnName="IsAbsent" />
+          <ScalarProperty Name="LetterGrade" ColumnName="LetterGrade" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="EnrollmentVehicleId" ColumnName="EnrollmentVehicleId" />
+          <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+          <ScalarProperty Name="WheelTime" ColumnName="WheelTime" />
+          <ScalarProperty Name="RouteAlpha" ColumnName="RouteAlpha" />
+          <ScalarProperty Name="QualifiedTraining" ColumnName="QualifiedTraining" />
+          <ScalarProperty Name="OUGLiftRampOps" ColumnName="OUGLiftRampOps" />
+          <ScalarProperty Name="OUGSecurement" ColumnName="OUGSecurement" />
+          <ScalarProperty Name="VehicleGroup" ColumnName="VehicleGroup" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="EquipmentGroupNum" ColumnName="EquipmentGroupNum" />
+          <ScalarProperty Name="TrainingSeriesName" ColumnName="TrainingSeriesName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentGroupVehicles">
+      <EntityTypeMapping TypeName="TrainingContext.EquipmentGroupVehicle">
+        <MappingFragment StoreEntitySet="EquipmentGroupVehicle">
+          <ScalarProperty Name="EquipmentGroupNum" ColumnName="EquipmentGroupNum" />
+          <ScalarProperty Name="SeriesNum" ColumnName="SeriesNum" />
+          <ScalarProperty Name="TrainingSeriesName" ColumnName="TrainingSeriesName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstructorEnrollmentLists">
+      <EntityTypeMapping TypeName="TrainingContext.InstructorEnrollmentList">
+        <MappingFragment StoreEntitySet="InstructorEnrollmentList">
+          <ScalarProperty Name="IsPreferred" ColumnName="IsPreferred" />
+          <ScalarProperty Name="RowPreferred" ColumnName="RowPreferred" />
+          <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+          <ScalarProperty Name="EnrollmentInstructorId" ColumnName="EnrollmentInstructorId" />
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="Trainer" ColumnName="Trainer" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstructorLists">
+      <EntityTypeMapping TypeName="TrainingContext.InstructorList">
+        <MappingFragment StoreEntitySet="InstructorList">
+          <ScalarProperty Name="Trainer" ColumnName="Trainer" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteLists">
+      <EntityTypeMapping TypeName="TrainingContext.RouteList">
+        <MappingFragment StoreEntitySet="RouteList">
+          <ScalarProperty Name="RouteAlpha" ColumnName="RouteAlpha" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="TrainingContext.Store.CharToTable" FunctionImportName="CharToTable">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrainingContext.CharToTable_Result">
+          <ScalarProperty Name="listpos" ColumnName="listpos" />
+          <ScalarProperty Name="str" ColumnName="str" />
+          <ScalarProperty Name="nstr" ColumnName="nstr" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetActionItems" FunctionName="TrainingContext.Store.GetActionItems">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrainingContext.GetActionItems_Result">
+          <ScalarProperty Name="ParticipantId" ColumnName="ParticipantId" />
+          <ScalarProperty Name="ActionItems" ColumnName="ActionItems" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetApprenticeDetailUnitTest" FunctionName="TrainingContext.Store.GetApprenticeDetailUnitTest">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrainingContext.GetApprenticeDetailUnitTest_Result">
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Per_Org" ColumnName="Per_Org" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="NTLogin" ColumnName="NTLogin" />
+          <ScalarProperty Name="Empl_Status" ColumnName="Empl_Status" />
+          <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="EmployeesLocationId" ColumnName="EmployeesLocationId" />
+          <ScalarProperty Name="InEmpTable" ColumnName="InEmpTable" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="StepStartDate" ColumnName="StepStartDate" />
+          <ScalarProperty Name="WorkShift" ColumnName="WorkShift" />
+          <ScalarProperty Name="ScheduledDaysOff" ColumnName="ScheduledDaysOff" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetParticipantWork" FunctionName="TrainingContext.Store.GetParticipantWork" />
+    <FunctionImportMapping FunctionImportName="SyncParticipantWork" FunctionName="TrainingContext.Store.SyncParticipantWork">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrainingContext.SyncParticipantWork_Result">
+          <ScalarProperty Name="ErrorNumber" ColumnName="ErrorNumber" />
+          <ScalarProperty Name="ErrorSeverity" ColumnName="ErrorSeverity" />
+          <ScalarProperty Name="ErrorState" ColumnName="ErrorState" />
+          <ScalarProperty Name="ErrorProcedure" ColumnName="ErrorProcedure" />
+          <ScalarProperty Name="ErrorLine" ColumnName="ErrorLine" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SyncWithEnterprise" FunctionName="TrainingContext.Store.SyncWithEnterprise">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrainingContext.SyncWithEnterprise_Result">
+          <ScalarProperty Name="ErrorNumber" ColumnName="ErrorNumber" />
+          <ScalarProperty Name="ErrorSeverity" ColumnName="ErrorSeverity" />
+          <ScalarProperty Name="ErrorState" ColumnName="ErrorState" />
+          <ScalarProperty Name="ErrorProcedure" ColumnName="ErrorProcedure" />
+          <ScalarProperty Name="ErrorLine" ColumnName="ErrorLine" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAttendanceList" FunctionName="TrainingContext.Store.GetAttendanceList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrainingContext.GetAttendanceList_Result">
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="SessionDate" ColumnName="SessionDate" />
+          <ScalarProperty Name="LectureTime" ColumnName="LectureTime" />
+          <ScalarProperty Name="IsAbsent" ColumnName="IsAbsent" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CourseRosterRow" ColumnName="CourseRosterRow" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Trainee" ColumnName="Trainee" />
+          <ScalarProperty Name="Badge" ColumnName="Badge" />
+          <ScalarProperty Name="TraineeDeptName" ColumnName="TraineeDeptName" />
+          <ScalarProperty Name="TraineeLocation" ColumnName="TraineeLocation" />
+          <ScalarProperty Name="SessionTerm" ColumnName="SessionTerm" />
+          <ScalarProperty Name="BeginEffDate" ColumnName="BeginEffDate" />
+          <ScalarProperty Name="EndEffDate" ColumnName="EndEffDate" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="CourseTypeId" ColumnName="CourseTypeId" />
+          <ScalarProperty Name="IsUnenrolled" ColumnName="IsUnenrolled" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="CourseScheduleId" ColumnName="CourseScheduleId" />
+          <ScalarProperty Name="CourseEnrollmentId" ColumnName="CourseEnrollmentId" />
+          <ScalarProperty Name="NonEmployeeId" ColumnName="NonEmployeeId" />
+          <ScalarProperty Name="CourseEnrollmentNote" ColumnName="CourseEnrollmentNote" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetEnrollmentTraineeDetail" FunctionName="TrainingContext.Store.GetEnrollmentTraineeDetail" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,16 @@
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\ACTransit.Entities.Training.dll.config
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\ACTransit.Entities.Training.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\ACTransit.Entities.Training.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\ACTransit.Framework.DataAccess.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\ACTransit.Framework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\EntityFramework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\EntityFramework.SqlServer.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\Newtonsoft.Json.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\ACTransit.Framework.DataAccess.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\ACTransit.Framework.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\EntityFramework.xml
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\EntityFramework.SqlServer.xml
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\bin\Debug\Newtonsoft.Json.xml
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\obj\Debug\ACTransit.Entities.Training.csprojResolveAssemblyReference.cache
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\obj\Debug\ACTransit.Entities.Training.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Training\obj\Debug\ACTransit.Entities.Training.pdb

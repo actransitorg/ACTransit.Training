@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ACTransit.DataAccess.Employee</name>
+    </assembly>
+    <members>
+        <member name="T:ACTransit.DataAccess.Employee.Repositories.EmployeeAllRepository">
+            <summary>
+            List of all employee including retired and not current employees.
+            </summary>
+        </member>
+        <member name="M:ACTransit.DataAccess.Employee.Repositories.EmployeeAllRepository.GetEmployeesByBadges(System.String[])">
+            <summary>
+            Returns employees based on their badges
+            </summary>
+            <param name="badges">The list of Badges</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACTransit.DataAccess.Employee.Repositories.EmployeeRepository.GetEmployee(System.String)">
+            <summary>
+            Returns employee based on Lan Id
+            </summary>
+            <param name="lanId">The LanId (NTLogin)</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACTransit.DataAccess.Employee.Repositories.EmployeeRepository.GetEmployees(System.String[])">
+            <summary>
+            Returns employees based on their Lan Id
+            </summary>
+            <param name="lanIds">The list of all LanIds (NTLogin)</param>
+            <returns></returns>
+        </member>
+        <member name="M:ACTransit.DataAccess.Employee.Repositories.EmployeeRepository.GetEmployeesByBadges(System.String[])">
+            <summary>
+            Returns employees based on their badges
+            </summary>
+            <param name="badges">The list of all Badges (EmployeeId )</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

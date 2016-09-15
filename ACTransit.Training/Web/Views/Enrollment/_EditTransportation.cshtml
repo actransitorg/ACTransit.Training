@@ -1,0 +1,91 @@
+﻿<!--ko with:transportation()-->
+<div class="row">
+    <div class="column">
+        <label class="inline col-m" style="padding-right: 10px;"></label>
+        <div class="inline" data-bind="if:$root.hasWheelTime" style="padding-top:5px;">
+            <label class="inline" style="padding-right: 10px">Total Drive Time</label>
+            <div class="inline" style="width:100px;">
+                <span class="label label-default" data-bind="text:totalDriveTime"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-left: 0;margin-right: 0;" >
+    <div style="position: relative;min-height: 300px;overflow:auto;" class="divScroll">
+        <table id="tblVehicleSpecification" class="list black table-responsive mousesensitive" style="position: relative;table-layout: fixed;-moz-min-width: 1420px; -ms-min-width: 1420px; -o-min-width: 1420px; -webkit-min-width: 1420px; min-width: 1420px;">
+            <thead>
+                <tr>
+                    <th style="width:140px;min-width: 140px;">Date</th>
+                    <th style="width:140px;min-width: 140px;">Instructor</th>
+                    <!--ko if:$root.hasWheelTime-->
+                    <th style="width:120px;min-width: 120px;">Coach</th>
+                    <th style="width: 50px">QT</th>
+                    <th style="width: 95px;min-width: 50px;">Lift/ Ramps</th>
+                    <th style="width: 70px;min-width: 50px">Secure</th>
+                    <th style="width: 80px;min-width: 80px">WHTime</th>
+                    <th style="width:190px;min-width: 190px;">Route</th>
+                    <!-- /ko-->
+                    <th style="min-width:260px">Topics</th>
+                    <th style="width:80px;min-width: 50px">No Show</th>
+                    <th style="width: 165px; text-align:center;min-width: 165px"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-control-type="template" style="height:30px;background-color: transparent!important" data-bind="css:{'input-validation-error':!isTemplateValid()}">
+                    <td><input type="text" class="form-control date column" maxlength="10" data-bind="value:template().date, dateTimeExtender:null,dateTimeOptions:{ closeOnDateSelect:true, timepicker: false, format: 'm/d/Y',minDate:$root.minDate, maxDate:$root.maxDate}, css:{'input-validation-error':dateRequired}, attr:{title:$root.dateError}" /></td>
+                    <td><select class="form-control inline " data-bind="options:$root.instructors,optionsText:'instructor',optionsValue:'instructorId',value: template().instructorId,optionsCaption: 'Choose...',disable:template().noShow "></select></td>
+                    <!--ko if:$root.hasWheelTime-->
+                    <td>                        
+                        <select id="divCoach" class="form-control inline " data-bind="options:vehicles,optionsText:'vehicleId',optionsValue:'vehicleId',value: template().vehicleId,optionsCaption: 'Choose...',disable:template().noShow, css:{'input-validation-error':coachRequired}"></select>
+                    </td>
+                    <td><input type="checkbox" data-bind="checked:template().qT,disable:template().noShow, click:template().qTClick " /></td>
+                    <td><input type="checkbox" data-bind="checked:template().lift,disable:template().noShow " /></td>
+                    <td><input type="checkbox" data-bind="checked:template().secure,disable:template().noShow " /></td>
+                    <td><input type="text" id="txtWhTime" data-bind="time:null,timeOptions:{max:5,onInitialized:template().onTemplateTimeInitialized},value:template().wheelTimeStr, valueUpdate:'blur',css:{'input-validation-error':wheelTimeRequired},attr:{title:wheelTimeError},disable:template().noShow  " class="form-control" style="padding-left:8px;padding-right: 8px" /></td>
+                    <td>
+                        <div class="inline bootstraptheme" id="multiCheckComboRouts" style="width:170px;" data-bind="multiCheckCombo:routes, multiComboValue:template().routeId,optionsText:'routeAlpha',optionsValue:'routeAlpha', optionsSelected:'selected',multiCheckComboInitilized:onRouteInit, onClosed:onRouteClosed, disabled:template().noShow">
+                            <input type="text" readonly />
+                            <div><div><ul><li></li></ul></div></div>
+                        </div>
+                    </td>                    
+                    <!-- /ko-->
+                    <td>
+                        <div class="inline bootstraptheme" id="multiCheckComboTopics" style="width:270px" data-bind="multiCheckCombo:topics, multiComboValue:template().topicIds,optionsText:'name',optionsValue:'topicId', optionsSelected:'selected',multiCheckComboInitilized:onTopicInit, onClosed:onTopicClosed, disabled:template().topicDisbaled">
+                            <input type="text" readonly />
+                            <div><div><ul><li></li></ul></div></div>
+                        </div>
+                    </td>
+                    <td><input type="checkbox" value="" data-bind="checked:template().noShow,click:noShowClicked,disable:noShowDisabled"></td>
+                    <td>
+                        <button class="btn btn-default" style="width:70px;" data-bind="text:template().NewUpdateTemplateButtonText, click:NewUpdateTemplateClicked"></button>
+                        <button class="btn btn-default" style="width:70px;" data-bind="text:template().ClearTemplateButtonText, click:clearTemplateClicked">Clear</button>
+                    </td>
+                </tr>
+                <!-- ko foreach: enrollmentAndVehicles() -->
+                <tr style="height:30px;">
+                    <td>
+                        <div class="column" data-bind="if: editState"><span class="glyphicon glyphicon-pencil" title="This row is being edited."></span></div>
+                        <span data-bind="text:date"></span>
+                    </td>
+                    <td><span data-bind="text:$root.getInstructorStr($data.instructorId)"></span></td>
+                    <!--ko if:$root.hasWheelTime-->                    
+                    <td><span data-bind="text:vehicleId"></span></td>                    
+                    <td><input type="checkbox" data-bind="checked:qT, enable:false" /></td>
+                    <td><input type="checkbox" data-bind="checked:lift, enable:false" /></td>
+                    <td><input type="checkbox" data-bind="checked:secure, enable:false" /></td>
+                    <td><span data-bind="text:wheelTimeStr"></span></td>
+                    <td><span data-bind="text:routeId"></span></td>
+                    <!-- /ko-->
+                    <td data-bind="text:$parent.enrollmentTopicsStr($data)"></td>
+                    <td><input type="checkbox" data-bind="checked:noShow, enable:false" /></td>
+                    <td>
+                        <button class="btn btn-danger" style="width:70px;" data-bind="disable:$parent.template().editState(),click:function(data, event) { $parent.removeEnrollmentTemplate($index) }">Remove</button>
+                        <button class="btn btn-default" style="width:70px;" data-bind="disable:$parent.template().editState(),click:$parent.editEnrollmentTemplate.bind($data) ">Edit</button>
+                    </td>
+                </tr>
+                <!-- /ko -->
+            </tbody>
+        </table>
+    </div>    
+</div>
+<!-- /ko -->

@@ -1,0 +1,146 @@
+﻿@using ACTransit.Training.Web.Infrastructure
+@{
+    ViewBag.Title = "Attendance";
+    string controller = ViewContext.RouteData.Values["Controller"].ToString();
+    const string dateFormat = "{0:MM/dd/yyyy}";
+    const string timeFormat = @"{0:hh\:mm}";
+    const string Token = "Enrollment";
+}
+@section head
+{
+    <style>
+        .inline {
+            display: inline-block !important;
+        }
+        .column {
+            display: inline-block !important;
+            margin-bottom: 2px;
+        }
+        .col1 {
+            width: 100px;
+            text-align: right
+        }
+        #divRoute input, #divCoach input{            
+            border: none!important;
+        }
+      .divcheckboxlabel {
+            vertical-align: top;margin-top:5px
+        }
+        .divcheckbox {
+            vertical-align: top;margin-top:3px;margin-left: 15px
+        }
+    </style>
+}
+
+<div id="main" data-role="page" data-bind="if:pageReady()">
+    @Html.Partial("_Main")
+</div>
+<div id="edit" data-role="page" style="display: none" data-bind="if:pageReady()">    
+    @Html.Partial("_Edit")
+</div>
+@section scripts
+{
+    <script>
+    var page = 'main';
+    var scrollTopPosition = 0;
+    var enrollmentsPage, enrollmentPage;
+    $(function () {        
+        initialEmployeeSearch();
+        
+        enrollmentsPage = new EnrollmentsPage('@Url.Action("")');
+        enrollmentPage = new EnrollmentPage('@Url.Action("")');
+        ko.applyBindings(enrollmentsPage,document.getElementById("main"));
+        ko.applyBindings(enrollmentPage, document.getElementById("edit"));
+
+        initialSammy();        
+    });
+
+
+    function initialEmployeeSearch() {
+        window.EmployeeSearch.url = '@Url.Action("GetContacts", "EmployeeSearch", new {area = ""})';
+    }
+
+    function mainPage() {
+        var showLoaded = false;
+        page = 'main';
+        try {
+            $('div[data-role="page"]').hide();
+            
+            if (enrollmentPage && !enrollmentPage.isCanceled)
+                showLoaded = true;
+            enrollmentsPage.show(showLoaded);
+            $('#main').show();
+            $(window).scrollTop(scrollTopPosition);
+        } catch (e) {
+            alert("Main:" + e.message);
+        }
+    }
+
+    function editPage(id) {
+        scrollTopPosition = $(window).scrollTop();
+        page = 'edit';        
+        enrollmentPage.show(id);
+        $('div[data-role="page"]').hide();
+        $('#edit').show();
+    }
+
+    function newPage(id) {        
+        scrollTopPosition = $(window).scrollTop();
+        page = 'new';
+        enrollmentPage.show(0,id);
+        $('div[data-role="page"]').hide();
+        $('#edit').show();
+    }
+
+
+    function initialSammy() {
+        Sammy(function() {
+            this.disable_push_state = true;
+            this.get('#:page', function () {                
+                switch (this.params.page.toLowerCase()) {
+                    case "main":
+                        mainPage();
+                        break;
+                    case "new":
+                        newPage();
+                        break;
+                    default:
+                        page = 'main';
+                        location.hash = "main";
+                        break;
+                }
+            });
+            this.get('#:page/:id', function() {
+                switch (this.params.page.toLowerCase()) {
+                    case "edit":
+                        editPage(this.params.id);
+                        break;
+                    case "new":
+                        newPage(0);
+                        break;
+                    default:
+                        page = 'main';
+                        location.hash = "main";
+                        break;
+                }
+            });
+            this.get('#:page/:forp/:id', function () {
+                switch (this.params.page.toLowerCase()) {
+                    case "new":
+                        if (this.params.forp.toLowerCase() == 'courseenrollment') {
+                            newPage(this.params.id);
+                        }                        
+                        break;
+                    default:
+                        page = 'main';
+                        location.hash = "main";
+                        break;
+                }
+            });
+
+            this.get('', function() { this.app.runRoute('get', '#main'); });
+        }).run();
+    }
+
+    </script>
+}

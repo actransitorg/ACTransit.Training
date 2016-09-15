@@ -1,0 +1,29 @@
+﻿@media(max-width:768px) {
+    html{
+        font-size:60%;
+    }
+    body{
+        padding-left:5px;
+        padding-right:15px;
+    }
+    header {
+        position:absolute;
+    }
+    header .identity {
+        display: none;
+    }
+    header .title{display:none;}
+    .col-m {
+        text-align: left;
+    }
+    .navbar {
+        margin-bottom: 0;
+    }
+
+    div.column {
+        display: inline-block;     
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+

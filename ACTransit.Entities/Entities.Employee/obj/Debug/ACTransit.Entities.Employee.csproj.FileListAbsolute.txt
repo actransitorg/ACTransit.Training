@@ -1,0 +1,5 @@
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Employee\bin\Debug\ACTransit.Entities.Employee.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Employee\bin\Debug\ACTransit.Entities.Employee.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Employee\obj\Debug\ACTransit.Entities.Employee.csprojResolveAssemblyReference.cache
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Employee\obj\Debug\ACTransit.Entities.Employee.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\Entities.Employee\obj\Debug\ACTransit.Entities.Employee.pdb

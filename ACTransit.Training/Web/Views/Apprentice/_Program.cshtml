@@ -1,0 +1,28 @@
+﻿@using ACTransit.Training.Web.Domain.Apprentice.Models
+@model ProgramViewModel
+
+@foreach (var item in @Model.Items)
+{
+    <div class="accordion-toggle collapsed" data-id="@item.ParticipantId">
+        <div class="row clickable row-height">
+            <div class="col-md-4">
+                <span data-role-type="icon" style="padding-right: 5px;"></span>
+                @Html.Raw(Model.ParticipantTitle(item))
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-default row-valign" data-action="ManageParticipant" data-id="@item.ParticipantId" data-modal="dialog">Manage</button>
+            </div>
+            <div class="col-md-6">@Html.Raw(Model.ParticipantActionItems(item))</div>
+        </div>
+        <div class="content-container collapse" data-action="ParticipantProgress"></div>
+    </div>
+}
+
+<script>
+    $('button[data-modal="dialog"]').unbind().click(function (e) {
+        e.stopPropagation();
+        window.showPartialViewAsModal('@Url.Content("~")', $(this));
+    });
+    $("#dialog-form").submit(function (e) {
+    });
+</script>

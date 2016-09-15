@@ -1,0 +1,1140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="matrix1">
+        <TablixCorner>
+          <TablixCornerRows>
+            <TablixCornerRow>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox82">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Div</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <Color>SteelBlue</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox76</rd:DefaultName>
+                    <ToolTip>Current Division</ToolTip>
+                    <Style>
+                      <Border>
+                        <Color>SteelBlue</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox79">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Shift</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <Color>SteelBlue</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox77</rd:DefaultName>
+                    <ToolTip>Current Work Shift</ToolTip>
+                    <Style>
+                      <Border>
+                        <Color>SteelBlue</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox119">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Badge</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <Color>SteelBlue</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox119</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>SteelBlue</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox121">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Employee Name</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <Color>SteelBlue</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox121</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>SteelBlue</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>4pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox123">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Lev</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <Color>SteelBlue</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox123</rd:DefaultName>
+                    <ToolTip>Current Apprentice Level</ToolTip>
+                    <Style>
+                      <Border>
+                        <Color>SteelBlue</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="txtSheetDate">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Sheet Date</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <Color>SteelBlue</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <Style>
+                      <Border>
+                        <Color>SteelBlue</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <VerticalAlign>Middle</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixCornerCell>
+            </TablixCornerRow>
+          </TablixCornerRows>
+        </TablixCorner>
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>0.5in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.21in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="txtWorkHour">
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>= IIF(Fields!Status.Value = "Detail" , SUM(Fields!HourDone.Value)
+      ,
+      IIF(Parameters!ReportHoursDoneOrToDo.Value = "Done", CInt(Fields!HourDone.Value), CInt(Fields!HourToDo.Value))
+   )</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontWeight>=IIF(Parameters!Summarize.Value = True , "Normal" , IIF(Fields!Status.Value &lt;&gt; "Detail" , "Bold" , "Normal"))</FontWeight>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingRight>4pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                  <DataElementOutput>Output</DataElementOutput>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="matrix1_WorkCategoryTitleGoal">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!WorkCategoryTitleGoal.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!WorkCategorySortOrder.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!WorkCategoryTitleGoal.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixMembers>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>0.39in</Size>
+                    <CellContents>
+                      <Textbox Name="WorkCategoryTitleGoal2">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=TRIM(REPLACE(Fields!WorkCategoryTitleGoal.Value, ":", "" &amp; Constants.vbCrLf))</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>WorkCategoryTitleGoal</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>SteelBlue</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <TopBorder>
+                            <Color>SteelBlue</Color>
+                            <Style>Solid</Style>
+                            <Width>1pt</Width>
+                          </TopBorder>
+                          <BottomBorder>
+                            <Color>SteelBlue</Color>
+                            <Style>Solid</Style>
+                            <Width>1pt</Width>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Color>SteelBlue</Color>
+                            <Style>Solid</Style>
+                            <Width>1pt</Width>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Color>SteelBlue</Color>
+                            <Style>Solid</Style>
+                            <Width>1pt</Width>
+                          </RightBorder>
+                          <BackgroundColor>SteelBlue</BackgroundColor>
+                          <VerticalAlign>Middle</VerticalAlign>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+              <DataElementOutput>Output</DataElementOutput>
+            </TablixMember>
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="EmployeeDivision">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!EmployeeDivision.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!EmployeeDivision.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixHeader>
+                <Size>0.35in</Size>
+                <CellContents>
+                  <Textbox Name="EmployeeDivision">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>=Fields!EmployeeDivision.Value</Value>
+                            <Style>
+                              <FontFamily>Tahoma</FontFamily>
+                              <Color>SteelBlue</Color>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>EmployeeDivision</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Style>None</Style>
+                      </Border>
+                      <VerticalAlign>Top</VerticalAlign>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="EmployeeWorkShift">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!EmployeeWorkShift.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!EmployeeWorkShift.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>0.35in</Size>
+                    <CellContents>
+                      <Textbox Name="EmployeeWorkShift">
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!EmployeeWorkShift.Value</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <Color>SteelBlue</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>EmployeeWorkShift</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Style>None</Style>
+                          </Border>
+                          <VerticalAlign>Top</VerticalAlign>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Badge_ParticipantId">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!ParticipantId.Value</GroupExpression>
+                          <GroupExpression>=Fields!Badge.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!Badge.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixHeader>
+                        <Size>0.5in</Size>
+                        <CellContents>
+                          <Textbox Name="Badge1">
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!Badge.Value</Value>
+                                    <Style>
+                                      <FontFamily>Tahoma</FontFamily>
+                                      <Color>SteelBlue</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Badge1</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Style>None</Style>
+                              </Border>
+                              <VerticalAlign>Top</VerticalAlign>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="EmployeeName">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!Employee.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Group>
+                          <SortExpressions>
+                            <SortExpression>
+                              <Value>=Fields!Employee.Value</Value>
+                            </SortExpression>
+                          </SortExpressions>
+                          <TablixHeader>
+                            <Size>2in</Size>
+                            <CellContents>
+                              <Textbox Name="Employee">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!Employee.Value</Value>
+                                        <Style>
+                                          <FontFamily>Tahoma</FontFamily>
+                                          <Color>SteelBlue</Color>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Left</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Employee</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Style>None</Style>
+                                  </Border>
+                                  <VerticalAlign>Top</VerticalAlign>
+                                  <PaddingLeft>4pt</PaddingLeft>
+                                  <PaddingRight>1pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <Group Name="Level">
+                                <GroupExpressions>
+                                  <GroupExpression>=Fields!Level.Value</GroupExpression>
+                                </GroupExpressions>
+                              </Group>
+                              <SortExpressions>
+                                <SortExpression>
+                                  <Value>=Fields!Level.Value</Value>
+                                </SortExpression>
+                              </SortExpressions>
+                              <TablixHeader>
+                                <Size>0.3in</Size>
+                                <CellContents>
+                                  <Textbox Name="Level1">
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Fields!Level.Value</Value>
+                                            <Style>
+                                              <FontFamily>Tahoma</FontFamily>
+                                              <Color>SteelBlue</Color>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style>
+                                          <TextAlign>Center</TextAlign>
+                                        </Style>
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Level1</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Style>None</Style>
+                                      </Border>
+                                      <VerticalAlign>Top</VerticalAlign>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember>
+                                  <Group Name="matrix1_ProgressStartDate_Status">
+                                    <GroupExpressions>
+                                      <GroupExpression>=Fields!ProgressStartDate.Value</GroupExpression>
+                                      <GroupExpression>=Fields!Status.Value</GroupExpression>
+                                    </GroupExpressions>
+                                  </Group>
+                                  <SortExpressions>
+                                    <SortExpression>
+                                      <Value>=Fields!StatusSortOrder.Value</Value>
+                                      <Direction>Descending</Direction>
+                                    </SortExpression>
+                                    <SortExpression>
+                                      <Value>=Fields!ProgressStartDate.Value</Value>
+                                    </SortExpression>
+                                  </SortExpressions>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>0.9in</Size>
+                                        <CellContents>
+                                          <Textbox Name="ProgressStartDate">
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=IIF(Parameters!Summarize.Value = True , Fields!ProgressStartDate.Value 
+    , IIF(Fields!Status.Value &lt;&gt; "Detail" , IIF(Parameters!ReportHoursDoneOrToDo.Value = "Done", "+", "-")
+    , Fields!ProgressStartDate.Value))</Value>
+                                                    <Style>
+                                                      <FontFamily>Tahoma</FontFamily>
+                                                      <Format>dd-MMM-yyyy</Format>
+                                                      <Color>SteelBlue</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>=IIF(Parameters!Summarize.Value = True , "Left", IIF(Fields!Status.Value &lt;&gt; "Detail" , "Right" , "Left"))</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>ProgressStartDate</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>4pt</PaddingLeft>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                          <rd:Selected>true</rd:Selected>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember />
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
+                                  <DataElementOutput>Output</DataElementOutput>
+                                  <KeepTogether>true</KeepTogether>
+                                </TablixMember>
+                              </TablixMembers>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
+        <RepeatRowHeaders>true</RepeatRowHeaders>
+        <FixedColumnHeaders>true</FixedColumnHeaders>
+        <DataSetName>dsMain</DataSetName>
+        <Height>0.6in</Height>
+        <Width>4.9in</Width>
+        <Visibility>
+          <Hidden>=IIF(CountRows("dsMain") = 0 , True , False)</Hidden>
+        </Visibility>
+        <Style />
+      </Tablix>
+    </ReportItems>
+    <Height>0.6in</Height>
+    <Style />
+  </Body>
+  <Width>9.85278in</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.55in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="txtNoRecords">
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=IIF(CountRows("dsMain") = 0, "No Apprentices Found","AC Transit" &amp; vbcrlf &amp; "Executed " &amp; Today.ToShortDateString)</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <Color>=IIF(CountRows("dsMain") = 0, "Red" ,"SteelBlue")</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Left>1.81041in</Left>
+          <Height>0.55in</Height>
+          <Width>2.02848in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="txtTitle">
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!ProgramId.Label 
+&amp; vbcrlf &amp; "Apprentice Work Process Hours" &amp; IIF(Parameters!Summarize.Value = True, "" , " History")
+&amp; vbcrlf &amp; IIF(Parameters!StartDate.Value = Parameters!EndDate.Value , Parameters!StartDate.Value , Parameters!StartDate.Value &amp; " - " &amp; Parameters!EndDate.Value )</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>SteelBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Left>3.83889in</Left>
+          <Height>0.55in</Height>
+          <Width>3in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Color>LightGrey</Color>
+              <Style>None</Style>
+            </Border>
+            <BackgroundColor>White</BackgroundColor>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>logo</Value>
+          <Left>0.02916in</Left>
+          <Height>0.47917in</Height>
+          <Width>1.78125in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="txtTitleEmpBadge">
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=IIF(Join(Parameters!Badge.Label, ",") LIKE "(All)*" , "" , 
+ IIF(Parameters!Badge.Count &gt; 3 , "" ,
+ IIF(Parameters!Badge.Count = 1 , Trim(Join(Parameters!Badge.Label)) ,
+     Replace(Join(Parameters!Badge.Label),"   ",vbcrlf)
+    )))</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>SteelBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Left>6.85278in</Left>
+          <Height>0.55in</Height>
+          <Width>3in</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Color>LightGrey</Color>
+              <Style>None</Style>
+            </Border>
+            <BackgroundColor>White</BackgroundColor>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>1pt</PaddingLeft>
+            <PaddingRight>1pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=.;Initial Catalog=Training</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>3abced2b-4cb8-4120-9651-631736b00e76</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="dsMain">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@StartDate">
+            <Value>=Parameters!StartDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@EndDate">
+            <Value>=Parameters!EndDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Badge">
+            <Value>=JOIN(Parameters!Badge.Value,",")</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Summarize">
+            <Value>=Parameters!Summarize.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IsActive">
+            <Value>=Parameters!IsActive.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ProgramId">
+            <Value>=Parameters!ProgramId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>Apprentice.GetParticipantWork</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Badge">
+          <DataField>Badge</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Employee">
+          <DataField>Employee</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProgressStartDate">
+          <DataField>ProgressStartDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="HourDone">
+          <DataField>HourDone</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="WorkCategoryTitleGoal">
+          <DataField>WorkCategoryTitleGoal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HourToDo">
+          <DataField>HourToDo</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="WorkCategoryName">
+          <DataField>WorkCategoryName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HourGoal">
+          <DataField>HourGoal</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="WorkCategorySortOrder">
+          <DataField>WorkCategorySortOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="WorkCategoryShortDescription">
+          <DataField>WorkCategoryShortDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WorkCategoryId">
+          <DataField>WorkCategoryId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="StatusSortOrder">
+          <DataField>StatusSortOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParticipantId">
+          <DataField>ParticipantId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ProgramId">
+          <DataField>ProgramId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="RowSortOrder">
+          <DataField>RowSortOrder</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="EmployeeDivision">
+          <DataField>EmployeeDivision</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmployeeWorkShift">
+          <DataField>EmployeeWorkShift</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmployeeScheduledDaysOff">
+          <DataField>EmployeeScheduledDaysOff</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Level">
+          <DataField>Level</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ParticipantStatusId">
+          <DataField>ParticipantStatusId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ScoreTotal">
+          <DataField>ScoreTotal</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dsStartEndDate">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText>SELECT 
+  MIN(StartDate) StartDate
+ , CAST(CURRENT_TIMESTAMP AS DATE) EndDate
+FROM Apprentice.Progress
+</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dsProgram">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText>SELECT ProgramId, Name FROM Apprentice.Program ORDER BY 2</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ProgramId">
+          <DataField>ProgramId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dsEmployee">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText>SELECT CAST('All' AS VARCHAR(6)) Badge ,CAST('(All)' AS VARCHAR(100)) EmployeeNameBadge
+UNION ALL
+SELECT DISTINCT Badge, EmployeeName + ' ' + Badge + '   ' AS EmployeeNameBadge -- '   ' triple space is replaced with carriage return in report header
+FROM Apprentice.ParticipantWorkDetail 
+ORDER BY 2</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Badge">
+          <DataField>Badge</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmployeeNameBadge">
+          <DataField>EmployeeNameBadge</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="Summarize">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>true</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Report</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>true</Value>
+            <Label>Summary</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>false</Value>
+            <Label>History</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ProgramId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>dsProgram</DataSetName>
+          <ValueField>ProgramId</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Program </Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsProgram</DataSetName>
+          <ValueField>ProgramId</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="StartDate">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>dsStartEndDate</DataSetName>
+          <ValueField>StartDate</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Start Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="EndDate">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>dsStartEndDate</DataSetName>
+          <ValueField>EndDate</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>End Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IsActive">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>true</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Apprentices</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>true</Value>
+            <Label>Active</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>false</Value>
+            <Label>All</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Badge">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Employee</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsEmployee</DataSetName>
+          <ValueField>Badge</ValueField>
+          <LabelField>EmployeeNameBadge</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="ReportHoursDoneOrToDo">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ToDo</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Report Hours Done or To Do</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>Done</Value>
+            <Label>Done</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>ToDo</Value>
+            <Label>To Do</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <EmbeddedImages>
+    <EmbeddedImage Name="logo">
+      <MIMEType>image/gif</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0f4dc8f2-33e5-4241-bf06-12e65cfaeca9</rd:ReportID>
+</Report>

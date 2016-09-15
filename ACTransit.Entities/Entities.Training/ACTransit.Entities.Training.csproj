@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB6C9B2A-87B6-4CB8-8F5F-58D142D1B947}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ACTransit.Entities.Training</RootNamespace>
+    <AssemblyName>ACTransit.Entities.Training</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\ACTransit.Entities.Training.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>$(SolutionDir)packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>$(SolutionDir)packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(SolutionDir)packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CharToTable_Result.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComponentTopic.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Course.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseEnrollment.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseRoster.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseRosterBase.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseSchedule.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseScheduleDetail.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseScheduleInstructor.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseTopic.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CourseType.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DailyPerformance.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DailyPerformanceProgramLevelGroup.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Division.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enrollment.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentInstructor.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentList.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentTopic.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentTopicTypeOneBase.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentTopicTypeOtherBase.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentTraineeDetail.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentVehicle.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentVehicleRoute.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnrollmentVehicleTime.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentGroupVehicle.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetActionItems_Result.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetApprenticeDetailUnitTest_Result.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAttendanceList_Result.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Grade.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Instructor.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorEnrollmentList.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorList.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Metadata\DailyPerformance.cs" />
+    <Compile Include="Metadata\DailyPerformanceProgramLevelGroup.cs" />
+    <Compile Include="Metadata\Participant.cs" />
+    <Compile Include="Metadata\ParticipantProgramLevelGroup.cs" />
+    <Compile Include="Metadata\ParticipantStatus.cs" />
+    <Compile Include="Metadata\ParticipantWork.cs" />
+    <Compile Include="Metadata\ParticipantWorkSeed.cs" />
+    <Compile Include="Metadata\ParticipantWorkDetail.cs" />
+    <Compile Include="Metadata\Program.cs" />
+    <Compile Include="Metadata\ProgramLevel.cs" />
+    <Compile Include="Metadata\ProgramLevelGroup.cs" />
+    <Compile Include="Metadata\Progress.cs" />
+    <Compile Include="Metadata\ProgressDay.cs" />
+    <Compile Include="Metadata\ProgressRatingCellScore.cs" />
+    <Compile Include="Metadata\RatingArea.cs" />
+    <Compile Include="Metadata\RatingCategory.cs" />
+    <Compile Include="Metadata\RatingItem.cs" />
+    <Compile Include="Metadata\RatingCell.cs" />
+    <Compile Include="Metadata\RatingCellScore.cs" />
+    <Compile Include="Metadata\WorkCategory.cs" />
+    <Compile Include="NonEmployee.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Participant.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParticipantProgramLevelGroup.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParticipantStatus.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParticipantWork.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParticipantWorkDetail.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ParticipantWorkSeed.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramLevel.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramLevelGroup.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Progress.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressDay.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressRatingCellScore.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingArea.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingCategory.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingCell.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingCellScore.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RatingItem.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteList.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyncParticipantWork_Result.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyncWithEnterprise_Result.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Topic.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TopicType.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkCategory.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkCategoryHour.cs" />
+    <Compile Include="Partials.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrainingContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorksheetParticipantDetail.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorksheetScoreTemplate.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorksheetTemplate.cs">
+      <DependentUpon>TrainingContext.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="LICENSE.md" />
+    <None Include="packages.config" />
+    <None Include="TrainingContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TrainingContext.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ACTransit.Framework\ACTransit.Framework.DataAccess\ACTransit.Framework.DataAccess.csproj">
+      <Project>{de1ebef9-ab81-4a7e-bd81-b5200853f84a}</Project>
+      <Name>ACTransit.Framework.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ACTransit.Framework\ACTransit.Framework\ACTransit.Framework.csproj">
+      <Project>{cbab0fa8-b673-4596-94cd-3ae0a910a873}</Project>
+      <Name>ACTransit.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
+
+

@@ -1,0 +1,50 @@
+﻿<!--ko with:maintenance()-->
+<div class="row">
+    <div class="column">
+        <label class="inline col-m" style="padding-right: 10px">Lecture Hours</label>
+        <div class="inline " style="width:280px;">
+            <input id="txtLectureHours" type="text" class="form-control inline" placeholder="Lecture Hours" title="Lecture hours" data-bind="value:enrollment().lectureTimeStr, valueUpdate:'blur', disable:enrollment().noShow(), css:{'input-validation-error':!lectureHoursValid()}" />
+        </div>
+    </div>
+    <div class="column">
+        <label class="inline col-m" style="padding-right: 10px">Grade</label>
+        <div class="inline" style="width:280px;">
+            <select class="form-control inline " data-bind="options:grades,optionsText:'description',optionsValue:'letterGrade',value: enrollment().letterGrade,optionsCaption: 'Choose...', disable:enrollment().noShow"></select>
+        </div>
+    </div>
+</div>
+<div class="row" data-bind="visible:!(lectureHoursValid())">
+    <label class="inline col-m" style="padding-right: 10px"></label>
+    <div class="inline" style="padding-right: 10px" style="width:30px;">
+        <span data-bind="ifnot:lectureHoursValid, css:{'field-validation-error':!lectureHoursValid()}" title="Lecture time should have maximum of 999 hours and 60 minutes.">000:00</span>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <label class="inline col-m" style="padding-right: 10px">Primary instructor</label>
+        <div class="inline" style="width:280px;">
+            <select class="form-control inline " data-bind="options:$root.instructors,optionsText:'instructor',optionsValue:'instructorId',value: primaryInstructorId,optionsCaption: 'Choose...'"></select>
+        </div>
+    </div>
+    <div class="column">
+        <label class="inline col-m" style="padding-right: 10px">Assistant instructor</label>
+        <div class="inline" style="width:280px;">
+            <select class="form-control inline" data-bind="options:$root.instructors,optionsText:'instructor',optionsValue:'instructorId',value: secondaryInstructorId,optionsCaption: 'Choose...'"></select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <label class="inline col-m" style="padding-right: 10px;vertical-align: top">Note</label>
+        <div class="inline" style="width:280px;">
+            <textarea class="form-control inline" rows="1" cols="25" style="max-width: 100% !important; height: 70px" data-bind="value:enrollment().note"></textarea>
+        </div>
+    </div>
+    <div class="column">
+        <label class="inline col-m" style="padding-right: 10px;vertical-align: top"></label>
+        <div class="inline checkbox-inline" style="width:280px;">
+            <label><input type="checkbox" value="" data-bind="checked:enrollment().noShow, click:onNoShowClick">No Show</label>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

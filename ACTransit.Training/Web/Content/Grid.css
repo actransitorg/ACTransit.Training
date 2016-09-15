@@ -1,0 +1,43 @@
+﻿table.list{
+    width: 100%;
+}
+
+table.list td tr{
+    width: 100%;
+    font-weight: normal;    
+    -moz-word-break: break-all;
+    -o-word-break: break-all;
+    word-break: break-all;
+    empty-cells: show;    
+}
+
+table.list th,table.list td {
+        -moz-min-width: 50px;
+        -ms-min-width: 50px;
+        -o-min-width: 50px;
+        -webkit-min-width: 50px;  
+        min-width: 50px;      
+        text-align: left;
+        word-wrap: break-word;
+    }
+
+    table.list th {
+        font-weight: normal;
+    }
+
+    table.list tr.filter td {
+    }
+
+        table.list tr.filter td:first-child {
+        }
+
+        table.list tr.filter td:last-child {
+        }
+
+    table.list td {
+        padding: 2px 10px 2px 10px;
+    }
+
+    table.list input {
+        width: 100%;
+    }

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ACL>
+  <tokens>
+    <token name="Admin">
+      <groups>
+        <group allow="1">APP Training Admin</group>
+      </groups>
+      <users>
+        <!--user allow="1">[user]</user -->
+      </users>
+    </token>
+    <token name="CourseEnrollment">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+        <group allow="1">APP Training Contributor</group>
+      </groups>
+      <users>
+        <!--<user allow="1">[user]</user> -->
+      </users>
+    </token>
+    <token name="Enrollment">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+        <group allow="1">APP Training Contributor</group>
+      </groups>
+      <users>
+      </users>
+    </token>
+    <token name="ApprenticeFeature">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+        <group allow="1">APP Training Supervisor</group>
+        <group allow="1">APP Training Superintendent</group>
+      </groups>
+      <users>
+      </users>
+    </token>
+    <token name="SignAsApprentice">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+        <group allow="1">APP Training Supervisor</group>
+        <group allow="1">APP Training Superintendent</group>
+      </groups>
+    </token>
+    <token name="SignAsSupervisor">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+        <group allow="1">APP Training Supervisor</group>
+        <group allow="1">APP Training Superintendent</group>
+      </groups>
+      <users>       
+      </users>
+    </token>
+    <token name="SignAsSuperintendent">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+        <group allow="1">APP Training Supervisor</group>
+        <group allow="1">APP Training Superintendent</group>
+      </groups>
+      <users>
+      </users>
+    </token>
+  </tokens>
+  <dynamic>
+    <!-- Access is denied unless otherwise. -->
+    <types>
+      <type name="CourseType">
+        <token name="CourseTypeId" value="*">
+          <groups>
+            <group allow="1">APP Training Admin</group>
+          </groups>
+          <users>            
+          </users>
+        </token>
+        <token name="CourseTypeId" value="1">
+          <groups>
+            <group allow="1">APP Training Contributor</group>
+            <group allow="1">APP Training Admin</group>
+          </groups>
+          <users>
+          </users>
+        </token>
+      </type>
+    </types>
+  </dynamic>
+</ACL>

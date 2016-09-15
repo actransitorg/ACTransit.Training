@@ -1,0 +1,7 @@
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.ActiveDirectory\bin\Debug\ACTransit.DataAccess.ActiveDirectory.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.ActiveDirectory\bin\Debug\ACTransit.DataAccess.ActiveDirectory.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.ActiveDirectory\bin\Debug\ACTransit.Entities.ActiveDirectory.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.ActiveDirectory\bin\Debug\ACTransit.Entities.ActiveDirectory.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.ActiveDirectory\obj\Debug\ACTransit.DataAccess.ActiveDirectory.csprojResolveAssemblyReference.cache
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.ActiveDirectory\obj\Debug\ACTransit.DataAccess.ActiveDirectory.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.ActiveDirectory\obj\Debug\ACTransit.DataAccess.ActiveDirectory.pdb

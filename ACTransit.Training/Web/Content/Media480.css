@@ -1,0 +1,31 @@
+﻿@media (max-width:480px){ 
+    header h3{ font-size: 1.3em;}
+
+    .col-sm {
+        width: auto;
+    }
+
+    .col-sm-1 {
+        width: auto;
+        text-align: right;
+    }
+    .col-sm1 {
+        width: auto;
+        text-align: right;
+    }
+
+    .col-m {
+        width: auto;        
+    }
+    
+    div.inline {
+        display: block!important;
+    }
+
+    div.column {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+}
+

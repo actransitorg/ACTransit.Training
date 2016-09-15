@@ -1,0 +1,77 @@
+﻿@using ACTransit.Training.Web.Domain.Models
+@model NonEmployeeViewModel
+
+@{
+    ViewBag.Title = "Non Employee";
+    var controller = "NonEmployee";
+}
+
+
+<br />
+<div class="content">
+    @using (@Html.BeginForm("Save", controller, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        
+                        <div class="row form-group">
+                            <label class="col-md-2 col-sm-2 control-label">Non Employee</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control"})
+                                @Html.ValidationMessageFor(model => model.Name, null, new { @class = "field-validation-error" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-2 col-sm-2"></div>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="checkbox" id="chkActive" value="true" name="IsActive" checked="@Model.IsActive" />
+                                <label for="chkActive" class="control-label">Active</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 40px">
+            @Html.HiddenFor(model => model.NonEmployeeId)
+            @Html.HiddenFor(model => model.State)
+
+            @Html.ActionLink("Cancel", "", controller, new { }, new { @class = "btn btn-default pull-right defaults" })
+            <button type="submit" class="btn btn-default pull-right defaults">Save</button>
+
+            @if (Model.NonEmployeeId != 0)
+            {
+                <button id="btnDelete" class="btn btn-danger" type="button">Delete</button>
+            }
+        </div>
+
+    }
+    
+
+</div>
+
+@section scripts
+{
+    <script>
+        $(function() {
+            $("#btnDelete").click(function() {
+                modal.show("Warning", "Are you sure you wish to delete this person?", { showRefresh: false, showCancel: true, showOk: true }).done(
+                     function (data) {
+                         if (data == 'OK') {
+                             Ajax.ajax('@Url.Action("Delete", controller)', {
+                                 data: '{ id: @Model.NonEmployeeId}',
+                                 dataType: 'json',
+                                 type: 'DELETE',
+                                 contentType: "application/json; charset=utf-8;"
+                             }, waitBox).done(function () {
+                                 window.location = '@Url.Action("Index", controller)';
+                             });
+                         }
+                     });
+            });
+        });
+    </script>
+}

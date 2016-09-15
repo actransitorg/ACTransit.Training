@@ -1,0 +1,248 @@
+﻿@using ACTransit.Training.Web.Infrastructure
+@{
+    ViewBag.Title = "Course Enrollments";
+    const string token = "CourseEnrollment";
+    const string enrollmentToken = "Enrollment";
+
+}
+
+@section head
+{
+    <style>
+        .inline {
+            display: inline-block !important;
+        }
+
+        .column {
+            display: inline-block !important;
+            margin-bottom: 2px;
+        }
+
+        div[data-role="page"] ul {
+            list-style: none;
+            padding-left: 15px;
+        }
+
+        .accordion-toggle {
+            border-bottom: 1px solid #ccc;
+            padding: 5px 0 5px 0;
+        }
+
+        div[data-role="page"] {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            min-width: 640px;
+        }
+        #divRoute input, #divCoach input{
+            border: none!important;
+        }
+    </style>
+}
+
+
+
+
+<div id="MainCourseEnrollment" data-role="page" style="display: none" data-bind="if:pageReady">
+    @Html.Partial("_MainCourseEnrollment")
+</div>
+
+<div data-bind="if:pageReady" id="EditCourseEnrollment" data-role="page" style="display: none">
+    <div data-bind="with:selectedCourseEnrollment">
+        @Html.Partial("_EditCourseEnrollment")
+    </div>    
+</div>
+<div data-bind="if:pageReady" id="EditEnrollment" data-role="page" style="display: none">
+    @Html.Partial("../Enrollment/_Edit")
+</div>
+
+
+
+@section scripts{
+    <script>
+        var page = 'main';
+        var mainPageName = 'Course Enrollments';
+        var mainCourseEnrollment_Div, editCourseEnrollment_Div, editEnrollment_Div;
+        var sammyApp;
+        var initialValues = {
+            courseTypeId: parseInt('@ViewBag.CourseTypeId', 10),
+            courseId: parseInt('@ViewBag.CourseId', 10),
+            courseScheduleId: parseInt('@ViewBag.CourseScheduleId', 10),
+            beginEffDateStr: '@ViewBag.BeginEffDateStr',
+            endEffDateStr: '@ViewBag.EndEffDateStr',
+            hasValue: function() {
+                return !isNaN(initialValues.courseTypeId) || !isNaN(initialValues.courseId) || !isNaN(initialValues.courseScheduleId);
+            },
+            reset: function() {
+                initialValues.courseTypeId = NaN;
+                initialValues.courseId = NaN;
+                initialValues.courseScheduleId = NaN;
+            }
+        }
+        var scrollTopPosition = 0; //keep the scroll position when navigating to new/edit
+        $(function() {
+            initialEmployeeSearch();
+            mainCourseEnrollment_Div = document.getElementById("MainCourseEnrollment");
+            editCourseEnrollment_Div = document.getElementById("EditCourseEnrollment");
+            editEnrollment_Div = document.getElementById("EditEnrollment");
+
+            var courseEnrollments = new CourseEnrollmentsPage('@Url.Action("")', '@Url.Action("Enroll", "Enrollment")', initialValues);
+            var courseEnrollment = new CourseEnrollmentPage('@Url.Action("CourseEnrollemntViewModel")');
+            var enrollment = new EnrollmentPage('@Url.Action("", "Enrollment")');
+
+            ko.applyBindings(courseEnrollments, mainCourseEnrollment_Div);
+            ko.applyBindings(courseEnrollment, editCourseEnrollment_Div);
+            ko.applyBindings(enrollment, editEnrollment_Div);
+
+            function mainPage() {
+                page = 'main';
+                try {
+                    //enrollments.show(0, 0, enrollment.savedId);
+                    courseEnrollments.show(0, 0, courseEnrollment.result.savedId, courseEnrollment.result.error);
+                    $('div[data-role="page"]').hide();
+                    Page.title(mainPageName);
+                    $(mainCourseEnrollment_Div).show();
+                    $(window).scrollTop(scrollTopPosition);
+                } catch (e) {
+                    alert("Main:" + e.message);
+                }
+            }
+
+            function editPage(id) {
+                scrollTopPosition = $(window).scrollTop();
+                page = 'edit';
+                courseEnrollment.show(null, id);
+                $('div[data-role="page"]').hide();
+                Page.title(mainPageName, 'Edit');
+                $(editCourseEnrollment_Div).show();
+            }
+
+            function newPage(id) {
+                scrollTopPosition = $(window).scrollTop();
+                page = 'new';
+                courseEnrollment.show(id, null);
+                $('div[data-role="page"]').hide();
+                Page.title(mainPageName, 'New');
+                $(editCourseEnrollment_Div).show();
+            }
+
+            function enrollPage(courseEnrollmentId, courseTypeId, isSaveCopyEnrollment) {                
+                if (courseEnrollmentId) scrollTopPosition = $(window).scrollTop();
+                page = 'new';
+                enrollment.show(null, courseEnrollmentId, courseTypeId, isSaveCopyEnrollment);
+                $('div[data-role="page"]').hide();
+                Page.title('Attendance');
+                $(editEnrollment_Div).show();                
+            }
+
+            sammyApp=$.sammy(function() {
+                this.disable_push_state = true;
+                this.bind('pageLoaded', function (e, data) {
+                    initialScroll();
+                });
+                this.get('#:page', function() {
+                    switch (this.params.page.toLowerCase()) {
+                    case "main":
+                        mainPage();
+                        break;
+                    case "new":
+                        newPage();
+                        break;
+                    case "enroll":
+                        enrollPage(null, null, false);
+                        break;
+                    case "enrollsavecopy":
+                        enrollPage(null, null, true);
+                        break;
+                    default:
+                        page = 'main';
+                        location.hash = "main";
+                        break;
+                    }
+                });
+                this.get('#:page/:id', function() {
+                    switch (this.params.page.toLowerCase()) {
+                    case "edit":
+                        editPage(this.params.id);
+                        break;
+                    case "new":
+                        newPage(this.params.id);
+                        break;
+                    case "enroll":
+                        enrollPage(this.params.id, null, false);
+                        break;
+                    case "enrollsavecopy":
+                        enrollPage(null, null, true);
+                        break;
+                    default:
+                        page = 'main';
+                        location.hash = "main";
+                        break;
+                    }                    
+                });
+                this.get('#:page/:id/:courseTypeId', function() {
+                    switch (this.params.page.toLowerCase()) {
+                    case "edit":
+                        editPage(this.params.id);
+                        break;
+                    case "new":
+                        newPage(this.params.id);
+                        break;
+                    case "enroll":
+                        enrollPage(this.params.id, this.params.courseTypeId, false);
+                        break;
+                    case "enrollsavecopy":
+                        enrollPage(null, this.params.courseTypeId, true);
+                        break;
+                    default:
+                        page = 'main';
+                        location.hash = "main";
+                        break;
+                    }                                        
+                });
+                this.get('', function() { this.app.runRoute('get', '#MainCourseEnrollment'); });
+            }).run();
+
+            $(window).resize(initialScroll);
+        });
+
+        function initialEmployeeSearch() {
+            window.EmployeeSearch.url = '@Url.Action("GetContacts", "EmployeeSearch", new {area = ""})';
+        }
+
+        var PageNavigation = {
+            navigateToEnroll: function(id, courseTypeId) {
+                var loc = '';
+                if (id)
+                    loc = "enroll/" + id + (courseTypeId ? ('/' + courseTypeId) : '');
+                else
+                    loc = "enroll";
+                location.hash = loc;
+            },
+            navigateToEnrollSaveCopy: function(courseTypeId) {
+                var loc = '';
+                loc = "enrollsavecopy/" + (new Date()).getTime() + (courseTypeId ? ('/' + courseTypeId) : '');
+                location.hash = loc;
+            },
+            navigateToMain: function() { location.hash = "main"; },
+            navigateToNew: function(id) {
+                if (id == null) {
+                    location.hash = "new";
+                } else {
+                    location.hash = "new/" + id;
+                }
+            },
+            navigateToEdit: function(id) { location.hash = "edit/" + id; }
+
+        }
+        
+        function initialScroll() {            
+            var divScroll = $("div.divScroll");
+            if ($(divScroll).length > 0) {                
+                var h = $(window).height() - $(divScroll).offset().top - $('footer').height() -100;
+                $(divScroll).height(h);
+            }        
+        }
+
+    </script>
+}

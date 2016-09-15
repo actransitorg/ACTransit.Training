@@ -1,0 +1,17 @@
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.DataAccess.Employee.dll.config
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.DataAccess.Employee.XML
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.DataAccess.Employee.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.DataAccess.Employee.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.Entities.Employee.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.Framework.DataAccess.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.Framework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\EntityFramework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\EntityFramework.SqlServer.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.Framework.DataAccess.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.Framework.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\ACTransit.Entities.Employee.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\EntityFramework.xml
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\bin\Debug\EntityFramework.SqlServer.xml
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\obj\Debug\ACTransit.DataAccess.Employee.csprojResolveAssemblyReference.cache
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\obj\Debug\ACTransit.DataAccess.Employee.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Entities\DataAccess.Employee\obj\Debug\ACTransit.DataAccess.Employee.pdb

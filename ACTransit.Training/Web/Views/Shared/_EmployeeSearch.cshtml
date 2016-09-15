@@ -1,0 +1,172 @@
+﻿<div>
+    <div class="modal fade" id="badge-list-container" tabindex="-1" role="dialog" aria-labelledby="badge-list-label" aria-hidden="true">
+        <div class="modal-dialog m-width">
+            <div class="modal-content" style="min-height: 200px;">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal">&times;</a>
+                    <br />
+                </div>
+                <div class="modal-body">
+                    <div class="form-inline" style="margin-bottom: 10px;">
+                        <label class="control-label">Search by</label>
+                        <select id="badge-search-by" class="form-control">
+                            <option value="badge">Badge</option>
+                            <option value="firstName">First Name</option>
+                            <option value="lastName" selected="selected">Last Name</option>
+                        </select>
+                        <input type="text" id="badge-search-textbox" class="form-control" /><span id="badge-search-button" class="glyphicon glyphicon-search" style="cursor: pointer;margin-left: 10px"></span>
+                        <input type="hidden" id="hdnValue"/>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="badge-list" class="list gray mousesensitive" style="padding-right: 100px;">
+                            <thead>
+                                <tr>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Department</th>
+                                    <th>Business Phone</th>
+                                    <th>Cell Phone</th>
+                                    <th>Badge</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer bottom">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var EmployeeSearch = {
+        value:'',
+        url: '',
+        modalId : '#badge-list-container',
+        show: function (url) {
+            EmployeeSearch.url = url;
+            var prom = $.Deferred();
+            $(EmployeeSearch.modalId).modal('show');
+   
+            $(EmployeeSearch.modalId).modal();
+            $(EmployeeSearch.modalId).on('hidden.bs.modal', function (e) {
+                prom.resolve(EmployeeSearch.value);
+            });
+
+            return prom;
+        },
+        hide: function () { $(EmployeeSearch.modalId).modal('hide'); },
+
+        onClose:null,
+
+        initial:function() {
+            var searchData = [];
+
+            $('#badge-list-container').on('shown.bs.modal', function (e) {
+                $("#badge-search-textbox").focus();
+            });
+
+            $("#badge-search-textbox").keydown(function (e) {
+                var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+                if (key != 13) return;
+                e.preventDefault();
+                $("#badge-search-button").click();
+            });
+
+            $("#badge-search-button").click(function () {
+                var id = $("#badge-search-textbox").val();
+                var searchBy = '';
+                if ($.isNumeric(id)) {                   
+                    $("#badge-search-by").val('badge');
+                } 
+                searchBy = $("#badge-search-by").val();
+                var url = EmployeeSearch.url;                
+                Ajax.ajax(url, {
+                    type: "POST",
+                    data: {
+                        badge: (searchBy == "badge" ? id : null),
+                        lastName: (searchBy == "lastName" ? id : null),
+                        firstName: (searchBy == "firstName" ? id : null)
+                    }
+                }, waitBox).done(function (data) {
+                    var result = '';
+                    searchData = data;
+                    $.each(data, function (i, item) {
+                        result += '<tr id="badge-list-' + i + '">' +
+                            '<td>' + item.LastName + '</td>' +
+                            '<td>' + item.FirstName + '</td>' +
+                            '<td>' + item.Department + '</td>' +
+                            '<td>' + item.BusinessPhone + '</td>' +
+                            '<td>' + item.CellPhone + '</td>' +
+                            '<td>' + item.Badge + '</td>' +
+                            '</tr>';
+                    });
+                    $("#badge-list tbody").html(result);
+                    $("#badge-list tbody tr").click(function () {
+                        var idx = $(this).attr("id").replace("badge-list-", "");
+                        postBadgeFilterUpdate(data[idx].Badge.trim());
+                    });
+                });
+
+                function postBadgeFilterUpdate(newBadge) {
+                    EmployeeSearch.value = newBadge;                    
+                    $('#badge-list-container').modal('hide');                    
+                }               
+
+            });
+
+            $(EmployeeSearch.modalId).on('hidden.bs.modal', function (e) {               
+                if (EmployeeSearch.onClose != null)
+                    EmployeeSearch.onClose(EmployeeSearch.value);
+            });
+        },
+
+        getEmployees: function (condition) {
+            var searchBy='name';
+            if ($.isNumeric(condition))
+                searchBy = 'badge';
+            var url = EmployeeSearch.url;
+            return Ajax.ajax(url, {
+                type: "POST",
+                data: {
+                    badge: (searchBy == "badge" ? condition : null),
+                    name: (searchBy == "name" ? condition : null),
+                }
+            }, waitBox);
+        },        
+        providEmployeeSource: function (req, res) {
+            var term = req.term;
+            if (term.length > 2) {
+                EmployeeSearch.getEmployees(term).done(function (data) {
+                    var source = [];
+                    var matcher = new RegExp($.ui.autocomplete.escapeRegex(term), "i");
+                    if (data && data.length) {
+                        for (var i = 0; i < data.length; i++) {
+                            var d = data[i].Badge;// + ' - ' + data[i].Name + "( " + data[i].LoginId + " )";
+                            if (data[i].Name) d = d + ' - ' + data[i].Name;
+                            if (data[i].LoginId) d = d + " (" + data[i].LoginId + ")";
+                            if (matcher.test(d))
+                                source.push({ value: data[i].Badge, label: d, name: data[i].Name });
+                        }
+                    }
+                    if (source.length == 0)
+                        source.push({ value: '', label: '', name: ''});
+                    res(source);
+                }
+                ).fail(function () { res(); });
+            } else {
+                res();
+            }
+        }
+
+    }
+    $(function() {
+        EmployeeSearch.initial();
+    });
+    
+    
+</script>

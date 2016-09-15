@@ -1,0 +1,4 @@
+P:\ACTransit.Projects\GitHub_Trunk\PublishScripts\bin\Debug\PublishScripts.dll
+P:\ACTransit.Projects\GitHub_Trunk\PublishScripts\bin\Debug\PublishScripts.pdb
+P:\ACTransit.Projects\GitHub_Trunk\PublishScripts\obj\Debug\PublishScripts.dll
+P:\ACTransit.Projects\GitHub_Trunk\PublishScripts\obj\Debug\PublishScripts.pdb

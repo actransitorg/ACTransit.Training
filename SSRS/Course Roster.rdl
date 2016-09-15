@@ -1,0 +1,1332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="List1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>7.77292in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.43in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="List1_Contents">
+                      <ReportItems>
+                        <Tablix Name="List2">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>7.77292in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.43in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Rectangle Name="List2_Contents">
+                                        <ReportItems>
+                                          <Tablix Name="table1">
+                                            <TablixBody>
+                                              <TablixColumns>
+                                                <TablixColumn>
+                                                  <Width>0.25in</Width>
+                                                </TablixColumn>
+                                                <TablixColumn>
+                                                  <Width>0.6in</Width>
+                                                </TablixColumn>
+                                                <TablixColumn>
+                                                  <Width>1.5in</Width>
+                                                </TablixColumn>
+                                                <TablixColumn>
+                                                  <Width>1.14583in</Width>
+                                                </TablixColumn>
+                                                <TablixColumn>
+                                                  <Width>1.58751in</Width>
+                                                </TablixColumn>
+                                                <TablixColumn>
+                                                  <Width>1.25625in</Width>
+                                                </TablixColumn>
+                                                <TablixColumn>
+                                                  <Width>1.43333in</Width>
+                                                </TablixColumn>
+                                              </TablixColumns>
+                                              <TablixRows>
+                                                <TablixRow>
+                                                  <Height>0.22in</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox29">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value />
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                    <FontSize>11pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <Color>White</Color>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox29</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <BackgroundColor>SteelBlue</BackgroundColor>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="textbox2">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>Badge</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                    <FontSize>11pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <Color>White</Color>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>textbox2</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <BackgroundColor>SteelBlue</BackgroundColor>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="textbox3">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>Trainee</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                    <FontSize>11pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <Color>White</Color>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>textbox3</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <BackgroundColor>SteelBlue</BackgroundColor>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="textbox4">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>Department</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                    <FontSize>11pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <Color>White</Color>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>textbox4</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <BackgroundColor>SteelBlue</BackgroundColor>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="textbox5">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>Signature</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                    <FontSize>11pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <Color>White</Color>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>textbox5</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <BackgroundColor>SteelBlue</BackgroundColor>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="textbox6">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>VTT Expiration</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                    <FontSize>11pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <Color>White</Color>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>(If Applicable)</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                    <FontSize>11pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <Color>White</Color>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>textbox6</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <BackgroundColor>SteelBlue</BackgroundColor>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox19">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>Comments</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                    <FontSize>11pt</FontSize>
+                                                                    <FontWeight>Bold</FontWeight>
+                                                                    <Color>White</Color>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <BackgroundColor>SteelBlue</BackgroundColor>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                                <TablixRow>
+                                                  <Height>0.21in</Height>
+                                                  <TablixCells>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="CourseRosterRow">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!CourseRosterRow.Value</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>CourseRosterRow</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Badge">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!Badge.Value</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Badge</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Trainee">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!Trainee.Value</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style />
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Trainee</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>4pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="TraineeDeptName">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>=Fields!TraineeDeptName.Value</Value>
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style />
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>TraineeDeptName</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>4pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="CourseScheduleId">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value />
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style />
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>CourseScheduleId</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="SessionTerm">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value />
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style />
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>SessionTerm</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                    <TablixCell>
+                                                      <CellContents>
+                                                        <Textbox Name="Textbox20">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value />
+                                                                  <Style>
+                                                                    <FontFamily>Tahoma</FontFamily>
+                                                                  </Style>
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style />
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>Textbox20</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Color>LightGrey</Color>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                            <PaddingTop>2pt</PaddingTop>
+                                                            <PaddingBottom>2pt</PaddingBottom>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixCell>
+                                                  </TablixCells>
+                                                </TablixRow>
+                                              </TablixRows>
+                                            </TablixBody>
+                                            <TablixColumnHierarchy>
+                                              <TablixMembers>
+                                                <TablixMember />
+                                                <TablixMember />
+                                                <TablixMember />
+                                                <TablixMember />
+                                                <TablixMember />
+                                                <TablixMember />
+                                                <TablixMember />
+                                              </TablixMembers>
+                                            </TablixColumnHierarchy>
+                                            <TablixRowHierarchy>
+                                              <TablixMembers>
+                                                <TablixMember>
+                                                  <KeepWithGroup>After</KeepWithGroup>
+                                                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                                                  <KeepTogether>true</KeepTogether>
+                                                </TablixMember>
+                                                <TablixMember>
+                                                  <Group Name="table1_Details_Group">
+                                                    <DataElementName>Detail</DataElementName>
+                                                  </Group>
+                                                  <SortExpressions>
+                                                    <SortExpression>
+                                                      <Value>=Fields!CourseName.Value</Value>
+                                                    </SortExpression>
+                                                  </SortExpressions>
+                                                  <TablixMembers>
+                                                    <TablixMember />
+                                                  </TablixMembers>
+                                                  <DataElementName>Detail_Collection</DataElementName>
+                                                  <DataElementOutput>Output</DataElementOutput>
+                                                  <KeepTogether>true</KeepTogether>
+                                                </TablixMember>
+                                              </TablixMembers>
+                                            </TablixRowHierarchy>
+                                            <DataSetName>dsCourseRoster</DataSetName>
+                                            <SortExpressions>
+                                              <SortExpression>
+                                                <Value>=Fields!CourseName.Value</Value>
+                                              </SortExpression>
+                                              <SortExpression>
+                                                <Value>=Fields!BeginEffDate.Value</Value>
+                                              </SortExpression>
+                                              <SortExpression>
+                                                <Value>=Fields!EndEffDate.Value</Value>
+                                              </SortExpression>
+                                            </SortExpressions>
+                                            <Height>0.43in</Height>
+                                            <Width>7.77292in</Width>
+                                            <Style />
+                                          </Tablix>
+                                        </ReportItems>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Style />
+                                      </Rectangle>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember />
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <Group Name="list1_Division">
+                                  <GroupExpressions>
+                                    <GroupExpression>=Fields!SessionTerm.Value</GroupExpression>
+                                  </GroupExpressions>
+                                  <PageBreak>
+                                    <BreakLocation>Between</BreakLocation>
+                                  </PageBreak>
+                                </Group>
+                                <SortExpressions>
+                                  <SortExpression>
+                                    <Value>=Fields!Division.Value</Value>
+                                  </SortExpression>
+                                </SortExpressions>
+                                <DataElementOutput>Output</DataElementOutput>
+                                <KeepTogether>true</KeepTogether>
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <DataSetName>dsCourseRoster</DataSetName>
+                          <PageBreak>
+                            <BreakLocation>End</BreakLocation>
+                          </PageBreak>
+                          <Height>0.43in</Height>
+                          <Width>7.77292in</Width>
+                          <Style>
+                            <FontFamily>Tahoma</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </Tablix>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style />
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="list1_CourseName">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!CourseScheduleId.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <DataElementOutput>Output</DataElementOutput>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>dsCourseRoster</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!Badge.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!Trainee.Value</Value>
+          </SortExpression>
+        </SortExpressions>
+        <Height>0.43in</Height>
+        <Width>7.77292in</Width>
+        <Style>
+          <FontFamily>Tahoma</FontFamily>
+          <FontSize>14pt</FontSize>
+          <Color>SlateGray</Color>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>0.43in</Height>
+    <Style />
+  </Body>
+  <Width>7.77292in</Width>
+  <Page>
+    <PageHeader>
+      <Height>1.24875in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="textbox11">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Executed " &amp; FormatDateTime(Today,DateFormat.ShortDate)</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <Color>SteelBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox1</rd:DefaultName>
+          <Top>0.03645in</Top>
+          <Left>5.94375in</Left>
+          <Height>0.20764in</Height>
+          <Width>1.78125in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="textbox12">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Training and Education</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox1</rd:DefaultName>
+          <Top>0.45in</Top>
+          <Height>0.20834in</Height>
+          <Width>1.78125in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Bottom</VerticalAlign>
+          </Style>
+        </Textbox>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>logo</Value>
+          <Top>0.03645in</Top>
+          <Height>0.47917in</Height>
+          <Width>1.78125in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="txtNoRecords">
+          <CanShrink>true</CanShrink>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=IIF(CountRows("dsCourseRoster") = 0, "No Trainees Enrolled","")</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <Color>Red</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.24409in</Top>
+          <Left>5.94375in</Left>
+          <Height>0.20764in</Height>
+          <Width>1.78125in</Width>
+          <ZIndex>3</ZIndex>
+          <Visibility>
+            <Hidden>=IIF(CountRows("dsCourseRoster") = 0, False ,True)</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+        </Textbox>
+        <Textbox Name="textbox13">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Course Roster</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <Color>SteelBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>textbox1</rd:DefaultName>
+          <Top>0.60361in</Top>
+          <Left>2.725in</Left>
+          <Height>0.20764in</Height>
+          <Width>1.78125in</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!CourseName.Value, "dsCourseRoster")</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>SteelBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.70708in</Top>
+          <Left>0.85in</Left>
+          <Height>0.29167in</Height>
+          <Width>5.48959in</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox7">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=IIF(First(Fields!Division.Value, "dsCourseRoster") = "" , "Scheduled" , First(Fields!Division.Value, "dsCourseRoster")) &amp; ": " &amp; First(Fields!SessionTerm.Value, "dsCourseRoster")</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <Color>SteelBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox7</rd:DefaultName>
+          <Top>0.99875in</Top>
+          <Left>0.85in</Left>
+          <Height>0.25in</Height>
+          <Width>5.48959in</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <LeftMargin>0.35in</LeftMargin>
+    <RightMargin>0.35in</RightMargin>
+    <TopMargin>0.5in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="dsTraining">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=.;Initial Catalog=Training</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>66395b29-013a-45e2-a548-880f3c3ea533</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="dsCourseRoster">
+      <Query>
+        <DataSourceName>dsTraining</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@CourseScheduleId">
+            <Value>=Parameters!CourseScheduleId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@CourseTypeId">
+            <Value>=Parameters!CourseTypeId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@CourseId">
+            <Value>=Parameters!CourseId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT *
+FROM dbo.CourseRoster
+WHERE 1=1
+AND ( CAST(CourseTypeId AS VARCHAR(10)) IN (@CourseTypeId) OR 'All' IN (@CourseTypeId) ) -- 1=Trans 2=Maint 3=Other
+AND
+(
+  CourseScheduleId = @CourseScheduleId -- 151 --All Hazards Awareness/Preparedness for Transit EEs
+  OR
+  ( --All Todays Schedules 
+    @CourseScheduleId = 0
+    AND @CourseId = 0
+    AND CAST(CURRENT_TIMESTAMP AS DATE) BETWEEN BeginEffDate AND EndEffDate
+  )
+  OR
+  ( --Todays Schedules for one course
+	@CourseScheduleId = 0
+	AND CourseId = @CourseId
+	AND CAST(CURRENT_TIMESTAMP AS DATE) BETWEEN BeginEffDate AND EndEffDate
+  )
+)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="CourseScheduleId">
+          <DataField>CourseScheduleId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="CourseName">
+          <DataField>CourseName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Division">
+          <DataField>Division</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Trainee">
+          <DataField>Trainee</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Badge">
+          <DataField>Badge</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TraineeDeptName">
+          <DataField>TraineeDeptName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SessionTerm">
+          <DataField>SessionTerm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TraineeLocation">
+          <DataField>TraineeLocation</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BeginEffDate">
+          <DataField>BeginEffDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="EndEffDate">
+          <DataField>EndEffDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="StartTime">
+          <DataField>StartTime</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="EndTime">
+          <DataField>EndTime</DataField>
+          <rd:TypeName>System.TimeSpan</rd:TypeName>
+        </Field>
+        <Field Name="CourseType">
+          <DataField>CourseType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CourseTypeId">
+          <DataField>CourseTypeId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="IsUnenrolled">
+          <DataField>IsUnenrolled</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="CourseId">
+          <DataField>CourseId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="NonEmployeeId">
+          <DataField>NonEmployeeId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="DivisionId">
+          <DataField>DivisionId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="CourseRosterRow">
+          <DataField>CourseRosterRow</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="CourseEnrollmentId">
+          <DataField>CourseEnrollmentId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="NonEmployeeName">
+          <DataField>NonEmployeeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dsCourse">
+      <Query>
+        <DataSourceName>dsTraining</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@CourseTypeId">
+            <Value>=Parameters!CourseTypeId.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@IsActive">
+            <Value>=Parameters!IsActive.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT
+	 cs.CourseId
+	,c.Name CourseName
+FROM dbo.Course c
+JOIN dbo.CourseSchedule cs ON c.CourseId = cs.CourseId
+WHERE ( CAST(c.CourseTypeId AS VARCHAR(10)) IN (@CourseTypeId) OR 'All' IN (@CourseTypeId) ) -- 1=Trans 2=Maint 3=Other
+AND c.IsActive IN (1,@IsActive)
+UNION ALL
+SELECT 0 CourseID
+      ,'(Today''s Scheduled Courses)'
+ORDER BY CourseName</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CourseId">
+          <DataField>CourseId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="CourseName">
+          <DataField>CourseName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dsCourseSchedule">
+      <Query>
+        <DataSourceName>dsTraining</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@CourseId">
+            <Value>=Parameters!CourseId.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT DISTINCT
+ CourseId
+,CourseScheduleId
+,CourseName
+,SessionTerm
+,BeginEffDate
+,EndEffDate
+FROM dbo.CourseRoster--Base
+WHERE CourseId = @CourseId
+UNION ALL
+SELECT   
+ 0 
+,0 
+,NULL
+,'(Today''s Scheduled Courses)'
+,NULL
+,NULL
+ORDER BY CourseName, BeginEffDate DESC, EndEffDate DESC</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CourseScheduleId">
+          <DataField>CourseScheduleId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="CourseId">
+          <DataField>CourseId</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="CourseName">
+          <DataField>CourseName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SessionTerm">
+          <DataField>SessionTerm</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BeginEffDate">
+          <DataField>BeginEffDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="EndEffDate">
+          <DataField>EndEffDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dsCoachSeries">
+      <Query>
+        <DataSourceName>dsTraining</DataSourceName>
+        <CommandText>SELECT 'All' SeriesNum
+UNION ALL SELECT '150' 
+UNION ALL SELECT '265'
+UNION ALL SELECT 'FC BUS'
+UNION ALL SELECT 'FX'
+UNION ALL SELECT '4000/7200'</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="SeriesNum">
+          <DataField>SeriesNum</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="dsCourseType">
+      <Query>
+        <DataSourceName>dsTraining</DataSourceName>
+        <CommandText>
+SELECT Name ,CAST(CourseTypeId AS VARCHAR(10)) CourseTypeId ,SortOrder
+FROM dbo.CourseType
+UNION ALL
+SELECT 'All' ,'All' ,-1
+ORDER BY SortOrder</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CourseTypeId">
+          <DataField>CourseTypeId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SortOrder">
+          <DataField>SortOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="CourseTypeId">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>All</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Course Type</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsCourseType</DataSetName>
+          <ValueField>CourseTypeId</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="IsActive">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>true</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Just Show Active Courses</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>true</Value>
+            <Label>Yes</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>false</Value>
+            <Label>No</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="CourseId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Course Name</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsCourse</DataSetName>
+          <ValueField>CourseId</ValueField>
+          <LabelField>CourseName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="CourseScheduleId">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Course Session</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsCourseSchedule</DataSetName>
+          <ValueField>CourseScheduleId</ValueField>
+          <LabelField>SessionTerm</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <EmbeddedImages>
+    <EmbeddedImage Name="logo">
+      <MIMEType>image/gif</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>b36de62c-64df-4598-8012-2bd3086da431</rd:ReportID>
+</Report>

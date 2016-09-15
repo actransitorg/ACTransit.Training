@@ -1,0 +1,12 @@
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\ACTransit.Framework.DataAccess.dll.config
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\ACTransit.Framework.DataAccess.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\ACTransit.Framework.DataAccess.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\ACTransit.Framework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\EntityFramework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\ACTransit.Framework.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\EntityFramework.xml
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\obj\Debug\ACTransit.Framework.DataAccess.csprojResolveAssemblyReference.cache
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\obj\Debug\ACTransit.Framework.DataAccess.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework.DataAccess\obj\Debug\ACTransit.Framework.DataAccess.pdb

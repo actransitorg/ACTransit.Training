@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e8944449bf174fe69e04cb1ebba45ec4" Name="Diagram1">
+        <EntityTypeShape EntityType="TrainingContext.DailyPerformance" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.DailyPerformanceProgramLevelGroup" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Participant" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ParticipantProgramLevelGroup" Width="1.5" PointX="9.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ParticipantStatus" Width="2.375" PointX="5.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ParticipantWork" Width="1.5" PointX="9.75" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ParticipantWorkSeed" Width="1.5" PointX="12.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Program" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ProgramLevel" Width="1.5" PointX="5.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ProgramLevelGroup" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Progress" Width="1.5" PointX="12" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ProgressDay" Width="1.5" PointX="15.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ProgressRatingCellScore" Width="1.5" PointX="14.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.RatingArea" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.RatingCategory" Width="1.5" PointX="3" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.RatingCell" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.RatingCellScore" Width="1.5" PointX="7.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.RatingItem" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.WorkCategory" Width="1.5" PointX="3" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Course" Width="1.5" PointX="20" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.CourseEnrollment" Width="1.5" PointX="24.5" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.CourseSchedule" Width="1.5" PointX="22.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.CourseScheduleInstructor" Width="1.5" PointX="24.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.CourseTopic" Width="1.5" PointX="22.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.CourseType" Width="1.5" PointX="17.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Division" Width="1.5" PointX="13" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Enrollment" Width="1.5" PointX="26.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentInstructor" Width="1.5" PointX="29" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentTopic" Width="1.5" PointX="29" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentVehicle" Width="1.5" PointX="29" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentVehicleRoute" Width="1.5" PointX="31.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Grade" Width="1.5" PointX="24.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Instructor" Width="1.5" PointX="20" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Menu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.NonEmployee" Width="1.5" PointX="17.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.Topic" Width="1.5" PointX="20" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.TopicType" Width="1.5" PointX="17.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ParticipantWorkDetail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.WorksheetParticipantDetail" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.WorksheetScoreTemplate" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.WorksheetTemplate" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.ComponentTopic" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.CourseRoster" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.CourseRosterBase" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.CourseScheduleDetail" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentList" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentTopicTypeOneBase" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentTopicTypeOtherBase" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentTraineeDetail" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EnrollmentVehicleTime" Width="1.5" PointX="13.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.EquipmentGroupVehicle" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.InstructorEnrollmentList" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.InstructorList" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrainingContext.RouteList" Width="1.5" PointX="16.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="TrainingContext.FK_DailyPerformanceProgramLevelGroup_DailyPerformanceId" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ProgressDay_DailyPerformance" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_DailyPerformanceProgramLevelGroup_ProgramLevelGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Participant_ParticipantStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Participant_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Participant_ProgramLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ParticipantLevel_Participant" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ParticipantWork_Participant" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ParticipantWorkSeed_Participant" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ParticipantLevel_ParticipantProgramLevelGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ParticipantLevel_ProgramLevelGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ParticipantWork_WorkCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ParticipantWorkSeed_WorkCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ProgramLevelGroup_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_WorkCategory_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ProgramLevel_ProgramLevelGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ProgressDay_ProgramLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_RatingCell_ProgramLevelGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ProgressDay_Progress" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ProgressRatingCellScore_Progress" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ProgressDay_Division" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_ProgressRatingCellScore_RatingCell" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_RatingCell_RatingArea" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_RatingCell_RatingCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_RatingCell_RatingItem" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_RatingCellScore_RatingCellId" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Course_CourseType" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_CourseSchedule_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_CourseTopic_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_CourseEnrolment_CourseSchedule" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_CourseEnrolment_NonEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Enrollment_CourseEnrollment" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_CourseSchedule_Division" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_CourseScheduleInstructor_CourseSchedule" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_CourseScheduleInstructor_Instructor" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_CourseTopic_Topic" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Instructor_CourseTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Topic_CourseTypeId" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Enrollment_Grade" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_EnrollmentInstructor_Enrollment" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_EnrollmentTopic_Enrollment" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_EnrollmentVehicle_Enrollment" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_EnrollmentInstructor_Instructor" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_EnrollmentTopic_Topic" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_EnrollmentVehicleRoute_EnrollmentVehicle" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Instructor_NonEmployee" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Menu_ParentMenuId" ManuallyRouted="false" />
+        <AssociationConnector Association="TrainingContext.FK_Topic_TopicTypeId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

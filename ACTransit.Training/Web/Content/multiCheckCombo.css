@@ -1,0 +1,129 @@
+﻿.multiCheckCombo {
+    margin: 0;
+    border-spacing: 0;
+    position: relative;
+    border-top:1px solid #bab8b8;    
+    border: 1px solid #ccc;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;    
+}
+.multiCheckCombo.disabled {
+    background-color: #eeeeee !important;
+}
+
+.multiCheckCombo.disabled *{
+    background-color: #eeeeee !important;
+}
+
+.multiCheckCombo * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.multiCheckCombo.normaltheme {
+    background-color: white;
+    border: 1px solid #D3D6DA;
+    -ms-border-radius:2px;
+    border-radius:2px;
+    padding: 0;
+}
+
+.multiCheckCombo.bootstraptheme {
+    height: 34px;
+    max-height: 34px;
+    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px #000000;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -ms-box-shadow: inset 0px 1px 1px #000000;    
+    -ms-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0px 1px 1px #000000;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -ms-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.multiCheckCombo.enabled:hover {
+    border: 1px solid RGB(199,226,241);
+    border-top:1px solid RGB(87,148,191);
+}
+
+    .multiCheckCombo > input[type="text"] {
+        width: calc(100% - 18px);
+        border: 0;    
+    }
+
+.multiCheckCombo > span {
+    margin: 0;
+    padding: 0;
+    width: 18px;
+    max-height: 23px;
+    height: 100%;
+    font-weight: bolder;
+    color: black;
+    display: inline-block;
+    text-align: center;
+    border-left: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+    border-right: 1px solid #555;
+    border-bottom: 1px solid #555;
+}
+.multiCheckCombo.enabled > span {
+    cursor: pointer;
+}
+
+.multiCheckCombo.enabled:hover > span {
+        background: -webkit-linear-gradient(180deg, rgb(246, 251, 254),rgb(232,246,253),rgb(169, 219, 246)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(180deg, rgb(246, 251, 254),rgb(232,246,253),rgb(169, 219, 246));; /* For Opera 11.1 to 12.0 */
+        background:-moz-linear-gradient(180deg, rgb(246, 251, 254),rgb(232,246,253),rgb(169, 219, 246));
+        background: linear-gradient(180deg, rgb(246, 251, 254),rgb(232,246,253),rgb(169, 219, 246));
+        border-left:1px solid #bab8b8;
+        border-right:1px solid #bab8b8;
+    }
+
+    .multiCheckCombo > div {
+        background-color: white;
+        margin: 0;
+        left: 0;        
+        /*border: 1px solid #808080;*/
+        border: 1px solid #ccc;
+        -ms-border-radius: 4px;
+        border-radius: 4px;
+        display: none;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+    }
+.multiCheckCombo>input {
+    border: none !important;
+}
+
+.multiCheckCombo ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 5px;
+            max-height: 280px;
+            overflow: auto;
+        }
+
+        .multiCheckCombo ul>li {
+            list-style: none;
+            padding: 5px;
+        }
+            .multiCheckCombo.enabled ul>li:hover {
+                background: linear-gradient(180deg, hsl(0, 10%, 85%),hsl(0, 5%, 95%), hsl(0, 5%, 90%), hsl(0, 5%, 85%)); /* Standard syntax */
+            }
+            .multiCheckCombo ul>li input {
+                width: auto !important;
+            }
+            .multiCheckCombo ul>li input[type='checkbox'] {
+                margin-right: 5px;
+            }

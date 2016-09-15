@@ -1,0 +1,116 @@
+﻿@using ACTransit.Training.Web.Infrastructure
+@{
+    const string token = "CourseEnrollment";
+    const string enrollmentToken = "Enrollment";
+}
+
+<div class="conditions" style="position:relative">
+    <div class="column form-group">
+        <div class="column" style="padding-right: 10px"><label>Course Type</label></div>
+        <div class="inline bootstraptheme" id="multiCheckComboCourseType" style="width:280px;" data-bind="multiCheckCombo:courseTypes, multiComboValue:courseTypeIds,optionsText:'Text',optionsValue:'Value', optionsSelected:'Selected',showAll:false,multiCheckComboInitilized:cboCourseTypeInit, onClosed:onCourseTypeClosed">
+            <input type="text" readonly />
+            <div><div><ul><li></li></ul></div></div>
+        </div>
+    </div>
+    <div class="column form-group">
+        <div class="column" style="padding-right: 10px"><label>Course</label></div>
+        <div class="inline bootstraptheme" id="multiCheckComboCourse" style="width:280px;" data-bind="multiCheckCombo:courses, multiComboValue:courseIds,optionsText:'name',optionsValue:'courseId', optionsSelected:'visible',multiCheckComboInitilized:cboCourseInit, onClosed:onCourseClosed">
+            <input type="text" readonly />
+            <div><div><ul><li></li></ul></div></div>
+        </div>
+    </div>
+    <div class="column form-group">
+        <label style="padding-right: 10px">Employee</label>
+        <div class="column" style="width:180px;">
+            <div class="inline">
+                <input type="text" class="form-control column" data-bind="autocomplete:providEmployeeSource,autocompleteOptions:{label:employee, minLength:2}, value:badge, valueUpdate:'blur', attr:{title:employee} " placeholder="Employee Badge" />
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <label style="padding-right: 10px">From</label>
+        <div class="inline">
+            <div class="inline">
+                <input type="text" class="form-control date column" maxlength="10" data-bind="value:dateFrom, dateTimeExtender:null,dateTimeOptions:{ closeOnDateSelect:true, timepicker: false, format: 'm/d/Y', resetImageClass: 'glyphicon glyphicon-erase'}" />
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <label style="padding-right: 10px">To</label>
+        <div class="inline">
+            <input type="text" class="form-control date column" maxlength="10" data-bind="value:dateTo, dateTimeExtender:null,dateTimeOptions:{closeOnDateSelect:true, timepicker: false, format: 'm/d/Y', resetImageClass: 'glyphicon glyphicon-erase' }" />
+        </div>
+    </div>
+    <div class="column" style="width:100px;height: 25px;"></div>
+</div>
+
+<div data-bind="foreach:courses">
+    <div data-bind="if:$data.visible()">
+        <div data-bind="click:function(data,event){$root.loadCourseSchedules(data)}, attr:{'class': getCollapsed()}" data-toggle="collapse1">
+            <div data-role-type="icon" class="column" style="padding-right: 5px;"></div>
+            <div data-bind="text:name" class="column"></div>
+        </div>
+        <ul data-bind="attr:{'class':getCollapse()}">
+            <li data-bind="foreach:courseSchedules">
+                <div data-bind="click:function(data,event){$root.loadEnrolees(data)},attr:{'class': getCollapsed()}" data-toggle="collapse1">
+                    <div data-role-type="icon" class="column" style="padding-right: 5px;"></div>
+                    <div data-bind="html:getName" class="column"></div>
+                </div>
+                <ul data-bind="attr:{'class': getCollapse()}">
+                    <li>
+                        <table class="table list highlight mousesensitive">
+                            <thead>
+                                <tr>
+                                    <th>Badge</th>
+                                    <th>Trainee</th>
+                                    <th>Department</th>
+                                    @*<th>Division</th>*@
+                                    <th>Note</th>
+                                    <th style="width: 190px;">
+                                        @if (AuthorizeHelper.HasAccess(token))
+                                        {
+                                            <button class="btn btn-default pull-right" data-bind="visible:isCurrent,click:function(data,event){$root.addNew($parent,data)}, text:getAddNewName"></button>
+                                        }
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach:courseEnrollments">
+                                <tr>
+                                    <td data-bind="text:badge">
+                                        @*<a data-bind="text:badge, click:function(data,event){$root.edit($parent,data)}" href="#"></a>*@
+                                    </td>
+                                    @if (AuthorizeHelper.HasAccess(token))
+                                    {
+                                    <td>
+                                        <a data-bind="text:name, click:function(data,event){$root.edit($parent,data)}" href="#"></a>
+                                    </td>
+                                    }
+                                    else
+                                    {
+                                        <td data-bind="text:name"></td>                                                    
+                                    }
+                                    <td data-bind="text:dept"></td>
+                                    @*<td data-bind="text:division"></td>*@
+                                    <td data-bind="text:note"></td>
+                                    <td>
+                                        @if (AuthorizeHelper.HasAccess(token))
+                                        {
+                                            <button class="btn btn-danger pull-right" data-bind="click:function(data,event){$root.deleteEnrollment($parent,data)},visible:$parent.isCurrent">Delete</button>
+                                        }
+                                        @if (AuthorizeHelper.HasAccess(enrollmentToken))
+                                        {
+                                            <!--ko ifnot:noShow -->
+                                            <button class="btn btn-default pull-right" data-bind="click:$root.enroll.bind($data,$parents), visible:$root.isAttendanceVisible($data,$parent)" style="margin-right: 5px;">Attendance</button>
+                                            <!--/ko-->
+                                        }
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+

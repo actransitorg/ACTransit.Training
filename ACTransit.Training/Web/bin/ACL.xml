@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ACL>
+  <tokens>
+    <token name="Admin">
+      <groups>
+        <group allow="1">APP Training Admin</group>
+      </groups>
+      <users>
+		<!--user allow="1">[UserName]</user-->
+      </users>
+    </token>
+    <token name="CourseEnrollment">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+        <group allow="1">APP Training Contributor</group>
+      </groups>
+      <users>
+        <!--user allow="1">[UserName]</user-->
+      </users>
+    </token>
+    <token name="Enrollment">
+      <groups>
+        <group allow="1">APP Training Admin</group>
+        <group allow="1" silence="1">devteam</group>
+      </groups>
+      <users>
+      </users>
+    </token>
+    <token name="ApprenticeFeature">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+      </groups>
+      <jobTitles>
+        <jobTitle allow="1">Apprentice Mentor</jobTitle>
+        <jobTitle allow="1">Maintenance Supervisor</jobTitle>
+        <jobTitle allow="1">Senior Maintenance Supervisor</jobTitle>
+        <jobTitle allow="1">Maintenance Superintendent</jobTitle>
+        <jobTitle allow="1">Assistant Dir of Maintenance</jobTitle>
+        <jobTitle allow="1">Director of Maintenance</jobTitle>
+        <jobTitle allow="1">Training &amp; Education Asst Mgr</jobTitle>
+        <jobTitle allow="1">Training And Education Mgr</jobTitle>
+      </jobTitles>
+    </token>
+    <token name="SignAsApprentice">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+      </groups>
+      <jobTitles>
+        <jobTitle allow="1">Apprentice Mentor</jobTitle>
+        <jobTitle allow="1">Maintenance Supervisor</jobTitle>
+        <jobTitle allow="1">Senior Maintenance Supervisor</jobTitle>
+        <jobTitle allow="1">Maintenance Superintendent</jobTitle>
+        <jobTitle allow="1">Assistant Dir of Maintenance</jobTitle>
+        <jobTitle allow="1">Director of Maintenance</jobTitle>
+      </jobTitles>
+    </token>
+    <token name="SignAsSupervisor">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+      </groups>
+      <jobTitles>
+        <jobTitle allow="1">Maintenance Supervisor</jobTitle>
+        <jobTitle allow="1">Senior Maintenance Supervisor</jobTitle>
+        <jobTitle allow="1">Maintenance Superintendent</jobTitle>
+      </jobTitles>
+    </token>
+    <token name="SignAsSuperintendent">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+      </groups>
+      <jobTitles>
+        <jobTitle allow="1">Maintenance Superintendent</jobTitle>
+        <jobTitle allow="1">Assistant Dir of Maintenance</jobTitle>
+        <jobTitle allow="1">Director of Maintenance</jobTitle>
+      </jobTitles>
+    </token>
+    <token name="AllowChangeApprenticeLevel">
+      <groups>
+        <group allow="1" silence="1">devteam</group>
+      </groups>
+      <jobTitles>
+        <jobTitle allow="1">Maintenance Superintendent</jobTitle>
+        <jobTitle allow="1">Assistant Dir of Maintenance</jobTitle>
+        <jobTitle allow="1">Director of Maintenance</jobTitle>
+      </jobTitles>
+    </token>
+  </tokens>
+  <dynamic>
+  </dynamic>
+</ACL>

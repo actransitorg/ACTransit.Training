@@ -1,0 +1,5 @@
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework\bin\Debug\ACTransit.Framework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework\bin\Debug\ACTransit.Framework.pdb
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework\obj\Debug\ACTransit.Framework.csprojResolveAssemblyReference.cache
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework\obj\Debug\ACTransit.Framework.dll
+P:\ACTransit.Projects\GitHub_Trunk\ACTransit.Framework\ACTransit.Framework\obj\Debug\ACTransit.Framework.pdb

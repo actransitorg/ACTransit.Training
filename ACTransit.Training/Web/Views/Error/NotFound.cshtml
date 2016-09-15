@@ -1,0 +1,15 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "NotFound";
+}
+
+<div class="col-md-12">
+    <h1 class="text-danger"> Sorry, it's not here.</h1>
+    <h4 class="text-danger"> We don't have a page at this address "@ViewBag.Message". Can we help you find something?</h4>
+    <ul>
+        <li>Check the web address again.</li>
+        <li>Go to <a href='@Href("~")'>home</a>.</li>
+    </ul>
+    <br />
+</div>

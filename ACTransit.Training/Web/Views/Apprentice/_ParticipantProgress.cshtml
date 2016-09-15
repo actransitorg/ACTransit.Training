@@ -1,0 +1,27 @@
+﻿@using ACTransit.Training.Web.Domain.Apprentice.Models
+@model ParticipantProgressViewModel
+
+@foreach (var item in @Model.Items)
+{
+    <div class="accordion-toggle collapsed" data-id="@item.ProgressId">
+        <div class="row @Model.IsClickableButton(item) row-height">
+            <div class="col-md-4">
+                <span data-role-type="icon" style="padding-right: 5px;"></span>
+                @Model.ProgressTitle(item)
+            </div>
+            <div class="col-md-1">
+                <button class="btn @Model.HighlightEvaluationButton(item) row-valign" data-view="evaluate-progress" data-id="@item.ProgressId" @Model.DisableEvaluationButton(item)>@Model.EvaluationText(item)</button>
+            </div>
+            <div class="col-md-6">&nbsp;</div>
+        </div>
+        <div class="content-container collapse" data-action="ParticipantProgressDays"></div>
+    </div>
+}
+
+<script>
+    $('button[data-view="evaluate-progress"]').unbind();
+    $('button[data-view="evaluate-progress"]:not(.btn-disabled)').click(function (e) {
+        e.stopPropagation();
+        location.href = '@Url.Action("EvaluateProgress", "Apprentice")/' + $(this).data("id");
+    });
+</script>

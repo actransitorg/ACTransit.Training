@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Emp_Id" />
+    </Key>
+    <Property Name="Emp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" />
+    <Property Name="AddDateTime" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="30" />
+    <Property Name="Suffix" Type="varchar" MaxLength="10" />
+    <Property Name="Pref_Name" Type="varchar" MaxLength="30" />
+    <Property Name="NTLogin" Type="varchar" MaxLength="50" />
+    <Property Name="Hire_Dt" Type="datetime" />
+    <Property Name="HireTime" Type="time" Precision="7" />
+    <Property Name="Rehire_Dt" Type="datetime" />
+    <Property Name="BusDriverQualDate" Type="datetime" />
+    <Property Name="BusDriverQualTime" Type="time" Precision="7" />
+    <Property Name="LastWorkDate" Type="datetime" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="Address01" Type="varchar" MaxLength="35" />
+    <Property Name="Address02" Type="varchar" MaxLength="35" />
+    <Property Name="City" Type="varchar" MaxLength="30" />
+    <Property Name="State" Type="varchar" MaxLength="6" />
+    <Property Name="ZIP" Type="varchar" MaxLength="10" />
+    <Property Name="PreferredPhone" Type="varchar" MaxLength="24" />
+    <Property Name="WorkPhone" Type="varchar" MaxLength="24" />
+    <Property Name="CellPhone" Type="varchar" MaxLength="26" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" />
+    <Property Name="Empl_Status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="DeptId" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DeptName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="10" />
+    <Property Name="Company" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="JobCode" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="PayGroup" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="BusinessTitle" Type="varchar" MaxLength="30" />
+    <Property Name="Empl_Type" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="RegTempFlag" Type="varchar" MaxLength="1" />
+    <Property Name="FT_PT_Flag" Type="varchar" MaxLength="1" />
+    <Property Name="Per_Org" Type="varchar" MaxLength="5" />
+    <Property Name="SupervisorId" Type="varchar" MaxLength="11" />
+    <Property Name="SupervisorName" Type="varchar" MaxLength="55" />
+    <Property Name="Action" Type="varchar" MaxLength="3" />
+    <Property Name="ActionDate" Type="datetime" />
+    <Property Name="ActionReason" Type="varchar" MaxLength="3" />
+    <Property Name="TermDate" Type="datetime" />
+    <Property Name="UnionCode" Type="varchar" MaxLength="3" />
+    <Property Name="EEO4Code" Type="varchar" MaxLength="1" />
+    <Property Name="EEOJobGroup" Type="varchar" MaxLength="2" />
+    <Property Name="CompFrequency" Type="varchar" MaxLength="1" />
+    <Property Name="CompRate" Type="money" />
+    <Property Name="AnnualRate" Type="money" />
+    <Property Name="MonthlyRate" Type="money" />
+    <Property Name="HourlyRate" Type="money" />
+    <Property Name="Grade" Type="varchar" MaxLength="3" />
+    <Property Name="Step" Type="varchar" MaxLength="2" />
+    <Property Name="PositionNumber" Type="varchar" MaxLength="8" />
+    <Property Name="PositionEntryDate" Type="datetime" />
+    <Property Name="Sex" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="EthnicGroup" Type="varchar" MaxLength="5" />
+    <Property Name="Veteran" Type="varchar" MaxLength="1" />
+    <Property Name="Citizen" Type="varchar" MaxLength="1" />
+    <Property Name="Disabled" Type="varchar" MaxLength="2" />
+    <Property Name="Marital" Type="varchar" MaxLength="1" />
+    <Property Name="AsOfDate" Type="datetime" />
+    <Property Name="EffectiveDate" Type="datetime" />
+    <Property Name="VacHoursEntitlement" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="VacHoursCarryover" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="DriverLicenseNumber" Type="varchar" MaxLength="20" />
+    <Property Name="DriverLicenseExpirationDate" Type="date" />
+    <Property Name="MedicalExpirationDate" Type="date" />
+    <Property Name="StepStartDate" Type="date" />
+    <Property Name="WorkShift" Type="varchar" MaxLength="30" />
+    <Property Name="ScheduledDaysOff" Type="varchar" MaxLength="27" />
+  </EntityType>
+  <EntityType Name="EmployeesLocation">
+    <Key>
+      <PropertyRef Name="EmployeesLocationId" />
+    </Key>
+    <Property Name="EmployeesLocationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Badge" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+    <Property Name="BeginEffDate" Type="date" Nullable="false" />
+    <Property Name="EndEffDate" Type="date" Nullable="false" />
+    <Property Name="Empl_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="30" />
+    <Property Name="LastName" Type="varchar" MaxLength="70" />
+    <Property Name="Location" Type="varchar" MaxLength="10" />
+    <Property Name="Per_Org" Type="varchar" MaxLength="5" />
+    <Property Name="AddUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddDateTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdUserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdDateTime" Type="datetime2" Precision="7" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EmployeeDW.dbo.EmployeeAll' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EmployeeAll">
+    <Key>
+      <PropertyRef Name="Badge" />
+      <PropertyRef Name="Empl_Status" />
+      <PropertyRef Name="BeginEffDate" />
+      <PropertyRef Name="EndEffDate" />
+      <PropertyRef Name="EmployeesLocationId" />
+      <PropertyRef Name="InEmpTable" />
+    </Key>
+    <Property Name="Badge" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="152" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="70" />
+    <Property Name="Location" Type="varchar" MaxLength="10" />
+    <Property Name="Division" Type="varchar" MaxLength="3" />
+    <Property Name="Per_Org" Type="varchar" MaxLength="5" />
+    <Property Name="Suffix" Type="varchar" MaxLength="10" />
+    <Property Name="NTLogin" Type="varchar" MaxLength="50" />
+    <Property Name="Empl_Status" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DeptName" Type="varchar" MaxLength="30" />
+    <Property Name="BeginEffDate" Type="date" Nullable="false" />
+    <Property Name="EndEffDate" Type="date" Nullable="false" />
+    <Property Name="EmployeesLocationId" Type="bigint" Nullable="false" />
+    <Property Name="InEmpTable" Type="int" Nullable="false" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="30" />
+    <Property Name="StepStartDate" Type="date" />
+    <Property Name="WorkShift" Type="varchar" MaxLength="30" />
+    <Property Name="ScheduledDaysOff" Type="varchar" MaxLength="27" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'EmployeeDW.dbo.VContacts_list' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VContacts_list">
+    <Key>
+      <PropertyRef Name="Badge" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Department" />
+      <PropertyRef Name="BusinessPhone" />
+      <PropertyRef Name="DeptId" />
+      <PropertyRef Name="JobTitle" />
+    </Key>
+    <Property Name="Badge" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="BusinessPhone" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="CellPhone" Type="char" MaxLength="12" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="DeptId" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="10" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="SupervisorName" Type="varchar" MaxLength="55" />
+  </EntityType>
+  <EntityContainer Name="EmployeeContextStoreContainer">
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeesLocation" EntityType="Self.EmployeesLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeAll" EntityType="Self.EmployeeAll" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EmployeeAll].[Badge] AS [Badge], 
+    [EmployeeAll].[EmployeeName] AS [EmployeeName], 
+    [EmployeeAll].[FirstName] AS [FirstName], 
+    [EmployeeAll].[LastName] AS [LastName], 
+    [EmployeeAll].[Location] AS [Location], 
+    [EmployeeAll].[Division] AS [Division], 
+    [EmployeeAll].[Per_Org] AS [Per_Org], 
+    [EmployeeAll].[Suffix] AS [Suffix], 
+    [EmployeeAll].[NTLogin] AS [NTLogin], 
+    [EmployeeAll].[Empl_Status] AS [Empl_Status], 
+    [EmployeeAll].[DeptName] AS [DeptName], 
+    [EmployeeAll].[BeginEffDate] AS [BeginEffDate], 
+    [EmployeeAll].[EndEffDate] AS [EndEffDate], 
+    [EmployeeAll].[EmployeesLocationId] AS [EmployeesLocationId], 
+    [EmployeeAll].[InEmpTable] AS [InEmpTable], 
+    [EmployeeAll].[JobTitle] AS [JobTitle], 
+    [EmployeeAll].[StepStartDate] AS [StepStartDate], 
+    [EmployeeAll].[WorkShift] AS [WorkShift], 
+    [EmployeeAll].[ScheduledDaysOff] AS [ScheduledDaysOff]
+    FROM [dbo].[EmployeeAll] AS [EmployeeAll]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VContacts_list" EntityType="Self.VContacts_list" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VContacts_list].[Badge] AS [Badge], 
+    [VContacts_list].[LastName] AS [LastName], 
+    [VContacts_list].[FirstName] AS [FirstName], 
+    [VContacts_list].[FullName] AS [FullName], 
+    [VContacts_list].[Department] AS [Department], 
+    [VContacts_list].[BusinessPhone] AS [BusinessPhone], 
+    [VContacts_list].[CellPhone] AS [CellPhone], 
+    [VContacts_list].[Email] AS [Email], 
+    [VContacts_list].[DeptId] AS [DeptId], 
+    [VContacts_list].[Location] AS [Location], 
+    [VContacts_list].[JobTitle] AS [JobTitle], 
+    [VContacts_list].[SupervisorName] AS [SupervisorName]
+    FROM [dbo].[VContacts_list] AS [VContacts_list]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

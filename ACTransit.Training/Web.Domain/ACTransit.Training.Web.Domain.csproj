@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{47A40AF7-DD52-465A-87E2-1CC63A5E8FDD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ACTransit.Training.Web.Domain</RootNamespace>
+    <AssemblyName>ACTransit.Training.Web.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Nuget|AnyCPU'">
+    <OutputPath>bin\Nuget\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>$(SolutionDir)packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>$(SolutionDir)packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>$(SolutionDir)packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>$(SolutionDir)packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(SolutionDir)packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>$(SolutionDir)packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Apprentice\Models\ParticipantProgressDaysViewModel.cs" />
+    <Compile Include="Apprentice\Models\ProgramViewModel.cs" />
+    <Compile Include="Apprentice\Models\ProgressDayViewModel.cs" />
+    <Compile Include="Apprentice\Models\ProgressViewModel.cs" />
+    <Compile Include="Apprentice\Models\ParticipantProgressViewModel.cs" />
+    <Compile Include="Apprentice\Models\ParticipantViewModel.cs" />
+    <Compile Include="Apprentice\Models\ProgramLevelGroupViewModel.cs" />
+    <Compile Include="Apprentice\Models\ProgramsViewModel.cs" />
+    <Compile Include="Apprentice\Services\ApprenticeServiceDomain.cs" />
+    <Compile Include="Extensions\DbEntryExtensions.cs" />
+    <Compile Include="Extensions\MathUtil.cs" />
+    <Compile Include="Extensions\OtherExtensions.cs" />
+    <Compile Include="Infrastructure\Common.cs" />
+    <Compile Include="Infrastructure\IgnoreSerializerContractResolver.cs" />
+    <Compile Include="Interfaces\ICourseTypeRequired.cs" />
+    <Compile Include="Interfaces\IPagingRequired.cs" />
+    <Compile Include="Models\CdlPageViewModel.cs" />
+    <Compile Include="Models\Converter.cs" />
+    <Compile Include="Models\CourseEnrollmentViewModel.cs" />
+    <Compile Include="Models\CourseScheduleInstructorViewModel.cs" />
+    <Compile Include="Models\CourseSchedulePageViewModel.cs" />
+    <Compile Include="Models\CourseTypeViewModel.cs" />
+    <Compile Include="Models\DivisionViewModel.cs" />
+    <Compile Include="Models\EnrollmentInstructorViewModel.cs" />
+    <Compile Include="Models\EnrollmentPageViewModel.cs" />
+    <Compile Include="Models\EnrollmentsPageViewModel.cs" />
+    <Compile Include="Models\EnrollmentTopicViewModel.cs" />
+    <Compile Include="Models\EnrollmentVehicleViewModel.cs" />
+    <Compile Include="Models\EnrollmentViewModel.cs" />
+    <Compile Include="Models\GradeViewModel.cs" />
+    <Compile Include="Models\InstructorsPageViewModel.cs" />
+    <Compile Include="Models\NonEmployeesPageViewModel.cs" />
+    <Compile Include="Models\RouteViewModel.cs" />
+    <Compile Include="Models\TopicsPageViewModel.cs" />
+    <Compile Include="Models\TopicViewModel.cs" />
+    <Compile Include="Models\VehicleRegisterViewModel.cs" />
+    <Compile Include="Models\ViewModelBase.cs" />
+    <Compile Include="Services\AclService.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Infrastructure\AppStart.cs" />
+    <Compile Include="Infrastructure\CookieTempDataControllerFactory.cs" />
+    <Compile Include="Infrastructure\CookieTempDataProvider.cs" />
+    <Compile Include="Infrastructure\FriendlyException.cs" />
+    <Compile Include="Infrastructure\Settings.cs" />
+    <Compile Include="Models\CourseEnrollmentsPageViewModelAjax.cs" />
+    <Compile Include="Models\CourseEnrollmentPageViewModelAjax.cs" />
+    <Compile Include="Models\CourseSchedulesViewModel.cs" />
+    <Compile Include="Models\CourseScheduleViewModel.cs" />
+    <Compile Include="Models\EmployeeTrainee.cs" />
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\CoursesViewModel.cs" />
+    <Compile Include="Models\CourseViewModel.cs" />
+    <Compile Include="Services\CourseEnrollmentServiceDomain.cs" />
+    <Compile Include="Services\CourseScheduleServiceDomain.cs" />
+    <Compile Include="Services\CourseServiceDomain.cs" />
+    <Compile Include="Services\CourseTypeServiceDomain.cs" />
+    <Compile Include="Services\EmployeeServiceDomain.cs" />
+    <Compile Include="Services\EnrollmentServiceDomain.cs" />
+    <Compile Include="Services\InstructorServiceDomain.cs" />
+    <Compile Include="Services\MenuServiceDomain.cs" />
+    <Compile Include="Services\NonEmployeeServiceDomain.cs" />
+    <Compile Include="Services\SyncServiceDomain.cs" />
+    <Compile Include="Services\TopicServiceDomain.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ACTransit.Entities\Entities.ActiveDirectory\ACTransit.Entities.ActiveDirectory.csproj">
+      <Project>{e468f65c-de47-4ff6-9d9d-68a657cf44ff}</Project>
+      <Name>ACTransit.Entities.ActiveDirectory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ACTransit.Entities\Entities.Employee\ACTransit.Entities.Employee.csproj">
+      <Project>{c11e8ecd-9cfe-4923-b617-1437a5b340c2}</Project>
+      <Name>ACTransit.Entities.Employee</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ACTransit.Entities\Entities.Maintenance\ACTransit.Entities.Maintenance.csproj">
+      <Project>{f169febd-c437-497b-b3ec-759e1f3dd892}</Project>
+      <Name>ACTransit.Entities.Maintenance</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ACTransit.Entities\Entities.Training\ACTransit.Entities.Training.csproj">
+      <Project>{cb6c9b2a-87b6-4cb8-8f5f-58d142d1b947}</Project>
+      <Name>ACTransit.Entities.Training</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ACTransit.Framework\ACTransit.Framework.Logging\ACTransit.Framework.Logging.csproj">
+      <Project>{83ddebf7-120b-499d-89d0-2d730c5e79df}</Project>
+      <Name>ACTransit.Framework.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ACTransit.Framework\ACTransit.Framework\ACTransit.Framework.csproj">
+      <Project>{cbab0fa8-b673-4596-94cd-3ae0a910a873}</Project>
+      <Name>ACTransit.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web.Business\ACTransit.Training.Web.Business.csproj">
+      <Project>{1acf0bc6-d44e-49d0-b8ab-d96096d36575}</Project>
+      <Name>ACTransit.Training.Web.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LICENSE.md" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
+
+

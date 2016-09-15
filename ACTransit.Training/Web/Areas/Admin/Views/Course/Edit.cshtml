@@ -1,0 +1,118 @@
+﻿@model ACTransit.Training.Web.Domain.Models.CourseViewModel
+@{
+    ViewBag.Title = (ViewBag.Id == 0 ? "New" : "Update") + " Course";
+    const string controller = "Course";
+    const string topicController = "Topic";
+}
+@section head
+{
+    <style>
+        .multiCheckCombo ul {
+            max-height: 200px;
+        }
+        .column div.inline {
+            width: 280px;
+        }
+        label.inline {
+            padding-right: 10px;
+        }
+        div.column>label {
+            vertical-align: top;
+        }
+    </style>
+}
+<div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m">Course Type</label>
+                                <div class="inline">
+                                    <select id="CourseType" class="form-control inline" data-bind="options:courseTypes, optionsText:'name',optionsValue:'courseTypeId',value:course().courseTypeId, optionsCaption:'Select...',css:{'input-validation-error':$root.courseTypeRequired},disable:hasEnrollment"></select>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m">Name</label>
+                                <div class="inline">
+                                    <input type="text" id="Name" class="form-control inline" maxlength="50" data-bind="value:course().name,css:{'input-validation-error':$root.nameRequired}" />                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-bind="ifnot:course().courseTypeId()==2">
+                            <div class="column">
+                                <label class="inline col-m">Topic</label>
+                                <div class="inline">
+                                    <div class="inline bootstraptheme" id="multiCheckComboTopic" style="width:280px;" data-bind="multiCheckCombo:topics, multiComboValue:selectedTopics,optionsText:'name',optionsValue:'topicId', optionsSelected:'selected',disabled:hasEnrollment">
+                                        <input type="text" readonly />
+                                        <div><div><ul><li></li></ul></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-bind="if:course().courseTypeId()==2">
+                            <div class="column">
+                                <label class="inline col-m">Component Code</label>
+                                <div class="inline">
+                                    <div class="inline bootstraptheme" id="multiCheckComboTopic" style="width:280px;" data-bind="multiCheckCombo:componentTopics, multiComboValue:selectedComponentTopics,optionsText:'title',optionsValue:'topicId', optionsSelected:'selected'">
+                                        <input type="text" readonly />
+                                        <div><div><ul><li></li></ul></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m">Description</label>
+                                <div class="inline" style="width:400px;">
+                                    <textarea id="CourseName" class="form-control" rows="2" cols="25" placeholder="Enter text ..." style="max-width: 100% !important; height: 150px" data-bind="value:course().description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-bind="visible: course().courseTypeId()==1">
+                            <div class="column">
+                                <label class="inline col-m">Has Wheel time?</label>
+                                <div class="inline">
+                                    <input type="checkbox" id="IsActive" data-bind="checked:course().hasWheelTime,disable:hasEnrollment" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <label class="inline col-m">Is Active?</label>
+                                <div class="inline">
+                                    <input type="checkbox" id="IsActive" data-bind="checked:course().isActive" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div style="height: 40px">
+        @Html.ActionLink("Cancel", "Index", controller, new { }, new { @class = "btn btn-default pull-right defaults" })
+        <button class="btn btn-default pull-right defaults" data-bind="click:save">Save</button>
+
+        <button id="btnDelete" class="btn btn-danger" type="button" data-bind="click:deleteClicked, visible:isEdit ">Delete</button>
+
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        function initialKO() {
+            var course = new CoursePage(@ViewBag.Id, '@Url.Action("Index")','@Url.Action("Index", controller)');
+            ko.applyBindings(course);
+        }
+
+        $(function () {
+            initialKO();
+        });
+</script>
+}
+
+

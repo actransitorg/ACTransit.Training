@@ -1,0 +1,207 @@
+﻿@using ACTransit.Training.Web.Domain.Apprentice.Models
+@model ProgramsViewModel
+
+@{
+    ViewBag.Title = "Apprentice Programs";
+}
+
+<style>
+   .clickable {
+       
+   }
+
+   .accordion-toggle {
+       border-top: 1px solid #ccc;
+       padding-top: 3px;
+   }
+
+   .row-height {
+       line-height: 34px;
+   }
+   
+   .row-valign {
+       vertical-align: top;
+   }
+
+   .indent-column {
+       margin-left: 25px;
+   }
+
+   .content-container {
+       padding-left: 15px;
+   }
+
+   .btn {
+       height: 30px;
+       padding-top: 4px;
+   }
+
+   .dialog-content {
+       width: 600px !important;
+       margin: 30px auto !important;
+
+    }
+
+    .modal-dialog {
+        width: 1024px !important;
+    }
+
+    .field-margin {
+        
+    }
+
+    .field-label {
+        line-height: 34px;
+    }
+
+    .panel {
+        background: none repeat scroll 0 0 #F9F9FA;
+        border: 1px solid #D3D6DA;
+        -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.118) inset;
+        -ms-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.118) inset;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.118) inset;
+        padding: 8px 0 8px 8px;
+        -ms-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .work-task {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .red {
+        color: red;
+    }
+
+</style>
+
+<div id="dialog-placeholder"></div>
+
+<div class="row hidden-print">
+    <div class="col-md-12" style="padding: 0">
+        <div class="panel panel-default">
+            <div class="panel-body" style="padding: 3px 15px">
+                <div class="row">
+                    <div class="col-md-3" style="height: 34px">
+                        <div style="vertical-align: bottom; padding-top: 5px">
+                            @Html.CheckBoxFor(model => model.OnlyActive)
+                            @Html.LabelFor(model => model.OnlyActive, "Just show active apprentices")
+                        </div>
+                    </div>
+                    <div class="col-md-3" id="date-from">
+                        @Html.LabelFor(model => model.StartDate, "From")
+                        @Html.TextBoxFor(model => model.StartDate, "{0:MM-dd-yyyy}", new { @class = "date form-control", style = "display:inline;margin-left:10px" })
+                    </div>
+                    <div class="col-md-3" id="date-to">
+                        @Html.LabelFor(model => model.EndDate, "To")
+                        @Html.TextBoxFor(model => model.EndDate, "{0:MM-dd-yyyy}", new { @class = "date form-control", style = "display:inline;margin-left:10px" })
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" id="SubmitConditionals">Submit</button>
+                        <button class="btn btn-danger hidden" id="ClearConditionals">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach (var item in @Model.Items)
+{
+    <div class="collapsed" data-id="@item.ProgramId">
+        <div class="clickable" style="line-height:34px;display:none">
+            <div data-role-type="icon" class="column" style="padding-right: 5px;"></div>
+            <div class="column">@item.Name</div>
+        </div>
+        <div class="content-container collapse" data-action="Program"></div>
+    </div>
+}
+
+@section scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript" src='~/Scripts/Apprentice/ShowPartialViewAsModal.js'></script>
+    <script>
+        var endDate = $("#EndDate").val();
+        var startDate = $("#StartDate").val();
+        if (localStorage["StartDate"] != "null" && localStorage["StartDate"] != null) {
+            $("#StartDate").val(localStorage["StartDate"]);
+            $("#ClearConditionals").removeClass("hidden");
+        }
+        if (localStorage["EndDate"] != "null" && localStorage["EndDate"] != null) {
+            $("#EndDate").val(localStorage["EndDate"]);
+            $("#ClearConditionals").removeClass("hidden");
+        }
+
+        saveState = function () {
+            localStorage["StartDate"] = $("#StartDate").val();
+            localStorage["EndDate"] = $("#EndDate").val();
+        };
+
+        rebind = function () {
+            $(".clickable").unbind().click(function () {
+                var isCollapsed = $(this).parent().hasClass("collapsed");
+                if (isCollapsed) {
+                    $(this).parent().removeClass("collapsed");
+                    $(this).next().removeClass("collapse");
+                    loadSubView($(this));
+                } else {
+                    $(this).parent().addClass("collapsed");
+                    $(this).next().addClass("collapse");
+                }
+            });
+        }
+        rebind();
+
+        loadSubView = function (that) {
+            var url = '@Url.Content("~")apprentice/' + that.next().data("action") + '/' + that.parent().data("id") + '?' + parameters();
+            $.ajax({
+                url: url,
+                cache: false,
+                contentType: "text/html; charset=utf-8",
+                dataType: "html"
+            }).fail(function (jqXhr, textStatus, errorThrown) {
+            }).done(function (data) {
+                if (data == null) return;
+                that.next().html(data);
+                rebind();
+            });
+        }
+
+        $(function() {
+            $(".clickable").click();
+        });
+
+        $(".date").datetimepicker({
+            closeOnDateSelect: true,
+            timepicker: false,
+            format: 'm-d-Y'
+        });
+
+        parameters = function() {
+            return 'OnlyActive=' + $("#OnlyActive").prop("checked")
+                + ($("#StartDate").val() != "" ? "&StartDate=" + $("#StartDate").val() : "")
+                + ($("#EndDate").val() != "" ? "&EndDate=" + $("#EndDate").val() : "");
+        }
+
+        reload = function () {
+            $("body").addClass("modal-open");
+            waitBox.show();
+            location.href = '@Url.Action("Index", "Apprentice")?' + parameters();
+        }
+
+        $("#OnlyActive, #SubmitConditionals").click(function () {
+            saveState();
+            reload();
+        });
+
+        $("#ClearConditionals").click(function(){
+            localStorage["StartDate"] = null;
+            localStorage["EndDate"] = null;
+            $("#StartDate").val("");
+            $("#EndDate").val("");
+            reload();
+        });
+
+    </script>
+}

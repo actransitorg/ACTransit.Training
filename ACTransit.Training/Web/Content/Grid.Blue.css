@@ -1,0 +1,42 @@
+﻿table.list.blue {
+}
+
+table.list.blue th,table.list.blue td {
+    }
+
+    table.list.blue th {
+        background-color: rgb(236, 244, 251);
+        color: #1E395B;
+        border: rgb(139,160,188) 1px solid;
+        padding: 2px 10px 2px 10px;
+    }
+
+    table.list.blue tr.filter td {
+        border-bottom-style: solid;
+        border-width: 0 0 1px 0;
+        border-color: rgb(139,160,188);
+    }
+
+        table.list.blue tr.filter td:first-child {
+            border-left-style: solid;
+            border-width: 0 0 1px 1px;
+            border-color: rgb(139,160,188);
+        }
+
+        table.list.blue tr.filter td:last-child {
+            border-right-style: solid;
+            border-width: 0 1px 1px 0;
+            border-color: rgb(139,160,188);
+        }
+
+    table.list.blue td {
+        border: rgb(207,221,238) 1px solid;
+    }
+
+    table.list.blue input {
+        border: rgb(139,160,188) 1px solid;
+    }
+
+      table.list.blue.mousesensitive tr:hover {
+        background-color: rgb(236, 244, 251);
+    }

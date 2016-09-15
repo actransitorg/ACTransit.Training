@@ -1,0 +1,127 @@
+﻿@using ACTransit.Training.Web.Domain.Apprentice.Models
+@model ProgressDayViewModel
+
+@{
+    ViewBag.Title = "Apprentice Daily Evaluation";
+}
+
+<style>
+
+     h2, h3 {
+         margin-top: 5px;
+         margin-bottom: 5px;
+     }
+
+    textarea {
+        max-width: 100%;
+        border: none;
+        height: 42px;
+        width: 100%;
+    }
+    .vcenter {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+    }
+    .row[data-content="CalendarDate"] {
+         padding-bottom: 5px;
+     }
+     .work-task {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .modal-dialog {
+        width: 1024px !important;
+    }
+
+    hr {
+        border-top: 1px solid #666 !important;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+</style>
+
+<div id="dialog-placeholder">
+    <div class="modal" id="dialog-container" tabindex="-1" role="dialog" aria-labelledby="dialog-title" aria-hidden="true">
+        <div id="dialog-content" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="dialog-title"></h3>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>AC TRANSIT</h2>
+    </div>
+    <div class="col-md-5">
+        <h2>Apprentice Weekly Work Sheet</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Apprentice Name: @Model.ParticipantName</h3>
+    </div>
+    <div class="col-md-2">
+        <h3>Badge: @Model.Participant.Badge</h3>
+    </div>
+    <div class="col-md-6">
+        <div style="float:right;padding-right: 10px;">
+            @if (Model.CanSubmit)
+            {
+                <button type="submit" class="btn btn-info">Submit</button>
+            }
+        </div>
+        <h3>Week of: @Model.Progress.StartDate.ToString("MMM d, yyyy")</h3>
+    </div>
+</div>
+<hr />
+@using (Html.BeginForm("EvaluateProgressDayForm", "Apprentice", FormMethod.Post))
+{
+    Html.RenderPartial("_EvaluateProgressDay");
+}
+
+@section scripts
+{   
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript" src='~/Scripts/Apprentice/ShowPartialViewAsModal.js'></script>
+    <script>
+        var viewModel = @Html.Raw(Model.Serialize);
+        viewModel.submit = function(e){
+            viewModel.Update();
+            $("body").addClass("modal-open");
+            waitBox.show();
+            viewModel.Post($("form"));
+        };
+        $("form").submit(function(e) {
+            e.preventDefault();
+            viewModel.submit(e);
+        });
+        $("button[type='submit']").click(function(e) {
+            e.preventDefault();
+            viewModel.submit(e);
+        });
+        $(".date").datetimepicker({ closeOnDateSelect: true, timepicker: false, format: 'm/d/Y' });
+        $('div[data-content="DayOff"] input').click(function() {
+            var isChecked = $(this).prop("checked");
+            var progressDayId = $(this).parent().data('id');
+            var workDetails = $('span[data-content="work-details"][data-id="' + progressDayId + '"]').html();
+            var newWorkDetails = workDetails == "" ? "Day Off" : (workDetails == "Day Off" ? "" : workDetails);
+            $('div[data-content="DailyPerformance"][data-id="' + progressDayId + '"] div input').attr('disabled', isChecked);
+            $('div[data-content="Comment"][data-id="' + progressDayId + '"] textarea').attr('disabled', isChecked);
+            $('span[data-content="work-details"][data-id="' + progressDayId + '"]').html(newWorkDetails);
+        });
+    </script>
+    <script type="text/javascript" src='~/Scripts/Apprentice/EvaluateProgress.js'></script>
+}

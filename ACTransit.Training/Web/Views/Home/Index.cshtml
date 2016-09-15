@@ -1,0 +1,58 @@
+﻿@using ACTransit.Training.Web.Infrastructure
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="col-md-12 col-lg-12">
+    <div class="text-block" style="min-height: 260px">
+        <h2 class="title">Welcome to the Training and Education&nbsp;Department!</h2>
+        <p style="text-align: justify">The Training and Education Department (TED) is a business focused on providing operational training&nbsp;for transportation and maintenance&nbsp;employees primarily in the positions of Bus Operators and Heavy Duty Coach Mechanics (Apprentice and Journey).&nbsp; All training programs are customer service based and developed to support AC Transit's mission statement of "Connecting our communities with&nbsp;safe,&nbsp;reliable,&nbsp;sustainable&nbsp;service... we'll get you there."</p>
+        <p style="text-align: justify">We believe that implementing training programs that address the safety, reliability and sustainability of our service&nbsp;can advance AC Transit to become the Bay Area's premier transportation provider.</p>
+        <div>
+            <hr />
+            <h4 class="title">These staff members are able to enroll employees in classes:&nbsp;</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            @{
+                                var counter = 0;
+                            }
+                            @foreach (var str in @AuthorizeHelper.GetUsersHasAccessTo("CourseEnrollment"))
+                            {
+
+                                if (counter % 4 == 0)
+                                {
+                                    @Html.Raw("<tr>")
+                                }
+                                counter++;
+
+                                <td>@str</td>
+
+                                if (counter % 4 == 0)
+                                {
+                                    @Html.Raw("</tr>")
+                                }
+                            }
+                            @while (counter % 4 != 0)
+                            {
+                                <td></td>
+
+                                if (counter % 4 == 0)
+                                {
+                                    @Html.Raw("</tr>")
+                                }
+                                counter++;
+                            }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+</div>

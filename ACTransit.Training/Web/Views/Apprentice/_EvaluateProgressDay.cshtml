@@ -1,0 +1,73 @@
+﻿@using ACTransit.Entities.Training
+@using ACTransit.Training.Web.Business.Infrastructure
+@using ACTransit.Training.Web.Domain.Apprentice.Models
+@using ACTransit.Training.Web.Infrastructure
+@model ProgressDayViewModel
+
+<div class="row" data-id="@Model.ProgressDay.ProgressDayId" data-content="CalendarDate">
+    <div class="col-md-7">
+        @if (Model.IsFirstProgressDay)
+        {
+            <div class="row">&nbsp;</div>
+        }
+        <div class="row wc-row">
+            <div class="col-md-10 work-details" style="height: 60px">
+                <strong style="vertical-align: top">@Model.ProgressDay.CalendarDate.ToString("M/d") (@Model.ProgressDay.CalendarDate.DayOfWeek.ToString())</strong>:
+                <span data-content="work-details" data-id="@Model.ProgressDay.ProgressDayId">@Html.Raw(Model.WorkDetails)</span>
+            </div>
+            <div class="col-md-2">
+                <div class="hidden-print" style="text-align: right" data-id="@Model.ProgressDay.ProgressDayId" data-content="DayOff">
+                    <span style="vertical-align: top">Day Off?</span>
+                    @Html.CheckBox("ProgressDay_DayOff_" + Model.ProgressDay.ProgressDayId, Model.ProgressDay.ApprenticeDayOff, new { }.EnabledIf(Model.CanChangeDayOff))
+                </div>
+            </div>
+        </div>
+        <div class="row" data-id="@Model.ProgressDay.ProgressDayId" data-content="WorkCategoryHours">
+            @for (var idx = 0; idx < Model.WorkCategory.Count; idx++)
+            {
+                <div class="col-md-1" data-toggle="tooltip" title="@Model.WorkCategory[idx].Description Hours" data-placement="bottom" data-content="WorkCategory">
+                    <span data-content="WorkCategoryTitle" for="@string.Format("WorkCategory[{0}].Hours", idx)">@Model.WorkCategory[idx].Name:</span><span class="@Model.ParticipantWorkItemEmphasis(idx)">@Model.ParticipantWorkItemHours(idx)</span>
+                </div>
+            }
+            <div class="col-md-1" data-toggle="tooltip" title="Total Hours" data-placement="bottom">
+                TOTAL:<span class="@Model.TotalHoursEmphasis">@Model.TotalHours</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 col-left-pad10" style="border-left: 1px solid black">
+        @if (Model.IsFirstProgressDay)
+        {
+            <div class="row">
+                <div class="col-md-2">
+                    Supervisor
+                </div>
+                @foreach (var perf in Model.DailyPerformanceProgramLevelGroups)
+                {
+                    <div class="col-md-3 field-label text-center dp-item">
+                        @perf.DailyPerformance.Name.Replace(" ", " ")
+                    </div>
+                }
+            </div>
+        }
+        <div class="row" data-id="@Model.ProgressDay.ProgressDayId" data-content="DailyPerformance" style="padding-top: 5px">
+            <div class="col-md-3">
+                <span>@Model.CommentSignature</span>
+            </div>
+            @foreach (var perf in Model.DailyPerformanceProgramLevelGroups)
+            {
+                <div class="col-md-3">
+                    @Html.RadioButton("ProgressDay_DailyPerformance_" + Model.ProgressDay.ProgressDayId, perf.DailyPerformance.DailyPerformanceId, Model.IsDailyPerformanceChecked(perf.DailyPerformance), new { }.EnabledIf(Model.CanChangeDailyPerformance))
+                </div>
+            }
+        </div>
+        <div class="row" id="comments-supervisor" style="height:@Model.CommentHeight">
+            <div class="col-md-11 row-padding-bottom" data-id="@Model.ProgressDay.ProgressDayId" data-content="Comment">
+                <span class="hidden-print">Comments</span> @Html.TextAreaFor(model => model.ProgressDay.Comment, new { placeholder = "", @class = "form-control" }.EnabledIf(Model.CanChangeDailyPerformance))
+            </div>
+        </div>
+    </div>
+</div>
+@if (!Model.IsLastProgressDay)
+{
+    <hr/>
+}

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "New Course Type";
+}
+
+<h2 class="title title-top">Course Type</h2>
+<br/>
+<div class="content">
+    <div>
+        <span>Name:</span>
+        <input id="CourseTypeName" name="CourseTypeName" type="text" placeholder="Course type name" style="width:300px" />
+    </div>
+    <hr />
+    <button class="btn btn-default">Create</button>
+    @Html.ActionLink("Cancel", "Index", "CourseType", new { @class = "btn btn-default" })       
+
+</div>

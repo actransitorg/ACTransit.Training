@@ -1,0 +1,177 @@
+﻿@using ACTransit.Training.Web.Domain.Models
+@model CourseSchedulesViewModel
+@{
+    ViewBag.Title = string.Format("Course {0}Schedules", ViewBag.CourseTypeName != null ? ViewBag.CourseTypeName + " " : ""); 
+    const string controller = "CourseSchedule";
+    const string timeFormat = @"h:mm tt";
+    const string dateFormat = "MM/dd/yyyy";
+}
+@section head
+{
+    <style>
+        table tbody tr {            
+            word-wrap: break-word;
+        }
+        label[for] {
+            margin-right: 10px;
+            padding-left: 2px;
+            
+        }
+        table {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -moz-min-width: 850px;
+            -ms-min-width: 850px;
+            -o-min-width: 850px;
+            -webkit-min-width: 850px;
+            min-width: 850px;
+        }
+    </style>
+}
+<div class="conditions">
+    @using (Html.BeginForm("", controller, FormMethod.Post,new {id="frmSearch"}))
+    {
+        <div class="form-inline">
+            <div class="column" style="padding-right: 10px"><label>Course Type</label></div>
+            <div class="column bootstraptheme" id="multiCheckComboCourseType" style="width:280px;" >
+                <input type="text" readonly />
+                <div>
+                    <div>
+                        <ul>
+                            @{
+                                int counter = 0;
+                                foreach (var courseType in Model.CourseTypes)
+                                {
+                                    <li>
+                                        <input type="hidden" name="CourseTypes[@counter].Text" value="@courseType.Text" />
+                                        <input type="hidden" name="CourseTypes[@counter].Value" value="@courseType.Value" />
+                                        <input type="checkbox" id="CourseTypes_@courseType.Value" name="CourseTypes[@counter].Selected" value='true' checked='@courseType.Selected' data-value="@courseType.Value" />
+                                        <span>@courseType.Text</span>
+                                    </li>
+                                    counter++;
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="column" style="padding-right: 10px"><label>Course</label></div>
+            <div class="column bootstraptheme" id="multiCheckComboCourse" style="width:280px;">
+                <input type="text" readonly />
+                <div>
+                    <div>
+                        <ul>
+                            @{
+                                counter = 0;
+                                foreach (var course in Model.Courses)
+                                {
+                                    <li>
+                                        <input type="hidden" name="Courses[@counter].Text" value="@course.Text" />
+                                        <input type="hidden" name="Courses[@counter].Value" value="@course.Value" />
+                                        <input type="checkbox" id="Courses_@course.Value" name="Courses[@counter].Selected" value='true' checked='@course.Selected' data-value="@course.Value" />
+                                        <span>@course.Text</span>
+                                    </li>
+                                    counter++;
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="JustShowActive" class="column" style="padding-left: 10px;">
+                @Html.CheckBoxFor(m => m.JustShowActive)
+                @Html.LabelFor(m => m.JustShowActive)
+            </div>
+            <div class="column pull-right" style="padding: 0 10px 0 0;">
+                @Html.ActionLink("Add New", "New", controller,new{}, new { @class = "btn btn-default" })
+            </div>
+        </div>       
+
+    }
+</div>
+<div>
+    <table class="table list black mousesensitive">
+        <thead>
+            <tr>
+                <th style="-moz-min-width: 160px; -ms-min-width: 160px; -o-min-width: 160px; -webkit-min-width: 160px; min-width: 160px;">Course Name</th>
+                <th style="width: 100px;">Note</th>
+                <th style="width: 100px;">Begin Date</th>
+                <th style="width: 100px;">End Date</th>
+                <th style="width: 150px;">Time</th>
+                <th style="width: 100px;">Total Seats</th>
+                <th style="width: 120px;">Available Seats</th>
+                <th style="-moz-min-width: 120px; -ms-min-width: 120px; -o-min-width: 120px; -webkit-min-width: 120px; min-width: 120px;">Frequency</th>
+                <th style="width: 100px;">Enrollments</th>
+                <th style="width: 70px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.CourseSchedules != null && Model.CourseSchedules.Any())
+            {
+                var now = DateTime.Now;
+                foreach (var item in Model.CourseSchedules)
+                {
+                    <tr id="@item.CourseScheduleId">
+                        <td>@item.Course.Name</td>
+                        <td>@item.Note</td>
+                        <td>@item.BeginEffDate.ToString(dateFormat)</td>
+                        <td>@item.EndEffDate.ToString(dateFormat)</td>
+                        <td>
+                            @(item.StartTime.HasValue ? now.Date.Add(item.StartTime.Value).ToString(timeFormat) : "")
+                            -
+                            @(item.EndTime.HasValue ? now.Date.Add(item.EndTime.Value).ToString(timeFormat) : "")
+                        </td>
+                        <td>@item.TotalSeat</td>
+                        <td>@(item.TotalSeat - item.CourseEnrollments.Count)</td>
+                        <td>@((item.Frequency != null && item.Frequency!=0) ? ((WeekDays)item.Frequency).ToString() : "")</td>                        
+                        <td>@Html.ActionLink("Enrollments", "Index", "CourseEnrollment", new { area = "", CourseScheduleId = @item.CourseScheduleId }, new { })</td>
+                        <td>@Html.ActionLink("Edit", "Edit", controller, new {id = @item.CourseScheduleId }, new { @class="btn btn-default" })</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="8" style="text-align: center">(no data)</td></tr>
+            }
+        </tbody>
+    </table>
+    @Html.Partial("_Pager")
+</div>
+
+
+@section scripts {
+    <script>
+        $(function() {
+            var buttonClicked;
+
+            var multiCombo = $("#multiCheckComboCourseType").multiCheckCombo({
+                onClosed: function (e) {
+                    if (e.changedSinceOpened) {
+                        multiComboCourse.deSelectAll();
+                        $("#frmSearch").submit();
+                    }
+                },
+                delimiter: ','
+            });
+            $('#multiCheckComboCourseType input[type=button]').click(function() { multiCombo.close(); });
+
+            var multiComboCourse = $("#multiCheckComboCourse").multiCheckCombo({
+                onClosed: function (e) {
+                    if (e.changedSinceOpened) $("#frmSearch").submit();
+                },
+                delimiter: ',',
+                allButton: { top: true, text: "All" }
+            });
+            $('#multiCheckComboCourse input[type=button]').click(function() { multiCombo.close(); });
+
+
+            $('#JustShowActive input[type="checkbox"]').change(function () {
+                $("#frmSearch").submit();
+            });
+            var pager = new Pager("frmSearch", function () { $("#frmSearch").submit(); });
+            pager.initial();
+        });
+    </script>
+}
