@@ -13,9 +13,22 @@ Features include:
 
  * Feature access control uses AD groups, NT usernames and/or job titles.  
 
- * ASP.NET MVC 5.2, Entity Framework 6.1.3, Bootstrap 3.3, PowerShell 5.0 and jQuery/jQuery UI and Knockout.
-
  * log4net and email logging for errors and website tracing.
+
+ * Uses ASP.NET MVC 5.2, Entity Framework 6.1.3, Bootstrap 3.3, jQuery/jQuery UI and Knockout.
+
+
+## Requirements: 
+
+ * Visual Studio 2015+
+
+ * Windows 7+ or Server 2008 R2+ 
+ 
+ * IIS 7.5+
+
+ * SQL Server 2014+ Express 
+ 
+ * [PowerShell 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395)
 
 
 ## Installation
@@ -33,7 +46,8 @@ Since the databases reference each other, we included a custom SQLExecute tool, 
 
 ## Reporting
 
-The included Training reports require at least SQL Server Reporting Services (SSRS) 2008, located within the [SSRS](https://github.com/actransitorg/Training/SSRS) folder. These include:+1:
+The included Training reports require at least SQL Server Reporting Services (SSRS) 2008, located within the [SSRS](https://github.com/actransitorg/Training/SSRS) folder. These include:
+
 
 ### Courses and Classes
 
@@ -49,6 +63,7 @@ The included Training reports require at least SQL Server Reporting Services (SS
 
  * Training by Topic
 
+
 ### Apprenticeship
 
  * Work History
@@ -62,8 +77,8 @@ The included Training reports require at least SQL Server Reporting Services (SS
 
 ## Contact Us
 
-We welcome and encourage your feedback regarding features, found issues, pull requests or any new business processes you have developed.  
-If you want to reach out to our team, please visit http://actransit.org or email devsupport@actransit.org.
+We welcome and encourage your feedback regarding features, found issues, pull requests or any new business processes you have developed.
+If you want to reach out to our team, please open an issue at https://github.com/actransitorg/ACTransit.Training/issues or visit http://actransit.org/open-source. 
 
 
 ## License
